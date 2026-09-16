@@ -9,12 +9,15 @@
        static page rather than the Apps Script app itself. Apps Script's cold-start response
        time can exceed the ~3 second window these crawlers give a page before giving up
        entirely - a static page like this one responds instantly, sidestepping that risk
-       completely. Same logo already confirmed correct. -->
+       completely. og:image switched to the GitHub-hosted logo - the Imgur-hosted version was
+       confirmed unreachable by a direct fetch test, while this GitHub URL is proven working
+       (it's the same file already successfully loading as the apple-touch-icon below).
+       Width/height deliberately omitted since the real pixel dimensions of this specific
+       file aren't confirmed - a wrong declared size can cause its own problems, so leaving
+       it out and letting the crawler measure the actual image is safer than guessing. -->
   <meta property="og:title" content="Troop 189 Scout Activity Tracker">
   <meta property="og:description" content="Track your progress toward Scouting awards and merit badges.">
-  <meta property="og:image" content="https://i.imgur.com/yCLvKsB.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:image" content="https://raw.githubusercontent.com/brucewaine1940-jpg/Troop189-assets/main/Troop189_logo_for_app.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://scoutactivitytracker.com/">
 
@@ -40,6 +43,6 @@
     REPLACE THE SRC BELOW with your actual Apps Script /exec URL before testing.
     This is the one placeholder in this whole file - everything else is ready to go.
   -->
-  <iframe src="https://script.google.com/macros/s/AKfycbz0MZ2xuh-OMIIEQDaZF3FDRRhqn1SUCq1WrbuzUI9q-I5ywMKPVjy53y7OxmItKcWVlg/exec" allow="autoplay"></iframe>
+  <iframe src="PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE" allow="autoplay"></iframe>
 </body>
 </html>
