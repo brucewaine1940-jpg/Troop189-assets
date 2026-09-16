@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Troop 189 Scout Activity Tracker</title>
 
+  <!-- Link-preview tags for texts, WhatsApp, iMessage, etc. - deliberately placed on THIS
+       static page rather than the Apps Script app itself. Apps Script's cold-start response
+       time can exceed the ~3 second window these crawlers give a page before giving up
+       entirely - a static page like this one responds instantly, sidestepping that risk
+       completely. Same logo already confirmed correct. -->
+  <meta property="og:title" content="Troop 189 Scout Activity Tracker">
+  <meta property="og:description" content="Track your progress toward Scouting awards and merit badges.">
+  <meta property="og:image" content="https://i.imgur.com/yCLvKsB.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scoutactivitytracker.com/">
+
   <!-- This is the real, working home-screen icon setup - since THIS page (not the Apps
        Script app itself) is what a Scout actually navigates to and adds to their home
        screen once this is live on a real domain, these tags are what iOS/Android will
