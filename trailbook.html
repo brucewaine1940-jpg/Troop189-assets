@@ -101,6 +101,10 @@ input[type=range]{width:100%;accent-color:var(--blaze)}
 .facts dt{font-weight:700;color:var(--forest);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
 .facts dd{margin:0;min-width:0}
 .scale{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+.hook{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.2;color:var(--blaze);margin:0}
+.route{font-size:13.5px;border-top:1px dashed var(--line);padding-top:8px}
+.urbanh{font-family:var(--display);font-size:24px;margin:22px 0 10px}
+.p-ter{background:var(--sky-soft);color:var(--sky);font-weight:600}
 .p-cost{font-family:var(--mono);background:var(--forest-soft);color:var(--ink)}
 .phone{font-size:13.5px}.phone .num{font-family:var(--mono);user-select:all}
 .packgroup h3{font-family:var(--display);font-size:24px;margin:20px 0 10px}
@@ -157,10 +161,15 @@ tr:last-child td{border-bottom:0}
     <button role="tab" id="t-explore" aria-controls="explore" aria-selected="true">Explore</button>
     <button role="tab" id="t-hike" aria-controls="hike" aria-selected="false">Hiking</button>
     <button role="tab" id="t-bp" aria-controls="bp" aria-selected="false">Backpacking</button>
+    <button role="tab" id="t-urban" aria-controls="urban" aria-selected="false">Urban Treks</button>
     <button role="tab" id="t-pack" aria-controls="pack" aria-selected="false">Pack</button>
     <button role="tab" id="t-plan" aria-controls="plan" aria-selected="false">6-Year Plan</button>
     <button role="tab" id="t-combos" aria-controls="combos" aria-selected="false">Weekend Combos</button>
+    <button role="tab" id="t-dates" aria-controls="dates" aria-selected="false">Big Trip Planner</button>
+    <button role="tab" id="t-camps" aria-controls="camps" aria-selected="false">Scout Camps</button>
+    <button role="tab" id="t-summer" aria-controls="summer" aria-selected="false">Summer Camp Finder</button>
     <button role="tab" id="t-badges" aria-controls="badges" aria-selected="false">Badge Finder</button>
+    <button role="tab" id="t-awards" aria-controls="awards" aria-selected="false">Outdoor Awards</button>
   </div>
 </nav>
 <main><div class="wrap">
@@ -171,6 +180,8 @@ tr:last-child td{border-bottom:0}
       <div><label for="q">Search</label><input type="search" id="q" placeholder="forge, caves, kayak…"></div>
       <button class="btn" id="moreF" type="button" aria-expanded="false">Show filters</button>
       <div class="fx"><span class="flabel">Type</span><div class="chips" id="catChips"></div></div>
+      <div class="fx"><label for="ter">Setting</label>
+        <select id="ter"><option value="">Any setting</option><option>Mountain</option><option>Forest</option><option>Desert</option><option>Coast</option><option>Island</option><option>Lake &amp; River</option><option value="City">City / indoors</option></select></div>
       <div class="fx"><label for="fit">Who can go</label>
         <select id="fit"><option value="">Troop or pack</option><option value="Troop">Works for the troop</option><option value="Pack">Works for the pack (150)</option></select></div>
       <div class="fx"><label for="stay">Trip style</label>
@@ -194,8 +205,8 @@ tr:last-child td{border-bottom:0}
 </section>
 
 <section role="tabpanel" id="hike" aria-labelledby="t-hike" hidden>
-  <h2>Hiking merit badge &amp; National Outdoor Badges</h2>
-  <p class="lead">Day hikes only (back to the car by evening). Overnight trips are on the Backpacking tab. Hikes sorted into a ladder, a one-year plan that finishes the Hiking merit badge and the 100 miles for the National Outdoor Badge for Hiking, and every trip in this book matched to the six National Outdoor Badge segments.</p>
+  <h2>Hiking</h2>
+  <p class="lead">Day hikes only (back to the car by evening). Overnight trips are on the Backpacking tab. Here you'll find the Hiking merit badge rules, a one-year plan that finishes the badge, and every day hike sorted from training hikes up to 20-milers.</p>
   <div class="reqs">
     <div class="req"><h3>Hiking merit badge</h3><ul>
       <li>Four 10-mile hikes and one 20-mile hike, each on a different day, each continuous miles (short rests and one meal stop are fine; no overnight).</li>
@@ -203,25 +214,58 @@ tr:last-child td{border-bottom:0}
       <li>After each: a short report (date, route, weather, what they saw, challenges).</li>
       <li>Those hikes can count for rank but not for other merit badges.</li></ul>
       <p class="noa">Requirements current as of October 5, 2026.</p></div>
-    <div class="req"><h3>National Outdoor Badge: Hiking</h3><ul>
-      <li>First Class rank.</li>
-      <li>Hiking or Backpacking merit badge.</li>
-      <li>Orienteering or Geocaching merit badge.</li>
-      <li>100 total miles of hiking, backpacking, snowshoeing or cross-country skiing, including the merit badge miles.</li>
-      <li>Gold device for each extra 50 miles; silver for each extra 200.</li></ul></div>
     <div class="req"><h3>Troop miles so far</h3>
-      <p>Adds up the miles on hikes and backpacking trips marked Done in this browser. The merit badge bar counts only the 10- and 20-milers.</p>
+      <p>Adds up the 10- and 20-milers marked Done in this browser.</p>
       <div class="mrow"><span>Hiking MB (60 mi)</span><span id="mbMi"></span></div><div class="meter"><span id="mbBar"></span></div>
-      <div class="mrow"><span>NOA Hiking (100 mi)</span><span id="noaMi"></span></div><div class="meter"><span id="noaBar"></span></div>
       <p class="noa">Each Scout still needs their own log; this is the troop's running total.</p></div>
   </div>
   <h2>One-year hiking plan</h2>
-  <p class="lead">Training hikes first, then the four 10-milers, finishing with the council's 20-mile hike in December. It adds up to about 110 miles, enough for the merit badge and the National Outdoor Badge for Hiking in one year.</p>
+  <p class="lead">Training hikes first, then the four 10-milers, finishing with the council's 20-mile hike in December. It adds up to about 110 miles: enough for the merit badge, and also the 100 miles for the National Outdoor Badge for Hiking (see the Outdoor Awards tab).</p>
   <div class="tablewrap"><table><thead><tr><th>Month</th><th>Hike</th><th>Counts as</th><th>Miles</th><th>Running total</th></tr></thead><tbody id="hikePlan"></tbody></table></div>
   <h2 style="margin-top:28px">The hike ladder</h2>
   <div id="ladder"></div>
-  <h2 style="margin-top:28px">National Outdoor Badges: which trips help</h2>
-  <p class="lead">Each badge needs First Class rank. Trips below give the miles, nights or hours, or support a required merit badge.</p>
+</section>
+
+<section role="tabpanel" id="dates" aria-labelledby="t-dates" hidden>
+  <h2>Big Trip Planner</h2>
+  <p class="lead">Every registration window, lottery and payment date for the big trips in this book, in date order, with a countdown. Dates marked "expected" follow last year's pattern; confirm on the linked page. Past dates drop off automatically.</p>
+  <div class="reqs">
+    <div class="req"><h3>Rolling windows</h3><ul>
+      <li><b>Recreation.gov wilderness and backcountry permits</b> (Cottonwood Lakes, Boy Scout Trail): open 6 months before your date.</li>
+      <li><b>San Gorgonio (SGWA) permits:</b> up to 90 days ahead.</li>
+      <li><b>Philmont crew treks and Cavalcade:</b> reservations open October 1, two years before your trek.</li>
+      <li><b>National bases (Summit, Northern Tier, Sea Base):</b> registration opens mid-January about 18 months ahead (January 2027 opens summer 2028) and fills fast.</li></ul></div>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th>When</th><th>What</th><th>Trip</th><th>Countdown</th></tr></thead><tbody id="datesOut"></tbody></table></div>
+</section>
+
+<section role="tabpanel" id="camps" aria-labelledby="t-camps" hidden>
+  <h2>Scout camps within 8 hours</h2>
+  <p class="lead">Council-run Scout camps you can drive to from the Valley, for summer camp or a different kind of weekend. Statuses changed a lot after fires and council property sales, so each card says what we could confirm. Most camps now open registration a year ahead.</p>
+  <div class="chips" id="campFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="campsOut"></div>
+</section>
+
+<section role="tabpanel" id="summer" aria-labelledby="t-summer" hidden>
+  <h2>Summer camp experience finder</h2>
+  <p class="lead">Every camp offers the same merit badges. These are the outliers worth flying or driving for: a 165-mile horse drive, a real cattle drive, wrangling at Philmont, houseboats in a Louisiana swamp, dog sledding, an island camp, Yellowstone, the World Jamboree and more. Registration dates for all of them are on the Big Trip Planner tab. Each card leads with the one thing you can't get anywhere else. Many fill by lottery, so watch the "when" line.</p>
+  <div class="chips" id="sumFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="summerOut"></div>
+</section>
+
+<section role="tabpanel" id="awards" aria-labelledby="t-awards" hidden>
+  <h2>National Outdoor Badges</h2>
+  <p class="lead">Scouting America's National Outdoor Badges recognize Scouts who keep getting outside: Camping, Hiking, Aquatics, Conservation, Riding and Adventure. Each needs First Class rank, a few merit badges, and logged nights, miles or hours. Below are the requirements in short and the trips in this book that help with each.</p>
+  <div class="reqs">
+    <div class="req"><h3>Troop hiking miles so far</h3>
+      <p>Adds up the miles on hikes and backpacking trips marked Done in this browser. Backpacking, snowshoeing and cross-country skiing miles all count.</p>
+      <div class="mrow"><span>NOA Hiking (100 mi)</span><span id="noaMi"></span></div><div class="meter"><span id="noaBar"></span></div>
+      <p class="noa">Each Scout still needs their own log; this is the troop's running total.</p></div>
+    <div class="req"><h3>How devices work</h3><ul>
+      <li>Each segment has a gold device for every extra block (for example, every extra 50 hiking miles or 25 camping nights).</li>
+      <li>A silver device replaces a bigger block (for example, every extra 200 hiking miles).</li>
+      <li>The unit leader submits the application to the council service center.</li></ul></div>
+  </div>
   <div class="reqs" id="noaOut"></div>
 </section>
 
@@ -231,6 +275,22 @@ tr:last-child td{border-bottom:0}
   <div class="scale" id="bpScale"></div>
   <div id="bpOut"></div>
   <p class="note">Trail camp details come from the Forest Service, NPS and trip reports, and they change after fires and storms. Call the ranger district before every trip. Backpacking miles and nights count toward the National Outdoor Badges for Hiking and Camping; overnight trips don't count as Hiking merit badge hikes.</p>
+</section>
+
+<section role="tabpanel" id="urban" aria-labelledby="t-urban" hidden>
+  <h2>Urban treks</h2>
+  <p class="lead">Simple Saturday or Sunday treks across LA with interesting stops along the way, most starting and ending at a Metro station so you can ride home from somewhere new. Walks are 10+ miles; bike rides stay on dedicated bike paths. Walking mileages are approximate, so trace your route in a map app before you go.</p>
+  <div class="reqs">
+    <div class="req"><h3>Good to know</h3><ul>
+      <li>Metro allows bikes on trains; ride at off-peak times with a big group and split across cars.</li>
+      <li>A continuous 10-mile urban walk can count as a Hiking merit badge 10-miler; get the plan approved by the counselor first.</li>
+      <li>Bike miles count toward the National Outdoor Badge for Riding (Cycling merit badge plus 100 cycling miles).</li>
+      <li>Big group events to join: the <b>Big Parade</b> (each May, about 35 miles over two days, 80+ public stairways) and the <b>Great LA Walk</b> (pre-Thanksgiving weekend, about 18 miles from downtown to the ocean).</li></ul></div>
+  </div>
+  <h3 class="urbanh">Walks</h3>
+  <div class="grid" id="urbanWalks"></div>
+  <h3 class="urbanh">Bike-path rides</h3>
+  <div class="grid" id="urbanRides"></div>
 </section>
 
 <section role="tabpanel" id="pack" aria-labelledby="t-pack" hidden>
@@ -392,6 +452,21 @@ const T=[
 ["backbone","Backbone Trail thru-hike","Backpacking",45,[3,4,10,11],"Troop","Campout","$",["Backpacking","Camping"],"67 miles across the Santa Monica Mountains. Hike 50+ miles over 5+ days and add trail service for the 50-Miler Award.","The Will Rogers end was still closed after the Palisades Fire as of late 2025; check NPS alerts. Few camps and little water.","https://www.rei.com/blog/hike/backbone-of-the-santa-monica-mountains",{miles:67,bp:{level:5,camp:"Few designated camps; plan around them",toCamp:"Multi-day; 50+ miles over 5+ days for the 50-Miler",gain:"Big daily climbs",sites:"Limited",water:"Little to none; plan caches",toilet:"At a few trailheads only",fire:"No campfires in the backcountry",tables:"Rare",permit:"Check NPS and State Parks rules per camp",base:"Trailheads 45 min from the Valley",cool:"Cross the whole Santa Monica range; earns the 50-Miler Award with trail service"}}],
 
 ["trailwork","Trail work day (Santa Monica Mountains)","Service",40,ALL,"Troop","Day","Free",["Environmental Science","Soil and Water Conservation"],"Join the Santa Monica Mountains Trails Council on routine trail maintenance in Topanga, Point Mugu, Malibu Creek or Santa Susana Pass. Real tools, real trails.","Call the volunteer leader for the date first and ask about youth age rules. Bring lunch and water.","https://www.parks.ca.gov/EventDetails/17744"],
+// ---------- Urban treks (walks and bike-path rides) ----------
+["u_hollywood","Hollywood to the Grove","Urban treks",20,ALL,"Both","Day","$",["Hiking"],"Your troop's favorite: down through Hollywood to Miracle Mile and back on the subway.","Mileage is approximate; map it before you go. Pack: do it as a half-day from Hollywood/Highland.","https://en.wikipedia.org/wiki/Hollywood_Walk_of_Fame",{miles:10,urban:"walk",transit:"B Line from North Hollywood to Hollywood/Highland; back the same way",route:["Hollywood/Highland station","Walk of Fame & Chinese Theatre","Hollywood Bowl overlook","Melrose Ave","Farmers Market & The Grove","La Brea Tar Pits & Hancock Park","Pan Pacific Park","Back to Hollywood"]}],
+["u_dtla","Downtown LA history walk","Urban treks",30,ALL,"Both","Day","$",["Hiking","Citizenship in the Nation","American Heritage"],"From LA's founding plaza to the Space Shuttle: Olvera Street, Chinatown, Little Tokyo, Angels Flight, the Disney Hall rooftop garden and Exposition Park.","City Hall's free 27th-floor observation deck is weekdays only (8–5), so add it on a school break. Mileage approximate.","https://californiathroughmylens.com/la-observation-deck/",{miles:11,urban:"walk",transit:"B Line to Union Station; finish on the E Line from Expo Park to 7th St/Metro, then B Line home",route:["Union Station","Olvera Street & Avila Adobe (LA's oldest house)","Chinatown","LA State Historic Park","City Hall (deck weekdays)","Little Tokyo","Grand Central Market & Angels Flight","Disney Hall rooftop garden","Central Library","Exposition Park: Rose Garden, Endeavour"]}],
+["u_beach","Santa Monica to Venice to Culver City","Urban treks",60,ALL,"Both","Day","$",["Hiking"],"Pier, boardwalk and canals, then follow Ballona Creek inland to a different Metro station. Transit at both ends, no backtracking.","Ballona Creek path is 6.7 miles of the total. Mileage approximate.","https://trails.lacounty.gov/Files/QuickGuide/Ballona%20Creek%20Bike%20Path.pdf",{miles:14,urban:"walk",transit:"E Line to Downtown Santa Monica; finish at Culver City E Line",route:["Santa Monica Pier","Beach path south","Venice Boardwalk & skatepark","Venice Canals","Marina del Rey: Fisherman's Village","Ballona Creek path (6.7 mi)","Culver City station"]}],
+["u_river","LA River to Union Station","Urban treks",25,ALL,"Both","Day","Free",["Hiking","Environmental Science"],"Walk the wild Glendale Narrows of the LA River past herons and river parks, through Frogtown to Chinatown and Union Station.","Start with a drop-off near Griffith Park; ride the B Line home. Mileage approximate.","https://en.wikipedia.org/wiki/Los_Angeles_River_bicycle_path",{miles:11,urban:"walk",transit:"Drop-off near Griffith Park; B Line home from Union Station",route:["Griffith Park / Riverside Dr","LA River path through Atwater","Baum Bicycle Bridge","Frogtown & Egret Park","LA State Historic Park","Chinatown","Union Station"]}],
+["u_pasadena","Pasadena and the Rose Bowl loop","Urban treks",60,ALL,"Both","Day","$",["Hiking","Architecture"],"Old Pasadena, the Colorado Street Bridge over the Arroyo, a lap of the Rose Bowl loop and Craftsman architecture.","Rose Bowl stadium tours run the last Friday of each month if you want to add one. Mileage approximate.","https://www.coloradoboulevard.net/events/rose-bowl-stadium-tours-2-2026-10-30/",{miles:10,urban:"walk",transit:"B Line to Union Station, A Line to Memorial Park and back",route:["Memorial Park station","Old Pasadena","Colorado Street Bridge","Arroyo Seco","Rose Bowl loop","Gamble House (outside)","Back to Old Pasadena"]}],
+["u_longbeach","Long Beach waterfront to Naples","Urban treks",75,ALL,"Both","Day","$",["Hiking","Oceanography"],"Harbor, Queen Mary views, the beach path and the canals of Naples island.","Long transit ride: make a day of it. Mileage approximate.","https://en.wikipedia.org/wiki/Naples,_Long_Beach,_California",{miles:11,urban:"walk",transit:"B Line to 7th St/Metro, A Line to Downtown Long Beach",route:["Downtown Long Beach station","Shoreline Village","Aquarium of the Pacific (outside)","Queen Mary views","Beach path east","Belmont Pier","Naples canals","Back to downtown"]}],
+["u_stairs","Silver Lake & Echo Park stairways","Urban treks",30,ALL,"Troop","Day","$",["Hiking"],"A climbing workout through LA's hidden public stairways, including the 1932 Music Box Steps from Laurel and Hardy, then lakes and a Dodger Stadium overlook.","Lots of steep stairs. Mileage approximate. Inspired by LA's annual 35-mile Big Parade walk.","https://www.losangeleswalks.org/the_big_parade_marches_through_la_may_2_and_3",{miles:11,urban:"walk",transit:"B Line to Vermont/Sunset; finish at Union Station",route:["Vermont/Sunset station","Sunset Junction","Music Box Steps","Silver Lake Reservoir loop","Echo Park Lake","Elysian Park","Dodger Stadium overlook","Chinatown","Union Station"]}],
+["r_gline","G Line Bikeway (Chatsworth to Sepulveda)","Urban treks",15,ALL,"Both","Day","Free",["Cycling"],"A dedicated bike path along the Valley's busway, right in your backyard.","The 1.4-mile section between Sepulveda Blvd and Tyrone Ave is closed for station construction until about Dec 2027, so turn around at Sepulveda to stay on paths. Watch for street crossings.","https://en.wikipedia.org/wiki/G_Line_Bikeway",{miles:20,urban:"bike",transit:"Start at Chatsworth station (Browns Creek path connects there)",route:["Chatsworth station","Canoga","Reseda","Balboa / Sepulveda Basin paths","Turn around at Sepulveda Blvd"]}],
+["r_river","LA River Glendale Narrows ride","Urban treks",25,ALL,"Both","Day","Free",["Cycling","Environmental Science"],"7.4 miles of river path each way from the Burbank/Glendale border through Griffith Park, Atwater and Frogtown.","Out and back for about 15 miles. Pocket parks with shade along the way.","https://en.wikipedia.org/wiki/Los_Angeles_River_bicycle_path",{miles:15,urban:"bike",transit:"Drive to Victory Blvd & Riverside Dr",route:["Victory Blvd & Riverside Dr","Griffith Park","Atwater Village bridges","Baum Bicycle Bridge","Elysian Valley (Frogtown)","Egret Park (turn around)"]}],
+["r_beach","Beach path: Santa Monica Pier both ways","Urban treks",50,ALL,"Both","Day","Free",["Cycling"],"Ride the Marvin Braude beach path north to Will Rogers State Beach and south to the Venice Fishing Pier, all off-street.","The full trail is 22.3 miles to Torrance, but the Marina del Rey stretch uses street bike lanes, so this ride stays on the Santa Monica and Venice sections. Mileage approximate.","https://en.wikipedia.org/wiki/Marvin_Braude_Bike_Trail",{miles:12,urban:"bike",transit:"E Line to Downtown Santa Monica (bikes allowed on Metro)",route:["Santa Monica Pier","North to Will Rogers State Beach","Back past the pier","South to Venice Boardwalk","Venice Fishing Pier (turn around)"]}],
+["r_ballona","Ballona Creek to the South Bay","Urban treks",45,ALL,"Troop","Day","Free",["Cycling","Bird Study"],"Ride 6.7 miles down Ballona Creek to the ocean, then south on the beach path past Playa del Rey to Manhattan or Hermosa Beach pier.","Distance depends on your turnaround: about 25–30 miles round trip to Manhattan/Hermosa. Walk bikes through the Redondo pier area.","https://trails.lacounty.gov/Files/QuickGuide/Ballona%20Creek%20Bike%20Path.pdf",{miles:25,urban:"bike",transit:"E Line to Culver City",route:["Culver City (Syd Kronenthal Park)","Ballona Creek path (6.7 mi)","Ballona wetlands birds","Playa del Rey","Manhattan Beach Pier","Hermosa Beach Pier (turn around)"]}],
+["r_sangabriel","San Gabriel River Trail","Urban treks",60,ALL,"Troop","Day","Free",["Cycling","Nature"],"A fully paved 39.3-mile path from the mountains at Azusa to the ocean at Seal Beach. Ride any segment.","Metro access at Duarte/City of Hope (A Line) and Norwalk (C Line). Good for building up to long Cycling merit badge rides.","https://www.traillink.com/trail/san-gabriel-river-trail",{miles:20,urban:"bike",transit:"A Line to Duarte/City of Hope or C Line to Norwalk",route:["Santa Fe Dam Recreation Area","Whittier Narrows nature center","Pío Pico State Historic Park","El Dorado East Regional Park","Seal Beach (39.3 mi total)"]}],
+["r_scv","Santa Clara River Trail","Urban treks",30,ALL,"Both","Day","Free",["Cycling"],"About 8 flat, paved miles through Santa Clarita, linked to the city's paseo network.","Four Metrolink stations with bike lockers along it (Newhall, Santa Clarita, Via Princessa, Vista Canyon). Add paseos for a 15–20 mile day.","https://en.wikipedia.org/wiki/Santa_Clara_River_Trail",{miles:16,urban:"bike",transit:"Metrolink Antelope Valley Line, or a short drive",route:["Vista Canyon station","Canyon Country","Saugus","Valencia paseos","Newhall"]}],
+["r_ojai","Ojai to the sea by bike","Urban treks",60,ALL,"Both","Day","Free",["Cycling"],"The paved Ojai Valley and Ventura River trails, downhill to the beach and back up: about 23 miles out and back.","Shared with walkers; ride single file.","https://greatruns.com/ventura-river-ojai-valley-trail/",{miles:23,urban:"bike",transit:"Drive to Ojai",route:["Ojai","Mira Monte","Foster Park","Ventura River","Downtown Ventura beach (turn around)"]}],
 // ---------- Backpacking (overnight, carry everything) ----------
 ["hoegees","Hoegees Trail Camp","Backpacking",40,[1,2,3,4,5,10,11,12],"Troop","Campout","Free",["Backpacking","Camping"],"A first overnight under big oaks in Big Santa Anita Canyon, past historic cabins, with an easy loop home on Upper Winter Creek Trail.","Area reopened after the Eaton Fire closure, but the Mt. Zion Trail was still closed in Oct 2026; check before going. Bears are active; use a canister.","https://www.hikespeak.com/trails/hoegees-camp/",{miles:4.25,bp:{level:1,camp:"Hoegees Trail Camp, about 2,500 ft",toCamp:"About 2.1 mi one way from Chantry Flat",gain:"About 700 ft of up and down",sites:"14",water:"Creek; filter. Reports vary, so carry enough to be safe.",toilet:"Vault toilets",fire:"Fire rings; check current fire restrictions",tables:"Yes",permit:"None to camp; free, first-come. Adventure Pass to park.",base:"None needed: 40 minutes from the Valley",cool:"Perfect shakedown trip: short, shady, real trail camp"}}],
 ["sprucegrove","Spruce Grove Trail Camp","Backpacking",40,[1,2,3,4,5,10,11,12],"Troop","Campout","Free",["Backpacking","Camping"],"Up Big Santa Anita Canyon past cabins and nine stone check dams to a shady camp beside a year-round stream; side trip to Sturtevant Falls.","Same Eaton Fire caution as Hoegees: the canyon trails reopened, but check before going. Free fire permit needed even for stoves.","https://canyoncartography.com/big-santa-anita-canyon-loop/",{miles:7,bp:{level:2,camp:"Spruce Grove Trail Camp, about 3,000 ft",toCamp:"About 3.5 mi one way from Chantry Flat",gain:"Steady climb; steepest past the check dams",sites:"Several (not officially listed)",water:"Year-round stream; filter. Drinking fountain at nearby Sturtevant Camp.",toilet:"Restrooms",fire:"Klamath cooking stoves; free fire permit",tables:"7 picnic tables",permit:"None to camp; Adventure Pass to park",base:"None needed",cool:"Waterfall, mule pack station and 1900s cabins along the way"}}],
@@ -406,7 +481,7 @@ const T=[
 ["cottonwood","Cottonwood Lakes Basin","Backpacking",225,[7,8,9,10],"Troop","Campout","$",["Backpacking","Camping","Fishing"],"Eastern Sierra lakes above 11,000 ft where rare California golden trout were restored. Big granite, big skies.","Stretch drive (Lone Pine area). Permit quota of 60 a day, May–Nov, booked 6 months ahead. Bear canisters required. Snow can linger into late June.","https://hikingguy.com/hikes/cottonwood-lakes-trail-inyo/",{miles:13,bp:{level:4,camp:"Cottonwood Lakes Basin (use existing unmarked sites)",toCamp:"About 5 mi to the lakes",gain:"About 1,500 ft, starting at 10,000 ft",sites:"Unmarked established sites",water:"Lakes and creeks; filter",toilet:"None; WAG bags strongly encouraged",fire:"No campfires above 10,400 ft; stoves with fire permit",tables:"No",permit:"Recreation.gov wilderness permit; fishing license for 16+",base:"Trailhead walk-in camp: 13 sites, $11 cash, water, vault toilets, bear boxes, 1-night max. Sleep here to adjust to altitude.",cool:"Golden trout and true high-Sierra lake camping"}}],
 ["whitneybp","Mount Whitney via Trail Camp","Backpacking",210,[7,8,9],"Troop","Campout","$",["Backpacking","Camping","Hiking"],"The capstone trip for older Scouts: camp at Outpost Camp or Trail Camp, then summit 14,505 ft at dawn.","Permit lottery Feb 1–Mar 1 on Recreation.gov (60 overnight a day). Pack out all human waste in WAG bags. Bear canister required late May–Oct. Altitude sickness is real; acclimatize first.","https://en.wikipedia.org/wiki/Mount_Whitney_Trail",{miles:21.4,bp:{level:5,camp:"Outpost Camp (10,365 ft, 3.8 mi) or Trail Camp (12,000 ft, 6.3 mi)",toCamp:"6.3 mi to Trail Camp",gain:"6,200+ ft to the summit",sites:"Dispersed, 100+ ft from water",water:"Trail Camp lake is the last reliable water; purify",toilet:"None; WAG bags required (latrines removed)",fire:"No campfires",tables:"No",permit:"Whitney Zone overnight permit via lottery",base:"Whitney Portal or Lone Pine area the night before",cool:"Highest summit in the lower 48"}}],
 ];
-const CATS=["Hikes","Backpacking","Base camps","Water & sea","Rocks & peaks","Desert & geology","Caves & underground","History","Sky & space","Rails & machines","Craft & skills","Wildlife & nature","Snow & winter","Service"];
+const CATS=["Hikes","Backpacking","Urban treks","Base camps","Water & sea","Rocks & peaks","Desert & geology","Caves & underground","History","Sky & space","Rails & machines","Craft & skills","Wildlife & nature","Snow & winter","Service"];
 const items=T.map(r=>({id:r[0],name:r[1],cat:r[2],drive:r[3],months:r[4],fit:r[5],stay:r[6],cost:r[7],badges:r[8],what:r[9],know:r[10],link:r[11],...(r[12]||{})}));
 const COSTR={"Free":0,"$":1,"$$":2,"$$$":3};
 const COSTL={"Free":"Free","$":"$ · under $15/person","$$":"$$ · $15–60/person","$$$":"$$$ · over $60/person"};
@@ -423,6 +498,11 @@ items.forEach(i=>{const n=[];
   if(ADV_IDS.includes(i.id)||has(i,["Wilderness Survival","Search and Rescue"]))n.push("Adventure");
   i.noa=n;});
 const LEVELS={1:"Beginner",2:"Easy–moderate",3:"Intermediate",4:"Challenging",5:"Advanced"};
+const TERRAIN={"bp": "Mountain", "sanjac": "Mountain", "lookout": "Mountain", "zip": "Mountain", "chulavista": "Mountain", "snowsummit": "Mountain", "mtwilson": "Mountain", "palomar": "Mountain", "alabama": "Mountain", "baldy": "Mountain", "cucamonga": "Mountain", "gorgonio": "Mountain", "whitney": "Mountain", "roundvalley": "Mountain", "highcreek": "Mountain", "cottonwood": "Mountain", "whitneybp": "Mountain", "littlejimmy": "Mountain", "bighorn": "Mountain", "sandstone": "Mountain", "rocky": "Mountain", "stoney": "Mountain", "vasquez": "Mountain", "sprucegrove": "Mountain", "hoegees": "Mountain", "jtclimb": "Desert", "sheeppass": "Desert", "ladder": "Desert", "trona": "Desert", "fossilfalls": "Desert", "burro": "Desert", "owl": "Desert", "afton": "Desert", "kelso": "Desert", "hitw": "Desert", "lavatube": "Desert", "mitchell": "Desert", "amboy": "Desert", "earlyman": "Desert", "petro": "Desert", "calico": "Desert", "randsburg": "Desert", "avim": "Desert", "glider": "Desert", "wolf": "Desert", "livingdesert": "Desert", "saddleback": "Desert", "whitewater": "Desert", "anza": "Desert", "salton": "Desert", "punchbowl": "Desert", "poppy": "Desert", "morongo": "Desert", "lostpalms": "Desert", "bstrail": "Desert", "sharktooth": "Desert", "manzanar": "Desert", "windwolves": "Forest", "sequoia": "Forest", "matilija": "Forest", "coldwater": "Forest", "sespe": "Forest", "bridge": "Forest", "kern": "Forest", "tejon": "Forest", "gabrielino": "Forest", "malibucreek": "Forest", "musch": "Forest", "backbone": "Forest", "trailwork": "Forest", "placerita": "Forest", "sycamore": "Coast", "leo": "Coast", "crystalcove": "Coast", "grunion": "Coast", "whales": "Coast", "mdr": "Coast", "lami": "Coast", "oceaninst": "Coast", "iowa": "Coast", "midway": "Coast", "aquarium": "Coast", "bolsa": "Coast", "paintedcave": "Coast", "monarchs": "Coast", "ojaitrail": "Coast", "lapurisima": "Coast", "scorpion": "Island", "anacapa": "Island", "catalina": "Island", "catdive": "Island", "tct": "Island", "parsons": "Island", "delnorte": "Island", "cachuma": "Lake & River", "casitas": "Lake & River", "silverwood": "Lake & River", "pyramid": "Lake & River", "lariver": "Lake & River", "eaglecruise": "Lake & River", "endeavour": "City", "jpl": "City", "columbia": "City", "griffith": "City", "laas": "City", "eagles": "City", "pof": "City", "scrm": "City", "loop": "City", "traveltown": "City", "adams": "City", "ocforge": "City", "archery": "City", "horse": "City", "orient": "City", "shooting": "City", "ifly": "City", "tarpits": "City", "getty": "City", "reagan": "City", "underwood": "City", "rileys": "City", "hollysign": "City", "mtlowe": "City"}
+;
+const TERRAINS=["Mountain","Forest","Desert","Coast","Island","Lake & River","City"];
+Object.assign(TERRAIN,{"u_hollywood": "City", "u_dtla": "City", "u_beach": "Coast", "u_river": "City", "u_pasadena": "City", "u_longbeach": "Coast", "u_stairs": "City", "r_gline": "City", "r_river": "City", "r_beach": "Coast", "r_ballona": "Coast", "r_sangabriel": "Lake & River", "r_scv": "City", "r_ojai": "Lake & River"});
+items.forEach(i=>i.terrain=TERRAIN[i.id]||"");
 const byId=Object.fromEntries(items.map(i=>[i.id,i]));
 const COMBOS=[
  {id:"mojave",name:"The Mojave weekend",drive:"3.5–4 hr · Stretch",months:COOL,stops:["hitw","kelso","lavatube","mitchell","amboy"],plan:"Fri: drive out, camp at Hole-in-the-Wall or Black Canyon group camp. Sat: Mitchell Caverns tour, Kelso Dunes at sunset. Sun: Lava Tube or Amboy Crater on the way home."},
@@ -444,7 +524,7 @@ const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v)
 let done=new Set(store.get("tb-done",[]));
 
 // ---------- filters ----------
-const st={q:"",cats:new Set(),fit:"",stay:"",cost:"",noa:"",month:"",drive:240,badge:"",hideDone:false,...store.get("tb-filters",{})};
+const st={q:"",cats:new Set(),fit:"",stay:"",cost:"",noa:"",ter:"",month:"",drive:240,badge:"",hideDone:false,...store.get("tb-filters",{})};
 st.cats=new Set(st.cats||[]);
 const $=s=>document.querySelector(s);
 const catChips=$("#catChips");
@@ -453,21 +533,22 @@ M.forEach((m,i)=>$("#month").add(new Option(["January","February","March","April
 const allBadges=[...new Set(items.flatMap(i=>i.badges))].sort();
 allBadges.forEach(b=>$("#badge").add(new Option(b,b)));
 const fmtDrive=m=>m<60?m+" min":String(Math.round(m/15)/4)+" hr";
-function syncInputs(){$("#q").value=st.q;$("#fit").value=st.fit;$("#stay").value=st.stay;$("#cost").value=st.cost;$("#noa").value=st.noa;$("#month").value=st.month;$("#drive").value=st.drive;$("#badge").value=st.badge;$("#hideDone").checked=st.hideDone;$("#driveOut").textContent=+st.drive>=240?"Any":fmtDrive(+st.drive)}
-["q","fit","stay","cost","noa","month","drive","badge"].forEach(id=>$("#"+id).addEventListener("input",e=>{st[id]=e.target.value;render()}));
+function syncInputs(){$("#q").value=st.q;$("#fit").value=st.fit;$("#stay").value=st.stay;$("#cost").value=st.cost;$("#noa").value=st.noa;$("#ter").value=st.ter;$("#month").value=st.month;$("#drive").value=st.drive;$("#badge").value=st.badge;$("#hideDone").checked=st.hideDone;$("#driveOut").textContent=+st.drive>=240?"Any":fmtDrive(+st.drive)}
+["q","fit","stay","cost","noa","ter","month","drive","badge"].forEach(id=>$("#"+id).addEventListener("input",e=>{st[id]=e.target.value;render()}));
 $("#hideDone").addEventListener("change",e=>{st.hideDone=e.target.checked;render()});
-$("#reset").onclick=()=>{Object.assign(st,{q:"",fit:"",stay:"",cost:"",noa:"",month:"",drive:240,badge:"",hideDone:false});st.cats.clear();document.querySelectorAll("#catChips .chip").forEach(b=>b.setAttribute("aria-pressed","false"));render()};
+$("#reset").onclick=()=>{Object.assign(st,{q:"",fit:"",stay:"",cost:"",noa:"",ter:"",month:"",drive:240,badge:"",hideDone:false});st.cats.clear();document.querySelectorAll("#catChips .chip").forEach(b=>b.setAttribute("aria-pressed","false"));render()};
 
 function fitOk(i,f){if(!f)return true;if(f==="Troop")return i.fit!=="PackOnly";return i.fit==="Both"}
 function card(i){
   const stretch=i.drive>150;
   const warn=i.status==="closed"?`<span class="pill p-warn">Closed until ${i.opens}</span>`:i.status==="check"?`<span class="pill p-warn">Check status</span>`:"";
   return `<article class="card${done.has(i.id)?" done":""}">
-    <div class="meta"><span class="pill p-cat">${i.cat}</span><span class="pill ${stretch?"p-stretch":"p-drive"}">${fmtDrive(i.drive)}${stretch?" · Stretch":""}</span><span class="pill p-fit">${i.fit==="Both"?"Troop + pack":"Troop"}</span><span class="pill p-stay">${i.stay==="Overnight"?"Unique overnight":i.stay}</span><span class="pill p-cost">${COSTL[i.cost]}</span>${i.bp?`<span class="pill p-level lv${i.bp.level}">${i.bp.level}/5 · ${LEVELS[i.bp.level]}</span>`:""}${i.miles?`<span class="pill p-miles">${i.miles} mi${i.bp?" total":""}${i.gain?" · "+i.gain:""}</span>`:""}${warn}</div>
+    <div class="meta"><span class="pill p-cat">${i.cat}</span>${i.terrain?`<span class="pill p-ter">${i.terrain}</span>`:""}<span class="pill ${stretch?"p-stretch":"p-drive"}">${fmtDrive(i.drive)}${stretch?" · Stretch":""}</span><span class="pill p-fit">${i.fit==="Both"?"Troop + pack":"Troop"}</span><span class="pill p-stay">${i.stay==="Overnight"?"Unique overnight":i.stay}</span><span class="pill p-cost">${COSTL[i.cost]}</span>${i.bp?`<span class="pill p-level lv${i.bp.level}">${i.bp.level}/5 · ${LEVELS[i.bp.level]}</span>`:""}${i.miles?`<span class="pill p-miles">${i.miles} mi${i.bp?" total":""}${i.gain?" · "+i.gain:""}</span>`:""}${warn}</div>
     <h3>${i.name}</h3>
     <div class="months" aria-label="Best months">${M.map((m,k)=>`<span class="${i.months.includes(k+1)?"on":""}" title="${m}">${m[0]}</span>`).join("")}</div>
     <p>${i.what}</p>
     <p class="know">${i.know}</p>
+    ${i.route?`<p class="route"><b>${i.urban==="bike"?"Ride":"Route"}:</b> ${i.route.join(" → ")}</p><p class="phone"><b>Getting there:</b> ${i.transit}</p>`:""}
     ${i.bp?`<dl class="facts">${[["Camp",i.bp.camp],["To camp",i.bp.toCamp],["Climb",i.bp.gain],["Sites",i.bp.sites],["Water",i.bp.water],["Toilet",i.bp.toilet],["Fire",i.bp.fire],["Tables",i.bp.tables],["Permit",i.bp.permit],["Base camp",i.bp.base],["Cool factor",i.bp.cool]].filter(r=>r[1]).map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join("")}</dl>`:""}
     ${i.phone?`<p class="phone">Call: <span class="num">${i.phone}</span></p>`:""}
     <div class="badges">${i.badges.map(b=>`<span class="badge">${b}</span>`).join("")}</div>
@@ -480,19 +561,19 @@ function render(){
   syncInputs();
   store.set("tb-filters",{...st,cats:[...st.cats]});
   const q=st.q.trim().toLowerCase();
-  const list=items.filter(i=>(!q||(i.name+" "+i.what+" "+i.know+" "+i.badges.join(" ")+" "+i.cat).toLowerCase().includes(q))
-    &&(!st.cats.size||st.cats.has(i.cat))&&fitOk(i,st.fit)&&(!st.stay||i.stay===st.stay)&&(!st.cost||COSTR[i.cost]<=COSTR[st.cost])&&(!st.noa||i.noa.includes(st.noa))
+  const list=items.filter(i=>(!q||(i.name+" "+i.what+" "+i.know+" "+i.badges.join(" ")+" "+i.cat+" "+i.terrain).toLowerCase().includes(q))
+    &&(!st.cats.size||st.cats.has(i.cat))&&fitOk(i,st.fit)&&(!st.stay||i.stay===st.stay)&&(!st.cost||COSTR[i.cost]<=COSTR[st.cost])&&(!st.noa||i.noa.includes(st.noa))&&(!st.ter||i.terrain===st.ter)
     &&(!st.month||i.months.includes(+st.month))&&i.drive<=+st.drive&&(!st.badge||i.badges.includes(st.badge))&&!(st.hideDone&&done.has(i.id)))
     .sort((a,b)=>a.drive-b.drive);
   $("#count").innerHTML=`<b>${list.length}</b> of ${items.length} trips · sorted by drive time`;
   $("#grid").innerHTML=list.length?list.map(card).join(""):`<div class="empty">No trips match these filters. Try a longer drive time or clear a filter.</div>`;
   $("#stats").innerHTML=`<span><b>${items.length}</b> trips</span><span><b>${COMBOS.length}</b> weekend combos</span><span><b>${allBadges.length}</b> merit badges</span><span><b>${done.size}</b> done</span>`;
 }
-document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.done;if(!id)return;e.target.checked?done.add(id):done.delete(id);store.set("tb-done",[...done]);render();renderPlan();renderPack();renderHike();renderBP()});
+document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.done;if(!id)return;e.target.checked?done.add(id):done.delete(id);store.set("tb-done",[...done]);render();renderPlan();renderPack();renderHike();renderBP();renderUrban()});
 
 // ---------- 6-year plan ----------
 function buildPlan(){
-  const units=[...items.filter(i=>!i.comboName&&i.cat!=="Hikes"&&i.cat!=="Service"&&i.cat!=="Backpacking").map(i=>({kind:"item",id:i.id,months:i.months,drive:i.drive,cat:i.cat,opens:i.opens||0})),
+  const units=[...items.filter(i=>!i.comboName&&i.cat!=="Hikes"&&i.cat!=="Service"&&i.cat!=="Backpacking"&&i.cat!=="Urban treks").map(i=>({kind:"item",id:i.id,months:i.months,drive:i.drive,cat:i.cat,opens:i.opens||0})),
     ...COMBOS.map(c=>({kind:"combo",id:"c-"+c.id,months:c.months,drive:Math.max(...c.stops.map(s=>byId[s].drive)),cat:"Combo",opens:0}))];
   const YEARS=[2027,2028,2029,2030,2031,2032], slot={}; YEARS.forEach(y=>slot[y+"-7"]={kind:"camp",id:"camp"+y,cat:"Camp"});let _s, perYear={}, catYear={}, stretch={};
   const longWknd=[1,2,3,5,9,10,11];
@@ -530,7 +611,7 @@ document.addEventListener("click",e=>{const g=e.target.closest("[data-goto]");if
 const HPLAN=[["Jan","rocky","Training"],["Feb","sandstone","Training"],["Mar","ojaitrail","10-miler #1 (one way, shuttle)"],["Apr","hollysign","Training"],["May","bridge","10-miler #2"],["Jun","sanjac","10-miler #3 (day hike from the tram)"],["Jul",null,"Summer camp"],["Aug","baldy","10-miler #4 (or Cucamonga Peak)"],["Sep","gorgonio","Bonus long hike"],["Oct","orient","Orienteering MB (needed for the NOA)"],["Nov","lostpalms","Training"],["Dec","gabrielino","20-miler"]];
 const NOA=[
  ["Camping","Camping MB; two of Cooking, First Aid, Pioneering MBs; 25 days and nights of camping, including 6 days/5 nights at a resident camp.","Every campout in this book adds nights."],
- ["Hiking","Hiking or Backpacking MB; Orienteering or Geocaching MB; 100 miles.","See the hike ladder above."],
+ ["Hiking","Hiking or Backpacking MB; Orienteering or Geocaching MB; 100 miles (gold device per extra 50, silver per extra 200).","Every day hike and backpacking trip adds miles. The one-year plan on the Hiking tab gets to about 110."],
  ["Aquatics","Swimming MB plus Lifesaving MB; Mile Swim BSA; one watercraft or fishing MB with 25 hours on the water; 50 total hours.","Kayaking, fishing, sailing and swimming trips add hours."],
  ["Conservation","Safe use of five trail tools; Environmental Science (or Sustainability), Soil and Water Conservation, and one of Fish and Wildlife Management, Forestry or Mammal Study; 25 hours of conservation work.","Trail work days add hours; nature trips support the badges."],
  ["Riding","Cycling MB plus 100 miles, or Horsemanship MB plus 20 miles (or other options); 200 total riding miles.","Horseback rides and bike trips add miles."],
@@ -544,6 +625,11 @@ function renderHike(){
   $("#ladder").innerHTML=order.map(c=>{const g=items.filter(i=>i.hclass===c).sort((a,b)=>a.miles-b.miles);return `<div class="packgroup"><h3>${lab[c]}</h3><div class="grid">${g.map(card).join("")}</div></div>`}).join("");
   $("#noaOut").innerHTML=NOA.map(([n,req,tip])=>{const g=items.filter(i=>i.noa.includes(n));return `<div class="req"><h3>${n}</h3><p>${req}</p><p class="noa">${tip}</p><ul>${g.map(i=>`<li>${i.name}</li>`).join("")}</ul></div>`}).join("");
 }
+// ---------- urban ----------
+function renderUrban(){
+  $("#urbanWalks").innerHTML=items.filter(i=>i.urban==="walk").sort((a,b)=>a.drive-b.drive).map(card).join("");
+  $("#urbanRides").innerHTML=items.filter(i=>i.urban==="bike").sort((a,b)=>a.drive-b.drive).map(card).join("");
+}
 // ---------- backpacking ----------
 function renderBP(){
   const g=items.filter(i=>i.bp);
@@ -551,6 +637,86 @@ function renderBP(){
   const desc={1:"Short, gentle, water nearby. Great first overnight.",2:"A few miles with some climbing or logistics.",3:"Longer days, steep sections, altitude or no water.",4:"Big climbs, high altitude or multi-day.",5:"Strongest older Scouts with real experience."};
   $("#bpOut").innerHTML=[1,2,3,4,5].map(l=>{const t=g.filter(i=>i.bp.level===l).sort((a,b)=>a.drive-b.drive);return t.length?`<div class="packgroup"><h3>${l}/5 · ${LEVELS[l]} <small style="font-family:var(--body);font-size:14px;color:var(--muted);font-weight:400">${desc[l]}</small></h3><div class="grid">${t.map(card).join("")}</div></div>`:""}).join("");
 }
+// ---------- Scout camps ----------
+const CAMPS=[
+ {name:"Camp Emerald Bay",council:"Western LA County Council",where:"Catalina Island (ferry, then boat to camp)",drive:"45 min + ferry",ter:"Island",status:"Open · 2027 registration open",tags:["Aquatics","Ocean","High adventure","Backpacking"],what:"Ocean camp on Catalina with snorkeling, scuba, kayaking and war canoes. Older Scouts (14+) can add Rugged T (the 38.5-mile Trans-Catalina Trail), Rugged E (kayak and beach overnights) or Rugged C (war canoe around the island).",link:"https://www.campemeraldbay.org/scout-programs/high-adventures/"},
+ {name:"Camp Cherry Valley",council:"Greater LA Area Council",where:"Cherry Cove, Catalina (ferry to Two Harbors, then a 1.3-mile hike)",drive:"45 min + ferry",ter:"Island",status:"Reopened summer 2026 after closing in 2024",tags:["Aquatics","Ocean","Island"],what:"Platform tents under Catalina cherry trees, ocean snorkeling and scuba, and an Advanced Camper Experience (14+) with kayaking, paddleboarding and sailing. Wednesday hikes to Parsons Landing, Silver Peak and more.",link:"https://en.wikipedia.org/wiki/Camp_Cherry_Valley"},
+ {name:"Camp Tahquitz",council:"Long Beach Area Council (Orange County Council partners here)",where:"Near Angelus Oaks, San Bernardino Mountains",drive:"2 hr",ter:"Mountain",status:"Open · 2026 sessions June 21–July 25",tags:["Traditional","Mountain"],what:"Traditional merit badge camp running more than 100 years, famous for its all-volunteer staff. 2026: youth $650, adult $375.",link:"https://ocscoutingoutdoors.org/scouts-bsa-summer-camp-at-lost-valley/"},
+ {name:"Camp Emerson",council:"California Inland Empire Council",where:"Idyllwild, San Jacinto Mountains",drive:"2.5 hr",ter:"Mountain",status:"Open · 2027 weeks July 11–24",tags:["Climbing","Shooting","Frontier","Aquatics"],what:"60-ft climbing tower, pool and lake canoeing, scuba merit badge, and a creek through camp. New for 2027: Emerson Hylanders, a mountain-man program with blacksmithing, black powder, tomahawks and cowboy action shooting. $545 per Scout.",link:"https://iescouts.org/summercamp/"},
+ {name:"Mataguay Scout Ranch",council:"San Diego-Imperial Council",where:"Santa Ysabel, near Lake Henshaw",drive:"3 hr",ter:"Mountain",status:"Open · 2027 sessions June 13–July 3",tags:["Aviation","Shooting","Trades","Aquatics"],what:"Aviation merit badge with a real glider ride, welding and trades badges, cowboy action shooting (14+), COPE ropes, mountain biking, and paddling on Lake Dan Henry. Out-of-council youth $725.",link:"https://www.sdicscouting.org/camping/summer-programs/mataguay-scout-ranch-summer-camp"},
+ {name:"Camp Whitsett",council:"Western LA County Council",where:"Sequoia National Forest, near Kernville",drive:"3.5 hr",ter:"Lake & River",status:"Open · 2027 registration open",tags:["Traditional","High adventure","Shooting","Aquatics"],what:"High-Sierra lake camp with high adventure, shooting sports, aquatics and frontier programs, an overnight outpost hike, and the Trail of 100 Giants sequoia grove nearby. Also runs Webelos camp and a Cub family weekend.",link:"https://www.campwhitsett.org/scout-programs/"},
+ {name:"Camp Chawanakee",council:"Sequoia Council",where:"Shaver Lake, Sierra Nevada",drive:"4 hr",ter:"Lake & River",status:"Open · 7 weekly sessions June–Aug 2026",tags:["Traditional","Aquatics"],what:"Lakeside Sierra camp with swimming, boating, hiking and biking; seven one-week sessions all summer.",link:"https://scoutingevent.com/027-2026campchawanakee"},
+ {name:"Camp Oljato",council:"Pacific Skyline Council",where:"Huntington Lake, 7,000 ft, Sierra Nevada",drive:"4.5 hr",ter:"Lake & River",status:"Open · 2026",tags:["Sailing","Aquatics","Horses","Climbing"],what:"You arrive by passenger barge across Huntington Lake, one of California's best sailing lakes. Sailing, motorboating, climbing, welding, fishing and horsemanship. No poison oak. Youth $890 per week.",link:"https://scoutingevent.com/Download/031176400/OR/2026_Oljato_Leader_Guide.pdf"},
+ {name:"Camp Wolfeboro",council:"Golden Gate Area Council",where:"North Fork Stanislaus River, Sierra Nevada",drive:"6 hr",ter:"Mountain",status:"Open · 2026",tags:["Climbing","Backpacking","High adventure"],what:"Rock climbing on three natural granite walls, a river waterfront, astronomy and wilderness overnights, and a 30+ mile backpacking Trek for Scouts 14+ (weeks 3 and 5 in 2026).",link:"https://goldengatescouting.org/summer-camp/leaders-guide-wolfeboro"},
+ {name:"Camp Geronimo",council:"Grand Canyon Council",where:"Below the Mogollon Rim, near Payson, Arizona",drive:"6.5–7 hr",ter:"Forest",status:"Open · 2026 sessions May 31–July 11",tags:["High adventure","Drones","Traditional"],what:"Ponderosa forest with trails to the edge of the Mogollon Rim. Base Camp merit badges, Brownsea Island for first-years, Spade Ranch high adventure (14+) and a Drone Flight School. $495–$595 per Scout. The council said in 2021 it planned to sell Geronimo as part of the national settlement, so watch for changes.",link:"https://scoutingevent.com/010-geronimo2026"},
+ {name:"Newport Sea Base",council:"Orange County Council",where:"Newport Beach harbor",drive:"1.25 hr",ter:"Coast",status:"Day programs only · summer 2026",tags:["Sailing","Aquatics","Ocean"],what:"Day camp, not overnight: sailing (no experience needed), big-boat sailing, motorboating, kayaking, fishing and merit badge classes for ages 11–17. Handy for one-off aquatics badges.",link:"https://www.newportseabase.org/summer"},
+ {name:"Camp Josepho",council:"Western LA County Council",where:"Santa Monica Mountains",drive:"30 min",ter:"Mountain",status:"Closed · destroyed in the 2025 Palisades Fire",tags:["Service"],what:"Nearly everything burned except a concrete pool house. Scouts and volunteers are restoring the land; no reopening date yet. Contact the council about service days.",link:"https://scoutingalumni.org/2026/01/camp-josepho-is-rising-from-the-ashes/"}
+];
+const SUMMER=[
+ {name:"World Scout Jamboree 2027",where:"Gdańsk, Poland · World Organization of the Scout Movement",ter:"Coast",tags:["International","Ocean"],hook:"Camp with tens of thousands of Scouts from around the world",what:"The 26th World Scout Jamboree, July 30–Aug 8, 2027, on Sobieszewo Island on Poland's Baltic coast. The USA goes as a national contingent. Too young this time? The next one is 2031 in Denmark.",ages:"Youth 14–17 as of July 30, 2027; adults as leaders or staff",when:"Apply through the USA contingent (wsj2027.us); contingent size was set in Oct 2025, so check for openings",how:"Fly to Gdańsk",link:"https://en.wikipedia.org/wiki/26th_World_Scout_Jamboree"},
+ {name:"Kandersteg International Scout Centre",where:"Swiss Alps · World Scout Centre",ter:"Mountain",tags:["International","Climbing","Wilderness trek"],hook:"A troop trip to the World Scout Centre in the Swiss Alps",what:"Scouting's world centre in a mountain village at about 1,200 m: hiking, rock climbing, mountain biking, river rafting and paragliding in summer; skiing and ice climbing in winter. More than 17,000 young people from 50+ countries visit every year; campsite holds up to 1,400.",ages:"Scout groups; plan as a troop trip",when:"Book directly with the centre",how:"Fly to Zurich or Bern, then train",link:"https://en.wikipedia.org/wiki/Kandersteg_International_Scout_Centre"},
+ {name:"Camp Buffalo Bill",where:"8 miles from Yellowstone's east gate, Wyoming · Adventure West Council",ter:"Mountain",tags:["Yellowstone","Frontier","Fishing"],hook:"Summer camp at the gate of Yellowstone, with a day in the park",what:"Wednesday adventure day can be Yellowstone, Grand Teton, whitewater rafting, or the Cody Nite Rodeo. In camp: world-class fly fishing and fly tying, branding and metalwork, and western-themed events.",ages:"Scouts BSA",when:"2027 weeks June 13–July 17; registration open; Scouts $550, adults $275",how:"Fly to Cody, or about a 14 hr drive",link:"https://awbsa.org/summer-camp-at-cbb/"},
+ {name:"Philmont Rayado",where:"Cimarron, New Mexico · National base",ter:"Mountain",tags:["Wilderness trek"],hook:"A 21-day expedition with Scouts you've never met",what:"Philmont's toughest backpacking program: 21 days in a crew formed from individual Scouts from around the country, going deeper into the backcountry than standard treks.",ages:"15–20; crews of 7–12",when:"Individual registration through Philmont",how:"Fly to Albuquerque",link:"https://www.scouting.org/national-high-adventure-bases/adventure-treks/trek-list/"},
+ {name:"Horse Trek: Butte Creek to Camp Baldwin",where:"Oregon · Cascade Pacific Council",ter:"Mountain",tags:["Horses","Wilderness trek"],hook:"Drive the council's horse herd 165 miles through the Mt. Hood Wilderness",what:"Instead of trailering them, Scouts ride the council's herd of about 60 horses between Butte Creek Scout Ranch and Camp Baldwin: east in June, back west in August. Ten days in the saddle, and Scouts do all the feeding, brushing and saddling. Running since the mid-1980s.",ages:"13+ and registered by June 1; horse experience recommended, not required",when:"Lottery Nov 1–30",how:"Fly to Portland",link:"https://cpcscouting.org/horses/"},
+ {name:"Philmont Ranch Hands",where:"Cimarron, New Mexico · National base",ter:"Mountain",tags:["Horses","Ranch work","Wilderness trek"],hook:"Work as a wrangler for 300 horses and 80 burros, then ride the backcountry",what:"Eight days of real ranch work with Philmont's Horse Department, then an eight-day Cavalcade on horseback through backcountry camps with climbing, archaeology or a mountain-man rendezvous, ending in a horseback gymkhana.",ages:"16–20",when:"$600 for 2027; registration opened Oct 1, 2026",how:"Fly to Albuquerque or drive ~13 hr",link:"https://www.philmontscoutranch.org/treks/individualprograms/ranchhands/"},
+ {name:"Philmont Cavalcade",where:"Cimarron, New Mexico · National base",ter:"Mountain",tags:["Horses","Wilderness trek"],hook:"An 8-day trek through the Sangre de Cristos entirely on horseback",what:"Ride like the trappers and explorers of the Old West, camp in the backcountry, and finish with a rodeo-style gymkhana. A whole-crew trip.",ages:"13+ and finished 8th grade; crews of 10–15; weight limits apply",when:"$1,425 (2027) / $1,790 (2028); lottery opens Oct 1 two years ahead",how:"Fly to Albuquerque or drive ~13 hr",link:"https://www.philmontscoutranch.org/treks/crew/cavalcade"},
+ {name:"D-Bar-A Ranch Hand",where:"Michigan · Michigan Crossroads Council",ter:"Forest",tags:["Horses","Ranch work","Cattle drive"],hook:"A real longhorn cattle drive and a night on the open range",what:"A week as a wrangler in training: caring for horses, longhorns and burros, roping, a starlight ride, a night out on the range and a cattle drive. Badges include Veterinary Medicine, Animal Science and Horsemanship.",ages:"Scouts BSA; check merit badge prerequisites",when:"One-week sessions in summer",how:"Fly to Detroit",link:"https://michiganscouting.org/wp-content/uploads/2026/05/MCCLeadersGuide-RanchHand26-FINAL-web.pdf"},
+ {name:"Louisiana Swamp Base",where:"Atchafalaya Basin, Louisiana · Evangeline Area Council",ter:"Lake & River",tags:["Paddling","Wilderness trek","Swamp"],hook:"Canoe the country's biggest swamp and sleep on houseboats",what:"Week-long paddling treks through the Atchafalaya with nights on houseboats or floating campsites and island camping. Spotlight alligators at night, jug-line for catfish, take an airboat ride, and learn how the swamp is shaped by flood control and industry. Youth from 42 states have gone since 2013.",ages:"Older Scouts; call 337-235-8552",when:"Summer treks; register on their site",how:"Fly to Lafayette or New Orleans",link:"https://www.cajuncountry.org/blog/post/high-adventure-in-the-heart-of-the-atchafalaya-basin/"},
+ {name:"Northern Tier Okpik Dog Sledding",where:"Ely, Minnesota · National base",ter:"Forest",tags:["Snow","Dog sledding"],hook:"Mush your own dog team through the North Woods in winter",what:"Three-night winter dog sled program, part of Northern Tier's Okpik cold-weather camping. The summer alternative is a 7- to 10-night Boundary Waters canoe trek.",ages:"14+ for dog sledding; crews under 7",when:"Winter season",how:"Fly to Minneapolis or Duluth",link:"https://www.scouting.org/national-high-adventure-bases/adventure-treks/trek-list/"},
+ {name:"Sea Base Bahamas Tall Ship",where:"Marsh Harbour, Bahamas · National base",ter:"Island",tags:["Sailing","Ocean"],hook:"Crew a tall ship through the Bahamas",what:"Six days living aboard and sailing a tall ship in Bahamian waters. Sea Base also runs St. Thomas sailing in the U.S. Virgin Islands and scuba treks in the Keys.",ages:"13+",when:"Registration for 2027 opened Jan 15",how:"Fly to Miami, then the Bahamas",link:"https://www.scouting.org/national-high-adventure-bases/adventure-treks/trek-list/"},
+ {name:"Summit New River Experience",where:"West Virginia · National base",ter:"Mountain",tags:["Whitewater","Paddling"],hook:"Paddle the New River Gorge into big-water whitewater rafting",what:"A seven-day paddle journey that builds up to whitewater rafting through the New River Gorge. The Summit also has zip lines, BMX, a skate park and shooting sports.",ages:"14+; crews of 8",when:"Registration for 2027 opened Jan 13",how:"Fly to Charleston, WV",link:"https://www.scouting.org/national-high-adventure-bases/adventure-treks/trek-list/"},
+ {name:"Alaska Ultimate High Adventure",where:"Alaska · Great Alaska Council",ter:"Mountain",tags:["Wilderness trek","Paddling","Ocean"],hook:"A custom Alaska expedition: Denali views, sea kayaking and a glacier pass",what:"Staff build your unit a turnkey trip: the 35-mile Kesugi Ridge with views of Denali, sea kayaking Resurrection Bay to the WWII Fort McGilvray plus a fishing charter, or Crow Pass past Raven Glacier. Transport, lodging, food and guides included.",ages:"Registered Scout units",when:"Registration deadline March 31",how:"Fly to Anchorage",link:"https://scoutingalaska.org/alaska-ultimate-high-adventure/"},
+ {name:"Camp Melita Island",where:"Flathead Lake, Montana · Montana Council",ter:"Island",tags:["Island","Sailing"],hook:"Summer camp on your own island",what:"The whole camp is on an island in the largest natural freshwater lake in the West, reachable only by boat. Big- and small-boat sailing; older Scouts can join the ACE high-adventure program.",ages:"Scouts BSA; ACE 14–17",when:"2027 waitlist only; 2028 opens May 15, 2027",how:"Fly to Kalispell",link:"https://scoutingmontana.org/camps/melita-island/"},
+ {name:"Camp Meriwether Frontiersman",where:"Oregon coast · Cascade Pacific Council",ter:"Coast",tags:["Frontier","Horses","Ocean"],hook:"Live like Lewis & Clark at a full replica of Fort Clatsop, on the Pacific beach",what:"The Frontiersman program runs out of a full replica of Lewis and Clark's 1805 winter fort, with staff in historic dress teaching blacksmithing, candle-making and black-powder marksmanship. The rest of camp is just as unusual: 2 miles of private beach, sandboarding down the dunes, land sailing, clamming and crabbing, sea kayaking, beach horseback rides (10+, about $50) and a 72-ft climbing tower. Celebrated 100 years in 2026.",ages:"Scouts BSA",when:"Summer sessions; Rover Camp week for individual Scouts",how:"Fly to Portland",link:"https://scoutcampsnw.org/camps/camp-meriwether/"},
+ {name:"Goshen Lenhok'sin High Adventure",where:"Virginia · National Capital Area Council",ter:"Mountain",tags:["Caving","Horses","Wilderness trek"],hook:"Caving, rappelling and horses in the Virginia mountains",what:"High adventure out of Camp Baird at Goshen: wild caving, rappelling, horsemanship, black powder rifle, fishing and canoeing on 425-acre Lake Merriweather.",ages:"Older Scouts",when:"Summer",how:"Fly to Roanoke",link:"https://en.wikipedia.org/wiki/Goshen_Scout_Reservation"},
+ {name:"Maine High Adventure",where:"Baxter State Park edge, Maine · Katahdin Area Council",ter:"Lake & River",tags:["Paddling","Wilderness trek"],hook:"Custom North Woods canoe trek plus a climb of Mount Katahdin",what:"Fully outfitted canoe treks through northern Maine with whitewater and a summit of Katahdin, the end of the Appalachian Trail. Only 25–50 crews a season.",ages:"Crews; call 207-949-5260",when:"6+ days, you pick the dates",how:"Fly to Bangor",link:"https://mainehighadventure.org/"},
+ {name:"Emerald Bay Rugged C",where:"Catalina, California · Western LA County Council",ter:"Island",tags:["Paddling","Ocean","Day’s drive"],hook:"Paddle an 8-person war canoe around Catalina Island",what:"Part of Emerald Bay summer camp. Its sister programs: Rugged T backpacks the 38.5-mile Trans-Catalina Trail, and Rugged E kayaks with beach overnights.",ages:"14+",when:"2026 weeks 7–8 (July 19–Aug 1)",how:"Ferry from San Pedro",link:"https://www.campemeraldbay.org/scout-programs/high-adventures/"},
+ {name:"Camp Oljato",where:"Huntington Lake, California · Pacific Skyline Council",ter:"Lake & River",tags:["Sailing","Horses","Day’s drive"],hook:"Arrive by barge and sail a 7,000-ft Sierra lake",what:"Everything and everyone crosses the lake by passenger barge. Huntington Lake is one of the best sailing lakes in the West, and Oljato adds motorboating, horsemanship and welding.",ages:"Scouts BSA",when:"Youth $890/week (2026)",how:"4.5 hr drive",link:"https://scoutingevent.com/Download/031176400/OR/2026_Oljato_Leader_Guide.pdf"},
+ {name:"Mataguay aviation",where:"Santa Ysabel, California · San Diego-Imperial Council",ter:"Mountain",tags:["Aviation","Day’s drive"],hook:"Earn Aviation at summer camp with a real glider flight",what:"Mataguay's Aviation merit badge includes a glider ride (chosen by lottery). Also welding and trades badges and cowboy action shooting for 14+.",ages:"Scouts BSA; cowboy action 14+",when:"2027 sessions June 13–July 3",how:"3 hr drive",link:"https://www.sdicscouting.org/camping/summer-programs/mataguay-scout-ranch-summer-camp"},
+ {name:"Emerson Hylanders",where:"Idyllwild, California · California Inland Empire Council",ter:"Mountain",tags:["Frontier","Day’s drive"],hook:"Emerson Hylanders: a mountain-man program with blacksmithing, tomahawks and black powder",what:"New for 2027 at Camp Emerson: frontier skills for older Scouts, with blacksmithing, black powder rifle and shotgun, tomahawks, cowboy action shooting, survival, climbing and mountain-man history.",ages:"Older Scouts",when:"2027 weeks July 11–24",how:"2.5 hr drive",link:"https://iescouts.org/summercamp/"}
+];
+function campCard(c,extra){return `<article class="card"><div class="meta"><span class="pill p-ter">${c.ter}</span><span class="pill p-drive">${c.drive||c.how}</span>${c.type?`<span class="pill p-fit">${c.type}</span>`:""}${c.status?`<span class="pill ${/Closed/.test(c.status)?"p-warn":"p-stay"}">${c.status}</span>`:""}</div><h3>${c.name}</h3>${c.hook?`<p class="hook">${c.hook}</p>`:""}<p class="know" style="border:0;padding:0">${c.council||c.where}${c.council?" · "+c.where:""}</p><p>${c.what}</p>${c.ages?`<p class="know">Ages: ${c.ages}${c.when?" · "+c.when:""}${c.drive?"":" · Getting there: "+c.how}</p>`:""}<div class="badges">${c.tags.map(t=>`<span class="badge">${t}</span>`).join("")}</div><div class="cardfoot"><a href="${c.link}" target="_blank" rel="noopener">Source ↗</a></div></article>`}
+function tagFilter(listId,outId,data){
+  const tags=[...new Set(data.flatMap(c=>c.tags.concat([c.ter])))].sort();let on="";
+  const wrap=$(listId);
+  const draw=()=>{$(outId).innerHTML=data.filter(c=>!on||c.tags.includes(on)||c.ter===on).map(c=>campCard(c)).join("");wrap.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===on))};
+  wrap.innerHTML=`<button class="chip" type="button" data-t="">All</button>`+tags.map(t=>`<button class="chip" type="button" data-t="${t}">${t}</button>`).join("");
+  wrap.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;on=b.dataset.t;draw()};draw();
+}
+tagFilter("#campFilter","#campsOut",CAMPS);
+tagFilter("#sumFilter","#summerOut",SUMMER);
+// ---------- big trip planner ----------
+const DATES=[
+ ["2026-11-01","2026-11-30","Lottery open","Horse Trek: Butte Creek to Camp Baldwin (summer 2027)","https://cpcscouting.org/horses/"],
+ ["2026-12-01","","Phone reservations open for Jan–Feb camping","Catalina: Two Harbors and Parsons Landing","https://visitcatalinaisland.com/twoHarbors/camp_parsonsLanding.php"],
+ ["2026-12-05","","Council 20-Mile Hike (expected early Dec; last year Dec 6)","Gabrielino Trail, Hiking merit badge","https://scoutingevent.com/033-GabrielinoNationalRecreationTrail"],
+ ["2026-12-31","","Early-bird deadline (save $50)","Camp Emerson / Emerson Hylanders 2027","https://iescouts.org/summercamp/"],
+ ["2027-01-05","","Online campground reservations open for 2027","Catalina: Trans-Catalina Trail, Parsons Landing, Two Harbors","https://visitcatalinaisland.com/twoHarbors/camp_parsonsLanding.php"],
+ ["2027-01-13","","Registration opens (expected, for 2028)","Summit Bechtel Reserve","https://onscouting.org/2025/12/11/register-soon-for-your-high-adventure-experience/"],
+ ["2027-01-14","","Registration opens (expected, for 2028)","Northern Tier","https://onscouting.org/2025/12/11/register-soon-for-your-high-adventure-experience/"],
+ ["2027-01-15","","Registration opens (expected, for 2028)","Sea Base (Bahamas tall ship, St. Thomas, Keys)","https://onscouting.org/2025/12/11/register-soon-for-your-high-adventure-experience/"],
+ ["2027-01-29","","Payment installment","Mataguay Scout Ranch 2027","https://www.sdicscouting.org/camping/summer-programs/mataguay-scout-ranch-summer-camp"],
+ ["2027-02-01","2027-03-01","Permit lottery open","Mount Whitney (day hike or Trail Camp)","https://www.fs.usda.gov/r05/inyo/wilderness/mount-whitney"],
+ ["2027-03-15","","Lottery results posted","Mount Whitney","https://www.fs.usda.gov/r05/inyo/wilderness/mount-whitney"],
+ ["2027-03-31","","Registration deadline","Alaska Ultimate High Adventure","https://scoutingalaska.org/alaska-ultimate-high-adventure/"],
+ ["2027-04-30","","Balance due; Emerson late fee starts after today","Mataguay and Camp Emerson 2027","https://www.sdicscouting.org/camping/summer-programs/mataguay-scout-ranch-summer-camp"],
+ ["2027-05-01","","Roster and balance due","Philmont Cavalcade and Ranch Hands 2027","https://www.philmontscoutranch.org/treks/crew/cavalcade"],
+ ["2027-05-15","","2028 registration opens","Camp Melita Island","https://scoutingmontana.org/camps/melita-island/"],
+ ["2027-07-30","2027-08-08","Event","World Scout Jamboree, Poland","https://en.wikipedia.org/wiki/26th_World_Scout_Jamboree"],
+ ["2027-10-01","","Reservations open for 2029 treks","Philmont (incl. Cavalcade)","https://www.philmontscoutranch.org/treks/crew/cavalcade"],
+ ["2027-11-01","2027-11-30","Lottery open (expected, for 2028)","Horse Trek: Butte Creek to Camp Baldwin","https://cpcscouting.org/horses/"]
+];
+function renderDates(){
+  const today=new Date();today.setHours(0,0,0,0);
+  const fmt=d=>new Date(d+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+  const rows=DATES.filter(r=>new Date((r[1]||r[0])+"T23:59:59")>=today).map(r=>{
+    const start=new Date(r[0]+"T00:00:00"),days=Math.round((start-today)/864e5);
+    const cd=days>0?`in ${days} day${days===1?"":"s"}`:(r[1]?"open now":"today");
+    const soon=days<=30;
+    return `<tr><td class="mo">${fmt(r[0])}${r[1]?" – "+fmt(r[1]):""}</td><td>${r[2]}</td><td><a href="${r[4]}" target="_blank" rel="noopener">${r[3]}</a></td><td class="mo" style="${soon?"color:var(--blaze);font-weight:700":""}">${cd}</td></tr>`});
+  $("#datesOut").innerHTML=rows.join("")||`<tr><td colspan="4"><em>No upcoming dates; time for an update.</em></td></tr>`;
+}
+renderDates();
 // ---------- pack ----------
 function renderPack(){
   const pk=items.filter(i=>i.fit==="Both"&&i.status!=="closed").sort((a,b)=>a.drive-b.drive);
@@ -564,10 +730,10 @@ $("#bfOut").innerHTML=allBadges.map(b=>`<div class="bfitem"><h4>${b}</h4><ul>${i
 
 // ---------- tabs ----------
 $("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
-const TABS=["explore","hike","bp","pack","plan","combos","badges"];
+const TABS=["explore","hike","bp","urban","pack","plan","combos","dates","camps","summer","badges","awards"];
 function show(id){TABS.forEach(t=>{$("#"+t).hidden=t!==id;$("#t-"+t).setAttribute("aria-selected",t===id)});store.set("tb-tab",id);window.scrollTo({top:0})}
 TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
-render();renderPlan();renderPack();renderHike();renderBP();
+render();renderPlan();renderPack();renderHike();renderBP();renderUrban();
 const h=(location.hash||"").slice(1);show(TABS.includes(h)?h:store.get("tb-tab","explore"));
 </script>
 
