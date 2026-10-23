@@ -54,6 +54,10 @@ nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:v
 nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px 0}
 nav.tabs button{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;background:transparent;color:#cfe2d6;border:0;padding:8px 14px 10px;border-radius:6px 6px 0 0;cursor:pointer;white-space:nowrap}
 nav.tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink)}
+.jump{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.jump span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+section.sub{margin-top:36px;padding-top:28px;border-top:3px solid var(--line)}
+section[role=tabpanel]{scroll-margin-top:70px}
 nav.tabs button:focus-visible{outline:2px solid var(--blaze);outline-offset:-2px}
 main .wrap{padding-block:20px 48px}
 [hidden]{display:none!important}
@@ -158,19 +162,17 @@ tr:last-child td{border-bottom:0}
 </header>
 <nav class="tabs" aria-label="Sections">
   <div class="wrap" role="tablist">
-    <button role="tab" id="t-explore" aria-controls="explore" aria-selected="true">Explore</button>
-    <button role="tab" id="t-hike" aria-controls="hike" aria-selected="false">Hiking</button>
-    <button role="tab" id="t-bp" aria-controls="bp" aria-selected="false">Backpacking</button>
-    <button role="tab" id="t-urban" aria-controls="urban" aria-selected="false">Urban Treks</button>
-    <button role="tab" id="t-pack" aria-controls="pack" aria-selected="false">Pack</button>
-    <button role="tab" id="t-plan" aria-controls="plan" aria-selected="false">6-Year Plan</button>
-    <button role="tab" id="t-combos" aria-controls="combos" aria-selected="false">Weekend Combos</button>
-    <button role="tab" id="t-bts" aria-controls="bts" aria-selected="false">Behind the Scenes</button>
-    <button role="tab" id="t-dates" aria-controls="dates" aria-selected="false">Big Trip Planner</button>
-    <button role="tab" id="t-camps" aria-controls="camps" aria-selected="false">Scout Camps</button>
-    <button role="tab" id="t-summer" aria-controls="summer" aria-selected="false">Summer Camp Finder</button>
-    <button role="tab" id="t-badges" aria-controls="badges" aria-selected="false">Badge Finder</button>
-    <button role="tab" id="t-awards" aria-controls="awards" aria-selected="false">Outdoor Awards</button>
+    <button role="tab" id="t-explore" aria-selected="true">Explore</button>
+    <button role="tab" id="t-g-hb" aria-selected="false">Hikes &amp; Bikes</button>
+    <button role="tab" id="t-bp" aria-selected="false">Backpacking</button>
+    <button role="tab" id="t-pack" aria-selected="false">Pack</button>
+    <button role="tab" id="t-plan" aria-selected="false">6-Year Plan</button>
+    <button role="tab" id="t-combos" aria-selected="false">Weekend Combos</button>
+    <button role="tab" id="t-city" aria-selected="false">City Explorer</button>
+    <button role="tab" id="t-bts" aria-selected="false">Behind the Scenes</button>
+    <button role="tab" id="t-camps" aria-selected="false">Scout Camps</button>
+    <button role="tab" id="t-g-adv" aria-selected="false">Adventure Camps</button>
+    <button role="tab" id="t-g-ba" aria-selected="false">Badges &amp; Awards</button>
   </div>
 </nav>
 <main><div class="wrap">
@@ -205,8 +207,8 @@ tr:last-child td{border-bottom:0}
   </div>
 </section>
 
-<section role="tabpanel" id="hike" aria-labelledby="t-hike" hidden>
-  <h2>Hiking</h2>
+<section role="tabpanel" id="hike" aria-labelledby="t-g-hb" hidden>
+  <h2 class="sech">Trail hikes</h2>
   <p class="lead">Day hikes only (back to the car by evening). Overnight trips are on the Backpacking tab. Here you'll find the Hiking merit badge rules, a one-year plan that finishes the badge, and every day hike sorted from training hikes up to 20-milers.</p>
   <div class="reqs">
     <div class="req"><h3>Hiking merit badge</h3><ul>
@@ -221,72 +223,13 @@ tr:last-child td{border-bottom:0}
       <p class="noa">Each Scout still needs their own log; this is the troop's running total.</p></div>
   </div>
   <h2>One-year hiking plan</h2>
-  <p class="lead">Training hikes first, then the four 10-milers, finishing with the council's 20-mile hike in December. It adds up to about 110 miles: enough for the merit badge, and also the 100 miles for the National Outdoor Badge for Hiking (see the Outdoor Awards tab).</p>
+  <p class="lead">Training hikes first, then the four 10-milers, finishing with the council's 20-mile hike in December. It adds up to about 110 miles: enough for the merit badge, and also the 100 miles for the National Outdoor Badge for Hiking (see Badges &amp; Awards).</p>
   <div class="tablewrap"><table><thead><tr><th>Month</th><th>Hike</th><th>Counts as</th><th>Miles</th><th>Running total</th></tr></thead><tbody id="hikePlan"></tbody></table></div>
   <h2 style="margin-top:28px">The hike ladder</h2>
   <div id="ladder"></div>
 </section>
-
-<section role="tabpanel" id="bts" aria-labelledby="t-bts" hidden>
-  <h2>Behind the scenes</h2>
-  <p class="lead">Places normally off-limits, or special group experiences, sorted cheapest first. Prices are per person and come from current listings where we could find them; always confirm group rates when you book.</p>
-  <div class="chips" id="btsFilter" style="margin-bottom:16px"></div>
-  <div class="grid" id="btsOut"></div>
-</section>
-
-<section role="tabpanel" id="dates" aria-labelledby="t-dates" hidden>
-  <h2>Big Trip Planner</h2>
-  <p class="lead">Every registration window, lottery and payment date for the big trips in this book, in date order, with a countdown. Dates marked "expected" follow last year's pattern; confirm on the linked page. Past dates drop off automatically.</p>
-  <div class="reqs">
-    <div class="req"><h3>Rolling windows</h3><ul>
-      <li><b>Recreation.gov wilderness and backcountry permits</b> (Cottonwood Lakes, Boy Scout Trail): open 6 months before your date.</li>
-      <li><b>San Gorgonio (SGWA) permits:</b> up to 90 days ahead.</li>
-      <li><b>Philmont crew treks and Cavalcade:</b> reservations open October 1, two years before your trek.</li>
-      <li><b>National bases (Summit, Northern Tier, Sea Base):</b> registration opens mid-January about 18 months ahead (January 2027 opens summer 2028) and fills fast.</li></ul></div>
-  </div>
-  <div class="tablewrap"><table><thead><tr><th>When</th><th>What</th><th>Trip</th><th>Countdown</th></tr></thead><tbody id="datesOut"></tbody></table></div>
-</section>
-
-<section role="tabpanel" id="camps" aria-labelledby="t-camps" hidden>
-  <h2>Scout camps within 8 hours</h2>
-  <p class="lead">Council-run Scout camps you can drive to from the Valley, for summer camp or a different kind of weekend. Statuses changed a lot after fires and council property sales, so each card says what we could confirm. Most camps now open registration a year ahead.</p>
-  <div class="chips" id="campFilter" style="margin-bottom:16px"></div>
-  <div class="grid" id="campsOut"></div>
-</section>
-
-<section role="tabpanel" id="summer" aria-labelledby="t-summer" hidden>
-  <h2>Summer camp experience finder</h2>
-  <p class="lead">Every camp offers the same merit badges. These are the outliers worth flying or driving for: a 165-mile horse drive, a real cattle drive, wrangling at Philmont, houseboats in a Louisiana swamp, dog sledding, an island camp, Yellowstone, the World Jamboree and more. Registration dates for all of them are on the Big Trip Planner tab. Each card leads with the one thing you can't get anywhere else. Many fill by lottery, so watch the "when" line.</p>
-  <div class="chips" id="sumFilter" style="margin-bottom:16px"></div>
-  <div class="grid" id="summerOut"></div>
-</section>
-
-<section role="tabpanel" id="awards" aria-labelledby="t-awards" hidden>
-  <h2>National Outdoor Badges</h2>
-  <p class="lead">Scouting America's National Outdoor Badges recognize Scouts who keep getting outside: Camping, Hiking, Aquatics, Conservation, Riding and Adventure. Each needs First Class rank, a few merit badges, and logged nights, miles or hours. Below are the requirements in short and the trips in this book that help with each.</p>
-  <div class="reqs">
-    <div class="req"><h3>Troop hiking miles so far</h3>
-      <p>Adds up the miles on hikes and backpacking trips marked Done in this browser. Backpacking, snowshoeing and cross-country skiing miles all count.</p>
-      <div class="mrow"><span>NOA Hiking (100 mi)</span><span id="noaMi"></span></div><div class="meter"><span id="noaBar"></span></div>
-      <p class="noa">Each Scout still needs their own log; this is the troop's running total.</p></div>
-    <div class="req"><h3>How devices work</h3><ul>
-      <li>Each segment has a gold device for every extra block (for example, every extra 50 hiking miles or 25 camping nights).</li>
-      <li>A silver device replaces a bigger block (for example, every extra 200 hiking miles).</li>
-      <li>The unit leader submits the application to the council service center.</li></ul></div>
-  </div>
-  <div class="reqs" id="noaOut"></div>
-</section>
-
-<section role="tabpanel" id="bp" aria-labelledby="t-bp" hidden>
-  <h2>Backpacking</h2>
-  <p class="lead"><strong>Hiking</strong> is a day trip: out and back to the car by evening. <strong>Backpacking</strong> means sleeping on the trail and carrying all your food, water and shelter. These trips run from a first overnight to the summit of Mount Whitney, with what each trail camp actually has: sites, water, toilets, fire rings, tables, permits and a base camp nearby.</p>
-  <div class="scale" id="bpScale"></div>
-  <div id="bpOut"></div>
-  <p class="note">Trail camp details come from the Forest Service, NPS and trip reports, and they change after fires and storms. Call the ranger district before every trip. Backpacking miles and nights count toward the National Outdoor Badges for Hiking and Camping; overnight trips don't count as Hiking merit badge hikes.</p>
-</section>
-
-<section role="tabpanel" id="urban" aria-labelledby="t-urban" hidden>
-  <h2>Urban treks</h2>
+<section role="tabpanel" id="urban" aria-labelledby="t-g-hb" hidden>
+  <h2 class="sech">Urban hikes &amp; bike paths</h2>
   <p class="lead">Simple Saturday or Sunday treks across LA with interesting stops along the way, most starting and ending at a Metro station so you can ride home from somewhere new. Walks are 10+ miles; bike rides stay on dedicated bike paths. Walking mileages are approximate, so trace your route in a map app before you go.</p>
   <div class="reqs">
     <div class="req"><h3>Good to know</h3><ul>
@@ -300,6 +243,70 @@ tr:last-child td{border-bottom:0}
   <h3 class="urbanh">Bike-path rides</h3>
   <div class="grid" id="urbanRides"></div>
 </section>
+
+
+<section role="tabpanel" id="city" aria-labelledby="t-city" hidden>
+  <h2>City Explorer</h2>
+  <p class="lead">Quirky, historic and hands-on LA spots for a den meeting outing or a patrol day, split by age. Many are in or near the Valley. Places already elsewhere in the Trailbook (Travel Town, Tar Pits, Endeavour, JPL, Petersen, the Japanese Garden) aren't repeated here.</p>
+  <h3 class="urbanh">Cub Scouts (elementary)</h3>
+  <div class="grid" id="cityCub"></div>
+  <h3 class="urbanh">Scouts BSA (teens)</h3>
+  <div class="grid" id="cityTeen"></div>
+  <div class="reqs" style="margin-top:24px">
+    <div class="req"><h3>Further reading: LA guidebooks</h3><p>Good places to dig for more ideas. We can't reproduce their lists, but they're worth a library hold.</p><ul>
+      <li><b>The Best Things to Do in Los Angeles: 1001 Ideas</b> (Joy Yoon): huge themed idea list; skim for kid-friendly and history picks.</li>
+      <li><b>100 Things to Do in Los Angeles Before You Die</b> (Danny Jensen &amp; Carrie Kim): bucket-list style; good for a "patrol challenge" list.</li>
+      <li><b>An Architectural Guidebook to Los Angeles</b> (David Gebhard &amp; Robert Winter): building-by-building; great for planning urban walks and the Architecture merit badge.</li>
+      <li><b>Exploring Southern California: 80 Outings for the Urban Adventurer</b> (William A. Hoffman): historic districts and lesser-known outings.</li>
+      <li><b>The Rough Guide to Los Angeles &amp; Southern California</b>: broad regional guide, useful for weekend combos farther out.</li>
+      <li><b>111 Shops in Los Angeles That You Must Not Miss</b> (Desa Philadelphia): mostly shopping; least useful for Scout outings.</li></ul></div>
+  </div>
+</section>
+
+<section role="tabpanel" id="bts" aria-labelledby="t-bts" hidden>
+  <h2>Behind the scenes</h2>
+  <p class="lead">Places normally off-limits, or special group experiences, sorted cheapest first. Prices are per person and come from current listings where we could find them; always confirm group rates when you book.</p>
+  <div class="chips" id="btsFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="btsOut"></div>
+</section>
+
+
+<section role="tabpanel" id="camps" aria-labelledby="t-camps" hidden>
+  <h2>Scout camps within 8 hours</h2>
+  <p class="lead">Council-run Scout camps you can drive to from the Valley, for summer camp or a different kind of weekend. Statuses changed a lot after fires and council property sales, so each card says what we could confirm. Most camps now open registration a year ahead.</p>
+  <div class="chips" id="campFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="campsOut"></div>
+</section>
+
+<section role="tabpanel" id="summer" aria-labelledby="t-g-adv" hidden>
+  <h2 class="sech">Summer camp finder</h2>
+  <p class="lead">Every camp offers the same merit badges. These are the outliers worth flying or driving for: a 165-mile horse drive, a real cattle drive, wrangling at Philmont, houseboats in a Louisiana swamp, dog sledding, an island camp, Yellowstone, the World Jamboree and more. Registration dates for all of them are in the Big Trip Planner below. Each card leads with the one thing you can't get anywhere else. Many fill by lottery, so watch the "when" line.</p>
+  <div class="chips" id="sumFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="summerOut"></div>
+</section>
+<section role="tabpanel" id="dates" aria-labelledby="t-g-adv" hidden>
+  <h2 class="sech">Big Trip Planner</h2>
+  <p class="lead">Every registration window, lottery and payment date for the big trips in this book, in date order, with a countdown. Dates marked "expected" follow last year's pattern; confirm on the linked page. Past dates drop off automatically.</p>
+  <div class="reqs">
+    <div class="req"><h3>Rolling windows</h3><ul>
+      <li><b>Recreation.gov wilderness and backcountry permits</b> (Cottonwood Lakes, Boy Scout Trail): open 6 months before your date.</li>
+      <li><b>San Gorgonio (SGWA) permits:</b> up to 90 days ahead.</li>
+      <li><b>Philmont crew treks and Cavalcade:</b> reservations open October 1, two years before your trek.</li>
+      <li><b>National bases (Summit, Northern Tier, Sea Base):</b> registration opens mid-January about 18 months ahead (January 2027 opens summer 2028) and fills fast.</li></ul></div>
+  </div>
+  <div class="tablewrap"><table><thead><tr><th>When</th><th>What</th><th>Trip</th><th>Countdown</th></tr></thead><tbody id="datesOut"></tbody></table></div>
+</section>
+
+
+
+<section role="tabpanel" id="bp" aria-labelledby="t-bp" hidden>
+  <h2>Backpacking</h2>
+  <p class="lead"><strong>Hiking</strong> is a day trip: out and back to the car by evening. <strong>Backpacking</strong> means sleeping on the trail and carrying all your food, water and shelter. These trips run from a first overnight to the summit of Mount Whitney, with what each trail camp actually has: sites, water, toilets, fire rings, tables, permits and a base camp nearby.</p>
+  <div class="scale" id="bpScale"></div>
+  <div id="bpOut"></div>
+  <p class="note">Trail camp details come from the Forest Service, NPS and trip reports, and they change after fires and storms. Call the ranger district before every trip. Backpacking miles and nights count toward the National Outdoor Badges for Hiking and Camping; overnight trips don't count as Hiking merit badge hikes.</p>
+</section>
+
 
 <section role="tabpanel" id="pack" aria-labelledby="t-pack" hidden>
   <h2>Pack outings</h2>
@@ -320,11 +327,27 @@ tr:last-child td{border-bottom:0}
   <div class="combos" id="comboOut"></div>
 </section>
 
-<section role="tabpanel" id="badges" aria-labelledby="t-badges" hidden>
-  <h2>Badge finder</h2>
+<section role="tabpanel" id="badges" aria-labelledby="t-g-ba" hidden>
+  <h2 class="sech">Merit badge finder</h2>
   <p class="lead">Merit badges these trips can support. A trip covers part of a badge's requirements at most; work with a registered counselor for sign-offs.</p>
   <div class="bf" id="bfOut"></div>
 </section>
+<section role="tabpanel" id="awards" aria-labelledby="t-g-ba" hidden>
+  <h2 class="sech">National Outdoor Badges</h2>
+  <p class="lead">Scouting America's National Outdoor Badges recognize Scouts who keep getting outside: Camping, Hiking, Aquatics, Conservation, Riding and Adventure. Each needs First Class rank, a few merit badges, and logged nights, miles or hours. Below are the requirements in short and the trips in this book that help with each.</p>
+  <div class="reqs">
+    <div class="req"><h3>Troop hiking miles so far</h3>
+      <p>Adds up the miles on hikes and backpacking trips marked Done in this browser. Backpacking, snowshoeing and cross-country skiing miles all count.</p>
+      <div class="mrow"><span>NOA Hiking (100 mi)</span><span id="noaMi"></span></div><div class="meter"><span id="noaBar"></span></div>
+      <p class="noa">Each Scout still needs their own log; this is the troop's running total.</p></div>
+    <div class="req"><h3>How devices work</h3><ul>
+      <li>Each segment has a gold device for every extra block (for example, every extra 50 hiking miles or 25 camping nights).</li>
+      <li>A silver device replaces a bigger block (for example, every extra 200 hiking miles).</li>
+      <li>The unit leader submits the application to the council service center.</li></ul></div>
+  </div>
+  <div class="reqs" id="noaOut"></div>
+</section>
+
 
 <p class="note">Drive times are rough estimates from Van Nuys without traffic. Hours, prices, permits and closures change often, especially after fires, so call or check the linked source before booking. High-adventure activities (climbing, shooting, boating, whitewater, snow camping, scuba) follow the Guide to Safe Scouting and need trained supervision.</p>
 </div></main>
@@ -619,7 +642,7 @@ document.addEventListener("click",e=>{const g=e.target.closest("[data-goto]");if
 const HPLAN=[["Jan","rocky","Training"],["Feb","sandstone","Training"],["Mar","ojaitrail","10-miler #1 (one way, shuttle)"],["Apr","hollysign","Training"],["May","bridge","10-miler #2"],["Jun","sanjac","10-miler #3 (day hike from the tram)"],["Jul",null,"Summer camp"],["Aug","baldy","10-miler #4 (or Cucamonga Peak)"],["Sep","gorgonio","Bonus long hike"],["Oct","orient","Orienteering MB (needed for the NOA)"],["Nov","lostpalms","Training"],["Dec","gabrielino","20-miler"]];
 const NOA=[
  ["Camping","Camping MB; two of Cooking, First Aid, Pioneering MBs; 25 days and nights of camping, including 6 days/5 nights at a resident camp.","Every campout in this book adds nights."],
- ["Hiking","Hiking or Backpacking MB; Orienteering or Geocaching MB; 100 miles (gold device per extra 50, silver per extra 200).","Every day hike and backpacking trip adds miles. The one-year plan on the Hiking tab gets to about 110."],
+ ["Hiking","Hiking or Backpacking MB; Orienteering or Geocaching MB; 100 miles (gold device per extra 50, silver per extra 200).","Every day hike and backpacking trip adds miles. The one-year plan on Hikes &amp; Bikes gets to about 110."],
  ["Aquatics","Swimming MB plus Lifesaving MB; Mile Swim BSA; one watercraft or fishing MB with 25 hours on the water; 50 total hours.","Kayaking, fishing, sailing and swimming trips add hours."],
  ["Conservation","Safe use of five trail tools; Environmental Science (or Sustainability), Soil and Water Conservation, and one of Fish and Wildlife Management, Forestry or Mammal Study; 25 hours of conservation work.","Trail work days add hours; nature trips support the badges."],
  ["Riding","Cycling MB plus 100 miles, or Horsemanship MB plus 20 miles (or other options); 200 total riding miles.","Horseback rides and bike trips add miles."],
@@ -693,6 +716,26 @@ function tagFilter(listId,outId,data){
 }
 tagFilter("#campFilter","#campsOut",CAMPS);
 tagFilter("#sumFilter","#summerOut",SUMMER);
+// ---------- city explorer ----------
+const CITY=[
+ {age:"cub",name:"Los Angeles Live Steamers",cost:"$4 suggested",where:"Griffith Park, next to Travel Town",what:"Ride miniature live-steam trains that volunteers build and run, on tracks winding through the park.",note:"Sundays 11–3, weather permitting. Riders must be at least 34 inches tall.",link:"https://lalsrm.org/public-rides/"},
+ {age:"cub",name:"Bob Baker Marionette Theater",cost:"Check price",where:"Highland Park",what:"The longest continuously running puppet theater in the U.S. (since 1963), now in a 1920s silent movie house. Kids sit right up front with the puppets.",note:"Book a show; ask about group seating.",link:"https://en.wikipedia.org/wiki/Bob_Baker_Marionette_Theater"},
+ {age:"cub",name:"Discovery Cube Los Angeles",cost:"From $17 child / $20 adult",where:"Sylmar, near the Valley",what:"Hands-on science museum with big interactive exhibits.",note:"Group rate for 15+ with a reservation: 714-913-5030. Prices vary by day.",link:"https://discoverycube.org/los-angeles/faq"},
+ {age:"cub",name:"Cabrillo Marine Aquarium",cost:"Free (donation suggested)",where:"San Pedro",what:"Small, kid-sized aquarium of local sea life next to Cabrillo Beach tide pools; home of the grunion programs.",note:"Tue–Fri 12–5, weekends 10–5. Parking $3/hr, $9 max. Suggested donation $5 kids, $10 adults.",link:"https://cma.recreation.parks.lacity.gov/plan-your-visit/admission-open-hours"},
+ {age:"cub",name:"Kidspace Children's Museum",cost:"Check price; monthly free days",where:"Pasadena, by the Rose Bowl",what:"A hands-on, play-based museum built for younger kids, next to the Rose Bowl. Great for Lions, Tigers and Wolves.",note:"Closed on some Rose Bowl event days; check the calendar.",link:"https://www.pasadenanow.com/weekendr/kidspace-childrens-museum-opens-doors-free-on-february-6/"},
+ {age:"both",name:"Mission San Fernando Rey de España",cost:"$4 adult / $3 child",where:"Mission Hills, in the Valley",what:"Founded in 1797, the 17th California mission. Walk the adobe convento and gardens; it now holds the Archdiocese archives.",note:"Call 818-361-0186 for hours and group tours.",link:"https://www.discoverlosangeles.com/things-to-do/mission-san-fernando-rey-de-espana"},
+ {age:"both",name:"Nethercutt Museum & Collection",cost:"Museum free; Collection tour $10–20",where:"Sylmar",what:"Under-10s can walk the free museum building and climb into a 1937 locomotive and private railcar. Teens (10+) can take the guided Collection tour: two floors of classic cars and two of mechanical musical instruments.",note:"Collection tours Thu–Sat, ages 10+, book ahead (groups 10–50: 818-364-6464). Railcar open Thu–Sat 12:30 and 3:45.",link:"https://nethercuttcollection.org/book-a-collection-tour/"},
+ {age:"teen",name:"Watts Towers",cost:"$0–7",where:"Watts",what:"Soaring towers that one Italian immigrant, Simon Rodia, built by hand over 33 years from steel, tile and broken glass. A lesson in perseverance.",note:"Guided tours Thu–Fri 11–3 (lunch break 12:30–1:30); about 30 minutes.",link:"https://culture.lacity.gov/event/tours-of-the-watts-towers"},
+ {age:"teen",name:"Wende Museum of the Cold War",cost:"Free",where:"Culver City",what:"Cold War artifacts from Eastern Europe and the USSR in a 1949 armory that still has its fallout shelters.",note:"Wed–Sun (confirm current hours). Pairs with the Ballona Creek ride or Santa Monica walk.",link:"https://laist.com/news/entertainment/wende-museum-reopening"},
+ {age:"teen",name:"Museum of Jurassic Technology",cost:"$12 ages 13–21; 12 & under free",where:"Culver City",what:"The strangest museum in LA: dim rooms of real and maybe-not-real wonders that make teens argue about what's true.",note:"Thu–Fri 2–8, Sat–Sun 12–6. Reserve timed tickets; small space, split into patrols.",link:"https://mjt.org/vistinfo/hours.html"},
+ {age:"teen",name:"Museum of Tolerance",cost:"Ask group sales",where:"Pico-Robertson",what:"Powerful exhibits on prejudice and the Holocaust; good for Citizenship in the World and Society discussions.",note:"Tolerancenter and Holocaust tours are 7th grade and up; group tours Sun–Fri. Email groupsales@museumoftolerance.com.",link:"https://www.museumoftolerance.com/visit/school-field-trips/frequently-asked-questions.html"},
+ {age:"teen",name:"Getty Villa",cost:"Free; $25 parking",where:"Pacific Palisades",what:"Greek, Roman and Etruscan antiquities in a recreated Roman country house above the ocean.",note:"Reopened June 2025 after the Palisades Fire. Fri–Mon only; timed reservation required.",link:"https://www.nbclosangeles.com/the-scene/getty-villa-shuttered-palisades-fire-reopening-date/3704487/?amp=1"}
+];
+(function(){
+  const c=x=>`<article class="card"><div class="meta"><span class="pill p-cost" style="font-size:13px">${x.cost}</span>${x.age==="both"?'<span class="pill p-fit">Cubs + Scouts</span>':""}</div><h3>${x.name}</h3><p class="know" style="border:0;padding:0">${x.where}</p><p>${x.what}</p><p class="know">${x.note}</p><div class="cardfoot"><a href="${x.link}" target="_blank" rel="noopener">Source ↗</a></div></article>`;
+  $("#cityCub").innerHTML=CITY.filter(x=>x.age!=="teen").map(c).join("");
+  $("#cityTeen").innerHTML=CITY.filter(x=>x.age!=="cub").map(c).join("");
+})();
 // ---------- behind the scenes ----------
 const BTS=[
  {name:"Water reclamation plant tours",price:0,cost:"Free",where:"Tillman (Van Nuys), Hyperion (Playa del Rey), Terminal Island, LA-Glendale",tags:["Free","Science","Near the Valley"],what:"Go inside the plants that clean LA's wastewater and see how it becomes recycled water. Tillman is right in the Sepulveda Basin.",note:"Book by phone: Tillman and LA-Glendale 818-778-4226, Hyperion 310-648-5363, Terminal Island 310-548-7520. Ask about minimum age.",link:"https://sanitation.lacity.gov/san/faces/home/portal/s-lsh-es/s-lsh-es-pt"},
@@ -763,11 +806,17 @@ $("#bfOut").innerHTML=allBadges.map(b=>`<div class="bfitem"><h4>${b}</h4><ul>${i
 
 // ---------- tabs ----------
 $("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
-const TABS=["explore","hike","bp","urban","pack","plan","combos","bts","dates","camps","summer","badges","awards"];
-function show(id){TABS.forEach(t=>{$("#"+t).hidden=t!==id;$("#t-"+t).setAttribute("aria-selected",t===id)});store.set("tb-tab",id);window.scrollTo({top:0})}
+const GROUPS={explore:["explore"],"g-hb":["hike","urban"],bp:["bp"],pack:["pack"],plan:["plan"],combos:["combos"],city:["city"],bts:["bts"],camps:["camps"],"g-adv":["summer","dates"],"g-ba":["badges","awards"]};
+const TABS=Object.keys(GROUPS);
+const PANELS=[].concat(...Object.values(GROUPS));
+const OLD={hike:"g-hb",urban:"g-hb",summer:"g-adv",dates:"g-adv",badges:"g-ba",awards:"g-ba"};
+// jump bar for combined tabs
+Object.entries(GROUPS).forEach(([g,ps])=>{if(ps.length<2)return;const first=$("#"+ps[0]);const bar=document.createElement("div");bar.className="jump";bar.innerHTML='<span>Jump to</span>'+ps.map(p=>`<button type="button" class="linkish" data-jump="${p}">${$("#"+p+" h2").textContent}</button>`).join("");first.prepend(bar);ps.slice(1).forEach(p=>$("#"+p).classList.add("sub"))});
+document.addEventListener("click",e=>{const j=e.target.closest("[data-jump]");if(j){$("#"+j.dataset.jump).scrollIntoView({behavior:"smooth",block:"start"})}});
+function show(req){let id=OLD[req]||req;if(!GROUPS[id])id="explore";PANELS.forEach(p=>$("#"+p).hidden=!GROUPS[id].includes(p));TABS.forEach(t=>$("#t-"+t).setAttribute("aria-selected",t===id));store.set("tb-tab",id);if(OLD[req]&&GROUPS[id][0]!==req)$("#"+req).scrollIntoView({block:"start"});else window.scrollTo({top:0})}
 TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
 render();renderPlan();renderPack();renderHike();renderBP();renderUrban();
-const h=(location.hash||"").slice(1);show(TABS.includes(h)?h:store.get("tb-tab","explore"));
+const h=(location.hash||"").slice(1);show(TABS.includes(h)||OLD[h]?h:store.get("tb-tab","explore"));
 </script>
 
 </body>
