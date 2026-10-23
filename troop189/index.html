@@ -316,7 +316,7 @@
 <body>
 
   <div id="splashOverlay">
-    <video id="splashVideo" autoplay muted playsinline src="/splash_video.mp4"></video>
+    <video id="splashVideo" autoplay muted playsinline src="https://raw.githubusercontent.com/brucewaine1940-jpg/Troop189-assets/main/splash_video.mp4"></video>
   </div>
 
   <div id="patrolBackground"></div>
@@ -749,12 +749,12 @@
       // empty one - which is exactly the distinction between "reopened the site fresh" and
       // "just refreshed what was already open" that neither localStorage alone (persists
       // everywhere) nor no storage at all (replays on every refresh) can express.
-      if (localStorage.getItem('skipSplash') === 'true' || sessionStorage.getItem('splashPlayedThisTab') === 'true') {
+      // Intro plays every time the app opens, unless the Scout has checked "Don't show intro again".
+      if (localStorage.getItem('skipSplash') === 'true') {
         document.getElementById('splashOverlay').style.display = 'none';
         finishSplashAndProceed();
         return;
       }
-      sessionStorage.setItem('splashPlayedThisTab', 'true');
       // Otherwise the splash plays first, every time the app opens - finishSplashAndProceed()
       // (below) runs the actual login/auto-login logic once the video ends, not immediately.
       // A fallback timer covers the case where autoplay gets blocked or the video fails to
