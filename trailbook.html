@@ -165,6 +165,7 @@ tr:last-child td{border-bottom:0}
     <button role="tab" id="t-pack" aria-controls="pack" aria-selected="false">Pack</button>
     <button role="tab" id="t-plan" aria-controls="plan" aria-selected="false">6-Year Plan</button>
     <button role="tab" id="t-combos" aria-controls="combos" aria-selected="false">Weekend Combos</button>
+    <button role="tab" id="t-bts" aria-controls="bts" aria-selected="false">Behind the Scenes</button>
     <button role="tab" id="t-dates" aria-controls="dates" aria-selected="false">Big Trip Planner</button>
     <button role="tab" id="t-camps" aria-controls="camps" aria-selected="false">Scout Camps</button>
     <button role="tab" id="t-summer" aria-controls="summer" aria-selected="false">Summer Camp Finder</button>
@@ -224,6 +225,13 @@ tr:last-child td{border-bottom:0}
   <div class="tablewrap"><table><thead><tr><th>Month</th><th>Hike</th><th>Counts as</th><th>Miles</th><th>Running total</th></tr></thead><tbody id="hikePlan"></tbody></table></div>
   <h2 style="margin-top:28px">The hike ladder</h2>
   <div id="ladder"></div>
+</section>
+
+<section role="tabpanel" id="bts" aria-labelledby="t-bts" hidden>
+  <h2>Behind the scenes</h2>
+  <p class="lead">Places normally off-limits, or special group experiences, sorted cheapest first. Prices are per person and come from current listings where we could find them; always confirm group rates when you book.</p>
+  <div class="chips" id="btsFilter" style="margin-bottom:16px"></div>
+  <div class="grid" id="btsOut"></div>
 </section>
 
 <section role="tabpanel" id="dates" aria-labelledby="t-dates" hidden>
@@ -685,6 +693,31 @@ function tagFilter(listId,outId,data){
 }
 tagFilter("#campFilter","#campsOut",CAMPS);
 tagFilter("#sumFilter","#summerOut",SUMMER);
+// ---------- behind the scenes ----------
+const BTS=[
+ {name:"Water reclamation plant tours",price:0,cost:"Free",where:"Tillman (Van Nuys), Hyperion (Playa del Rey), Terminal Island, LA-Glendale",tags:["Free","Science","Near the Valley"],what:"Go inside the plants that clean LA's wastewater and see how it becomes recycled water. Tillman is right in the Sepulveda Basin.",note:"Book by phone: Tillman and LA-Glendale 818-778-4226, Hyperion 310-648-5363, Terminal Island 310-548-7520. Ask about minimum age.",link:"https://sanitation.lacity.gov/san/faces/home/portal/s-lsh-es/s-lsh-es-pt"},
+ {name:"Port of LA harbor boat tours",price:0,cost:"Free",where:"San Pedro",tags:["Free","Ocean"],what:"Cruise past cargo ships, giant cranes and container terminals at the busiest port in the country.",note:"Only on select dates (World Trade Week in May and a September date in 2026). Watch the port's events page or call 310-732-3508.",link:"https://www.portoflosangeles.org/community/events/free-harbor-boat-tours"},
+ {name:"LA City Hall observation deck",price:0,cost:"Free",where:"Downtown LA",tags:["Free","History"],what:"A 27th-floor open-air deck with a 360° view, past the mayors' portraits.",note:"Weekdays 8 am–5 pm only; metal detector and visitor badge. Pairs with the Downtown LA history walk.",link:"https://californiathroughmylens.com/la-observation-deck/"},
+ {name:"NASA JPL tour",price:0,cost:"Free",where:"Pasadena",tags:["Free","Space","Science"],what:"See where Mars rovers and deep-space probes are built and flown.",note:"Book months ahead; ID and security screening required. Also in the Explore tab.",link:"https://www.coloradoboulevard.net/jpl-free-public-tour/"},
+ {name:"Space Shuttle Endeavour",price:0,cost:"Free",where:"Exposition Park",tags:["Free","Space"],what:"Endeavour standing upright in launch position in its new Air and Space Center (opening Nov 13, 2026).",note:"Free admission; timed reservations strongly encouraged.",link:"https://laist.com/news/arts-and-entertainment/california-science-center-announces-early-reservations-to-see-space-shuttle-endeavour"},
+ {name:"Japanese Garden at the Tillman plant",price:5,cost:"$5",where:"Van Nuys",tags:["Near the Valley","Science"],what:"A 6.5-acre Japanese garden watered entirely by recycled water from the plant next door.",note:"Mon–Thu and the second Sunday of each month (cultural program that day), 9:30–3:30. Pair it with the free Tillman plant tour.",link:"https://www.timeout.com/los-angeles/attractions/the-japanese-garden"},
+ {name:"Rancho Cucamonga Quakes Scout campout",price:25,cost:"$25",where:"Rancho Cucamonga",tags:["Overnight","Sports"],what:"Game ticket, Scout patch, pre-game parade on the field, post-game movie, campout next to the ballpark and breakfast.",note:"2025 price; campers sleep on the adjacent softball field. Usually an early-June Friday.",link:"https://www.milb.com/rancho-cucamonga/tickets/scout-night"},
+ {name:"Lake Elsinore Storm Scout campout",price:26,cost:"$26",where:"Lake Elsinore",tags:["Overnight","Sports"],what:"Parade on the field, Storm patch, run the bases, movie on the videoboard, then sleep overnight at the Diamond.",note:"$20 without camping. Call 951-245-HITS for the 2027 date.",link:"https://www.milb.com/lake-elsinore/tickets/scouts"},
+ {name:"Dodger Stadium tour",price:42,cost:"~$42",where:"Elysian Park",tags:["Sports"],what:"Dugout, players' tunnel and press box on the standard 75-minute tour. The ~$82 Dodger for a Day tour adds the clubhouse.",note:"Non-game days; confirm youth and group pricing.",link:"https://thebettervacation.com/los-angeles/dodger-stadium-tour/amp/"},
+ {name:"Petersen Museum Vault",price:42,cost:"$42 youth",where:"Miracle Mile",tags:["Science"],what:"A guided tour of the hidden vault of rare and famous cars under the museum.",note:"Youth 12–17 $42 with the Vault ($13 general admission only); adults $51.",link:"https://thebettervacation.com/petersen-automotive-museum"},
+ {name:"SoFi Stadium tour",price:56,cost:"~$56",where:"Inglewood",tags:["Sports"],what:"About 75 minutes behind the scenes, including a team locker room when available and the equipment room.",note:"Price from a third-party listing; ask the stadium directly about group rates.",link:"https://vacatis.com/sofi-stadium-tours"},
+ {name:"Warner Bros. Studio Tour",price:57,cost:"$57–66",where:"Burbank",tags:["Near the Valley"],what:"Real working sets, the Batmobile collection, the Friends set and Harry Potter's Great Hall.",note:"Ages 5–10 $57, 11+ $66, SoCal residents $58. No children under 5.",link:"https://thebettervacation.com/los-angeles/warner-brothers-studio-tour-discount/amp/"},
+ {name:"Aquarium of the Pacific sleepover",price:70,cost:"~$70",where:"Long Beach",tags:["Overnight","Ocean","Science"],what:"Sleep in the aquarium gallery with a shark touch, a glow-in-the-dark scavenger hunt, dinner and breakfast.",note:"Price from an older listing; confirm current dates and group pricing. Also in the Explore tab.",link:"https://www.timeout.com/los-angeles/families/new-years-eve-family-sleepover-at-aquarium-of-the-pacific"},
+ {name:"Camp Battleship (USS Iowa)",price:110,cost:"$110",where:"San Pedro",tags:["Overnight","History","Ocean"],what:"Sleep in Navy berthing racks, eat dinner on the mess decks, sailor skills and after-hours exploring of the ship.",note:"Ages 6+, groups up to 180 a night, 1 adult per 10 youth. Bring a sleeping bag; no showers.",link:"https://pacificbattleship.com/camp-battleship-overnight/"},
+ {name:"Rose Bowl stadium tour",price:null,cost:"Check price",where:"Pasadena",tags:["Sports","History"],what:"The original 1922 locker room, the press box, the field and stories from a century of games.",note:"Last Friday of each month, 10:30 am. Tickets through the Rose Bowl events calendar.",link:"https://www.coloradoboulevard.net/events/rose-bowl-stadium-tours-2-2026-10-30/"}
+];
+(function(){
+  const bands=[["All",()=>true],["Free",c=>c.price===0],["Under $30",c=>c.price!==null&&c.price<30],["$30–75",c=>c.price>=30&&c.price<=75],["Over $75",c=>c.price>75],["Overnight",c=>c.tags.includes("Overnight")],["Sports",c=>c.tags.includes("Sports")],["Science & space",c=>c.tags.includes("Science")||c.tags.includes("Space")],["Near the Valley",c=>c.tags.includes("Near the Valley")]];
+  let on=0;const wrap=$("#btsFilter");
+  wrap.innerHTML=bands.map((b,i)=>`<button class="chip" type="button" data-i="${i}">${b[0]}</button>`).join("");
+  const draw=()=>{$("#btsOut").innerHTML=BTS.filter(bands[on][1]).sort((a,b)=>(a.price===null?999:a.price)-(b.price===null?999:b.price)).map(c=>`<article class="card"><div class="meta"><span class="pill p-cost" style="font-size:13px">${c.cost}</span>${c.tags.filter(t=>t!=="Free").map(t=>`<span class="pill p-stay">${t}</span>`).join("")}</div><h3>${c.name}</h3><p class="know" style="border:0;padding:0">${c.where}</p><p>${c.what}</p><p class="know">${c.note}</p><div class="cardfoot"><a href="${c.link}" target="_blank" rel="noopener">Source ↗</a></div></article>`).join("");wrap.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.i===on))};
+  wrap.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;on=+b.dataset.i;draw()};draw();
+})();
 // ---------- big trip planner ----------
 const DATES=[
  ["2026-11-01","2026-11-30","Lottery open","Horse Trek: Butte Creek to Camp Baldwin (summer 2027)","https://cpcscouting.org/horses/"],
@@ -730,7 +763,7 @@ $("#bfOut").innerHTML=allBadges.map(b=>`<div class="bfitem"><h4>${b}</h4><ul>${i
 
 // ---------- tabs ----------
 $("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
-const TABS=["explore","hike","bp","urban","pack","plan","combos","dates","camps","summer","badges","awards"];
+const TABS=["explore","hike","bp","urban","pack","plan","combos","bts","dates","camps","summer","badges","awards"];
 function show(id){TABS.forEach(t=>{$("#"+t).hidden=t!==id;$("#t-"+t).setAttribute("aria-selected",t===id)});store.set("tb-tab",id);window.scrollTo({top:0})}
 TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
 render();renderPlan();renderPack();renderHike();renderBP();renderUrban();
