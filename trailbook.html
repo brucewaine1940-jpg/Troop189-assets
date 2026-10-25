@@ -53,6 +53,7 @@ nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:v
 :root[data-theme="dark"] nav.tabs{background:#1d3a2c}
 nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px 0}
 nav.tabs button{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;background:transparent;color:#cfe2d6;border:0;padding:8px 14px 10px;border-radius:6px 6px 0 0;cursor:pointer;white-space:nowrap}
+nav.tabs a.navlink{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#f3d48a;text-decoration:none;padding:8px 14px 10px;white-space:nowrap;align-self:center}
 nav.tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink)}
 .jump{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
 .jump span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -192,7 +193,6 @@ details.sample summary{cursor:pointer;font-weight:700}
     <button role="tab" id="t-explore" aria-selected="true">Explore</button>
     <button role="tab" id="t-g-hb" aria-selected="false">Hikes &amp; Bikes</button>
     <button role="tab" id="t-bp" aria-selected="false">Backpacking</button>
-    <button role="tab" id="t-pack" aria-selected="false">Pack</button>
     <button role="tab" id="t-plan" aria-selected="false">Month by Month</button>
     <button role="tab" id="t-short" aria-selected="false">Shortlist</button>
     <button role="tab" id="t-combos" aria-selected="false">Weekend Combos</button>
@@ -201,6 +201,7 @@ details.sample summary{cursor:pointer;font-weight:700}
     <button role="tab" id="t-camps" aria-selected="false">Scout Camps</button>
     <button role="tab" id="t-g-adv" aria-selected="false">Adventure Camps</button>
     <button role="tab" id="t-g-ba" aria-selected="false">Badges &amp; Awards</button>
+    <a class="navlink" href="pack">Pack Trailbook ↗</a>
   </div>
 </nav>
 <main><div class="wrap">
@@ -336,12 +337,6 @@ details.sample summary{cursor:pointer;font-weight:700}
 </section>
 
 
-<section role="tabpanel" id="pack" aria-labelledby="t-pack" hidden>
-  <h2>Pack outings</h2>
-  <p class="lead">There's now a separate <a href="pack">Pack Trailbook</a> built for Cub families, with overnights, short hikes and the Midway train plan. Trips that work for Cub Scouts and families, roughly 150 people. Campouts are listed first, then unique overnights, then day trips. For big group camps, book the moment the reservation window opens; several have a per-site cap, so you may need two or three sites side by side.</p>
-  <div class="resultbar"><span id="packCount"></span><span>Cost: Free · $ under $15/person · $$ $15–60 · $$$ over $60</span></div>
-  <div id="packOut"></div>
-</section>
 
 <section role="tabpanel" id="plan" aria-labelledby="t-plan" hidden>
   <h2>Month by month</h2>
@@ -473,7 +468,7 @@ function render(){
   $("#grid").innerHTML=list.length?list.map(card).join(""):`<div class="empty">No trips match these filters. Try a longer drive time or clear a filter.</div>`;
   $("#stats").innerHTML=`<span><b>${items.length}</b> trips</span><span><b>${COMBOS.length}</b> weekend combos</span><span><b>${allBadges.length}</b> merit badges</span><span><b>${done.size}</b> done</span>`;
 }
-document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.done;if(!id)return;e.target.checked?done.add(id):done.delete(id);store.set("tb-done",[...done]);render();if(typeof renderMenu==="function")renderMenu();renderPlan();renderPack();renderHike();renderBP();renderUrban()});
+document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.done;if(!id)return;e.target.checked?done.add(id):done.delete(id);store.set("tb-done",[...done]);render();if(typeof renderMenu==="function")renderMenu();renderPlan();renderHike();renderBP();renderUrban()});
 
 // ---------- 6-year plan ----------
 // Drive rule: a normal weekend is 3 hours or less each way. Longer trips only on 3-day weekends or school breaks; 8-hour drives are for summer camp.
@@ -581,12 +576,6 @@ function renderDates(){
 }
 renderDates();
 // ---------- pack ----------
-function renderPack(){
-  const pk=items.filter(i=>i.fit==="Both"&&i.status!=="closed").sort((a,b)=>a.drive-b.drive);
-  const groups=[["Campouts","Campout"],["Unique overnights","Overnight"],["Day trips","Day"]];
-  $("#packCount").innerHTML=`<b>${pk.length}</b> pack-friendly trips`;
-  $("#packOut").innerHTML=groups.map(([h,k])=>{const g=pk.filter(i=>i.stay===k);return g.length?`<div class="packgroup"><h3>${h} <small style="font-family:var(--body);font-size:14px;color:var(--muted);font-weight:400">${g.length}</small></h3><div class="grid">${g.map(card).join("")}</div></div>`:""}).join("");
-}
 // ---------- combos & badges ----------
 $("#comboOut").innerHTML=COMBOS.map(c=>`<article class="combo"><div class="meta"><span class="pill p-drive">${c.drive}</span><span class="pill p-stay">Best: ${c.months.map(m=>M[m-1]).join(", ")}</span></div><h3>${c.name}</h3><p style="margin:0;font-size:14px">${c.plan}</p><ol>${c.stops.map(s=>`<li><a href="${byId[s].link}" target="_blank" rel="noopener">${byId[s].name}</a></li>`).join("")}</ol></article>`).join("");
 $("#bfOut").innerHTML=allBadges.map(b=>`<div class="bfitem"><h4>${b}</h4><ul>${items.filter(i=>i.badges.includes(b)).map(i=>`<li>${i.name}</li>`).join("")}</ul></div>`).join("");
@@ -623,7 +612,7 @@ document.addEventListener("click",e=>{const c=e.target.closest("[data-mm]");if(c
 $("#mHide").onchange=e=>{mmHide=e.target.checked;renderMenu()};
 // ---------- tabs ----------
 $("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
-const GROUPS={explore:["explore"],"g-hb":["hike","urban"],bp:["bp"],pack:["pack"],plan:["plan"],short:["short"],combos:["combos"],city:["city"],bts:["bts"],camps:["camps"],"g-adv":["summer","dates"],"g-ba":["badges","awards"]};
+const GROUPS={explore:["explore"],"g-hb":["hike","urban"],bp:["bp"],plan:["plan"],short:["short"],combos:["combos"],city:["city"],bts:["bts"],camps:["camps"],"g-adv":["summer","dates"],"g-ba":["badges","awards"]};
 const TABS=Object.keys(GROUPS);
 const PANELS=[].concat(...Object.values(GROUPS));
 const OLD={hike:"g-hb",urban:"g-hb",summer:"g-adv",dates:"g-adv",badges:"g-ba",awards:"g-ba"};
@@ -632,7 +621,7 @@ Object.entries(GROUPS).forEach(([g,ps])=>{if(ps.length<2)return;const first=$("#
 document.addEventListener("click",e=>{const j=e.target.closest("[data-jump]");if(j){$("#"+j.dataset.jump).scrollIntoView({behavior:"smooth",block:"start"})}});
 function show(req){let id=OLD[req]||req;if(!GROUPS[id])id="explore";PANELS.forEach(p=>$("#"+p).hidden=!GROUPS[id].includes(p));TABS.forEach(t=>$("#t-"+t).setAttribute("aria-selected",t===id));store.set("tb-tab",id);if(OLD[req]&&GROUPS[id][0]!==req)$("#"+req).scrollIntoView({block:"start"});else window.scrollTo({top:0})}
 TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
-render();renderPlan();renderPack();renderHike();renderBP();renderUrban();renderMenu();renderShort();
+render();renderPlan();renderHike();renderBP();renderUrban();renderMenu();renderShort();
 const h=(location.hash||"").slice(1);show(TABS.includes(h)||OLD[h]?h:store.get("tb-tab","explore"));
 </script>
 
