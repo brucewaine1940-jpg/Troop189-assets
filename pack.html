@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Outings, overnights and short adventures for Cub Scouts ages 5–10 and their families.">
+<title>SoCal Pack Trailbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+/* Layout: sticky trail-sign header with tabs; filter rail over a card grid. Palette from trail blazes and topo maps. */
+:root{
+  --bg:#f5f6f1; --surface:#ffffff; --ink:#1d2a22; --muted:#5d6b61; --line:#d9ded4;
+  --forest:#24553f; --forest-soft:#e3ece5; --blaze:#c4561b; --blaze-soft:#f7e6db;
+  --sky:#2d5e86; --sky-soft:#e1eaf2; --sand:#8a6a2c; --sand-soft:#f3ecdc;
+  --warn:#9b3b1b; --warn-soft:#fbe5dc; --ok:#2f6a3d;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --surface:#19211d; --ink:#e4ebe5; --muted:#9aa89e; --line:#2c3832;
+  --forest:#7fc59c; --forest-soft:#1f3329; --blaze:#f08a4f; --blaze-soft:#3a2418;
+  --sky:#8ab8de; --sky-soft:#1b2a37; --sand:#d8b46a; --sand-soft:#30291b;
+  --warn:#f29a76; --warn-soft:#3b2119; --ok:#86cf96; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#19211d; --ink:#e4ebe5; --muted:#9aa89e; --line:#2c3832;
+  --forest:#7fc59c; --forest-soft:#1f3329; --blaze:#f08a4f; --blaze-soft:#3a2418;
+  --sky:#8ab8de; --sky-soft:#1b2a37; --sand:#d8b46a; --sand-soft:#30291b;
+  --warn:#f29a76; --warn-soft:#3b2119; --ok:#86cf96; color-scheme:dark}
+*{box-sizing:border-box}
+a{color:var(--sky)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--forest)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--forest);color:#fff}
+:root[data-theme="dark"] header.top, header.top{}
+header.top .wrap{padding-block:20px 0}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,40px);letter-spacing:.01em;margin:0;line-height:1.05;color:#fff;text-wrap:balance}
+.tag{font-size:14px;color:#d5e6db;max-width:60ch}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header.top{background:#1d3a2c}}
+:root[data-theme="dark"] header.top{background:#1d3a2c}
+.stats{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-family:var(--mono);font-size:12px;color:#d5e6db}
+.stats b{color:#fff;font-size:15px}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--forest);border-bottom:1px solid rgba(0,0,0,.15)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) nav.tabs{background:#1d3a2c}}
+:root[data-theme="dark"] nav.tabs{background:#1d3a2c}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px 0}
+nav.tabs button{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;background:transparent;color:#cfe2d6;border:0;padding:8px 14px 10px;border-radius:6px 6px 0 0;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{background:var(--bg);color:var(--ink)}
+.jump{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 0 18px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.jump span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+section.sub{margin-top:36px;padding-top:28px;border-top:3px solid var(--line)}
+section[role=tabpanel]{scroll-margin-top:70px}
+nav.tabs button:focus-visible{outline:2px solid var(--blaze);outline-offset:-2px}
+main .wrap{padding-block:20px 48px}
+[hidden]{display:none!important}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}}
+.filters{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (max-width:860px){.filters{position:static}}
+.filters label,.flabel{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:block;margin-bottom:4px}
+input[type=search],select{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--blaze)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:3px 10px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:var(--bg)}
+.chip:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--blaze);outline-offset:2px}
+#moreF{display:none}
+@media (max-width:860px){#moreF{display:block}.filters:not(.open) .fx{display:none}}
+.row{display:flex;align-items:center;gap:8px;font-size:14px}
+.btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:6px 12px;cursor:pointer}
+.resultbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;font-size:14px;color:var(--muted)}
+.resultbar b{color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card.done{opacity:.6}
+.card h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1;margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pill{font-size:12px;font-weight:600;border-radius:4px;padding:1px 7px;white-space:nowrap}
+.p-cat{background:var(--forest-soft);color:var(--forest)}
+.p-drive{font-family:var(--mono);background:var(--sky-soft);color:var(--sky)}
+.p-stretch{background:var(--blaze-soft);color:var(--blaze)}
+.p-fit{background:var(--sand-soft);color:var(--sand)}
+.p-stay{border:1px solid var(--line);color:var(--muted)}
+.p-miles{font-family:var(--mono);background:var(--blaze-soft);color:var(--blaze)}
+.noa{font-size:12.5px;color:var(--forest);font-weight:600}
+.req{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.req h3{font-family:var(--display);font-size:22px;margin:0}
+.req p,.req li{font-size:14px;margin:0}.req ul{margin:0;padding-left:18px}
+.reqs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:24px}
+.meter{height:10px;border-radius:5px;background:var(--bg);border:1px solid var(--line);overflow:hidden}.meter span{display:block;height:100%;background:var(--blaze)}
+.mrow{display:flex;justify-content:space-between;font-size:13.5px;font-family:var(--mono)}
+.p-level{font-weight:700}
+.lv1{background:#dff1e4;color:#1f6b3a}.lv2{background:#e6f0d6;color:#4d6b14}.lv3{background:#fbefcf;color:#80580a}.lv4{background:#fbe1cf;color:#9a3f0d}.lv5{background:#f6d6d6;color:#8f1f1f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lv1{background:#1d3a28;color:#8fd9a6}:root:not([data-theme="light"]) .lv2{background:#2c3a18;color:#bcd98a}:root:not([data-theme="light"]) .lv3{background:#3d3214;color:#efc867}:root:not([data-theme="light"]) .lv4{background:#3f2616;color:#f3a473}:root:not([data-theme="light"]) .lv5{background:#3f1c1c;color:#f19a9a}}
+:root[data-theme="dark"] .lv1{background:#1d3a28;color:#8fd9a6}:root[data-theme="dark"] .lv2{background:#2c3a18;color:#bcd98a}:root[data-theme="dark"] .lv3{background:#3d3214;color:#efc867}:root[data-theme="dark"] .lv4{background:#3f2616;color:#f3a473}:root[data-theme="dark"] .lv5{background:#3f1c1c;color:#f19a9a}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 10px;margin:0;font-size:13.5px;border-top:1px dashed var(--line);padding-top:8px}
+.facts dt{font-weight:700;color:var(--forest);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.facts dd{margin:0;min-width:0}
+.scale{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+.hook{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.2;color:var(--blaze);margin:0}
+.route{font-size:13.5px;border-top:1px dashed var(--line);padding-top:8px}
+.urbanh{font-family:var(--display);font-size:24px;margin:22px 0 10px}
+.p-ter{background:var(--sky-soft);color:var(--sky);font-weight:600}
+.p-cost{font-family:var(--mono);background:var(--forest-soft);color:var(--ink)}
+.phone{font-size:13.5px}.phone .num{font-family:var(--mono);user-select:all}
+.packgroup h3{font-family:var(--display);font-size:24px;margin:20px 0 10px}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.months span{font-family:var(--mono);font-size:9px;text-align:center;padding:2px 0;border-radius:2px;background:var(--bg);color:var(--muted)}
+.months span.on{background:var(--forest);color:var(--bg)}
+.card p{margin:0;font-size:14px}
+.know{font-size:13px;color:var(--muted);border-left:3px solid var(--line);padding-left:8px}
+.badges{display:flex;flex-wrap:wrap;gap:4px}
+.badge{font-size:11.5px;border:1px dashed var(--line);border-radius:999px;padding:1px 8px;color:var(--ink)}
+.cardfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px;border-top:1px solid var(--line);font-size:13px}
+.cardfoot a{color:var(--sky);font-weight:600}
+.combo-tag{font-size:12px;color:var(--blaze);font-weight:600}
+.empty{padding:40px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}
+h2{font-family:var(--display);font-size:30px;margin:0 0 6px;text-wrap:balance}
+.lead{color:var(--muted);max-width:70ch;margin:0 0 18px}
+.year{margin-bottom:26px}
+.year h3{font-family:var(--display);font-size:24px;margin:0 0 8px;display:flex;align-items:baseline;gap:10px}
+.year h3 small{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:400}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg)}
+td.mo{font-family:var(--mono);font-size:13px;white-space:nowrap;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.linkish{background:none;border:0;padding:0;font:inherit;color:var(--sky);font-weight:600;cursor:pointer;text-align:left}
+.combos{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.combo{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.combo h3{font-family:var(--display);font-size:24px;margin:0}
+.combo ol{margin:0;padding-left:20px;font-size:14px}
+.bf{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.bfitem{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.bfitem h4{margin:0 0 6px;font-size:15px}
+.bfitem ul{margin:0;padding-left:18px;font-size:13.5px}
+.note{font-size:13px;color:var(--muted);margin-top:24px;max-width:75ch}
+@media (prefers-reduced-motion:no-preference){.card{transition:opacity .2s}}
+
+/* Pack theme: Cub blue with gold accents */
+:root{--forest:#1f4a86;--gold:#e3a72f}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gold:#f0c060}}
+:root[data-theme="dark"]{--gold:#f0c060}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) header.top,:root:not([data-theme="light"]) nav.tabs{background:#16305a}}
+:root[data-theme="dark"] header.top,:root[data-theme="dark"] nav.tabs{background:#16305a}
+body::before{background:#1f4a86}
+header.top{border-bottom:4px solid var(--gold)}
+.tag,.stats{color:#dbe6f6}
+nav.tabs button{color:#d6e2f4}
+.p-age{background:var(--sand-soft);color:var(--sand)}
+.p-age.all{background:var(--forest-soft);color:var(--ok)}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:12px 0 18px}
+.calc label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:block;margin-bottom:4px}
+.calc input{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.opt h3{margin:0 0 4px;font-family:var(--display);font-size:22px}
+.opt .big{font-family:var(--mono);font-size:28px;font-weight:500;margin:6px 0 2px}
+.opt.best{border:2px solid var(--gold)}
+.opt .flag{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--gold);color:#1b1b1b;border-radius:4px;padding:2px 8px}
+.opt ul{padding-left:18px;margin:8px 0 0}
+.opt li{margin:3px 0}
+.timeline{list-style:none;padding:0;margin:0;border-left:3px solid var(--gold)}
+.timeline li{padding:6px 0 10px 16px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-8px;top:12px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+.timeline b{font-family:var(--mono);font-weight:500;display:inline-block;min-width:78px}
+.crosslink{display:inline-block;margin-top:10px;font-size:14px}
+/* Month-by-month menu and shortlist */
+.mchips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.mchips .chip{font-size:15px;padding:5px 14px}
+.menubar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:10px;font-size:14px;color:var(--muted)}
+.optgroup{margin:18px 0 6px}
+.optgroup h3{font-family:var(--display);font-size:22px;margin:0 0 6px;display:flex;gap:10px;align-items:baseline}
+.optgroup h3 small{font-family:var(--body);font-size:13px;color:var(--muted);font-weight:400}
+.optlist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:0 18px}
+.optlist li{display:flex;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);min-width:0}
+.optlist li > div{min-width:0}
+.optlist .mini{display:block;font-size:12px;color:var(--muted)}
+.optlist .isdone{opacity:.55}
+.star{border:0;background:none;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:0 2px;flex:none}
+.star[aria-pressed="true"]{color:var(--blaze)}
+.starbtn{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;font:inherit;font-size:13px;padding:2px 10px;cursor:pointer}
+.starbtn[aria-pressed="true"]{background:var(--blaze-soft);border-color:var(--blaze);color:var(--ink)}
+.shbar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+details.sample{margin-top:28px;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--surface)}
+details.sample summary{cursor:pointer;font-weight:700}
+@media print{
+  header.top,nav.tabs,.noprint,body::before{display:none!important}
+  section[role=tabpanel]{display:none!important}
+  section#short{display:block!important}
+  .card{break-inside:avoid;border:1px solid #999}
+  .grid{display:block}
+  .cardfoot label,.cardfoot .starbtn{display:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>SoCal Pack Trailbook</h1>
+      <span class="tag">Outings, overnights and short adventures picked for Cub Scouts ages 5–10 and their families. Same trip list as the Troop Trailbook, minus the long hikes and backpacking.</span>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button role="tab" id="t-explore" aria-selected="true">Explore</button>
+    <button role="tab" id="t-over" aria-selected="false">Overnights</button>
+    <button role="tab" id="t-hikes" aria-selected="false">Short Hikes</button>
+    <button role="tab" id="t-city" aria-selected="false">City Explorer</button>
+    <button role="tab" id="t-plan" aria-selected="false">Month by Month</button>
+    <button role="tab" id="t-short" aria-selected="false">Shortlist</button>
+    <button role="tab" id="t-midway" aria-selected="false">Midway by Train</button>
+  </div>
+</nav>
+<main><div class="wrap">
+
+<section role="tabpanel" id="explore">
+  <div class="layout">
+    <aside class="filters" aria-label="Filters">
+      <div><label for="q">Search</label><input type="search" id="q" placeholder="dinosaurs, trains, ships…"></div>
+      <button class="btn" id="moreF" type="button" aria-expanded="false">Show filters</button>
+      <div class="fx"><span class="flabel">Type</span><div class="chips" id="catChips"></div></div>
+      <div class="fx"><label for="stay">Trip style</label>
+        <select id="stay"><option value="">Any</option><option value="Overnight">Unique overnight (ship, zoo, aquarium)</option><option value="Campout">Pack campout</option><option value="Day">Day trip</option></select></div>
+      <div class="fx"><label for="age">Ages</label>
+        <select id="age"><option value="">All trips</option><option value="all">Good for all Cubs (5+)</option></select></div>
+      <div class="fx"><label for="cost">Cost per person</label>
+        <select id="cost"><option value="">Any cost</option><option value="Free">Free</option><option value="$">$ or less (under $15)</option><option value="$$">$$ or less (under $60)</option><option value="$$$">Anything</option></select></div>
+      <div class="fx"><label for="month">Good in this month</label><select id="month"><option value="">Any month</option></select></div>
+      <div class="fx"><label for="drive">Max drive: <span id="driveOut"></span></label><input type="range" id="drive" min="15" max="240" step="15" value="240"></div>
+      <button class="btn fx" id="reset">Clear filters</button>
+    </aside>
+    <div>
+      <div class="resultbar"><span id="count"></span><span>Cost: Free · $ under $15/person · $$ $15–60 · $$$ over $60</span></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<section role="tabpanel" id="over" hidden>
+  <h2>Pack overnights</h2>
+  <p class="lead">Sleepovers in places kids don't believe they're allowed to sleep, then campouts that work for 100+ people with families. For the big ones, check the chaperone rules first: some (like the USS Midway) need one adult for every child under 10.</p>
+  <h3 class="urbanh">Unique overnights</h3>
+  <div class="grid" id="overUnique"></div>
+  <h3 class="urbanh">Pack campouts</h3>
+  <div class="grid" id="overCamp"></div>
+</section>
+
+<section role="tabpanel" id="hikes" hidden>
+  <h2>Short hikes with a payoff</h2>
+  <p class="lead">Four miles or less, each ending at something worth the walk: a waterfall, a cave, a shipwreck, a giant rock. Sorted shortest first. Older Cubs (8+) are flagged where the route has scrambling or drop-offs.</p>
+  <div class="grid" id="hikeOut"></div>
+</section>
+
+<section role="tabpanel" id="city" hidden>
+  <h2>City Explorer for Cubs</h2>
+  <p class="lead">Quirky, hands-on spots around LA for a den outing or a pack day. Museums and attractions also listed in Explore aren't repeated here.</p>
+  <div class="grid" id="cityOut"></div>
+</section>
+
+<section role="tabpanel" id="plan" hidden>
+  <h2>Month by month</h2>
+  <p class="lead">Everything in season for the month you pick, August through May, all within about 3 hours of the Valley (Joshua Tree is the farthest). It's a menu for the parent committee, not a schedule: star ☆ the ideas worth discussing, then open the Shortlist to print or copy them for the meeting. Outings marked Done (✓) are dimmed so the pack can keep trying new things.</p>
+  <div class="mchips" id="mChips"></div>
+  <div class="menubar"><span id="mCount"></span><label class="row" style="margin:0"><input type="checkbox" id="mHide"> Hide outings we've done</label></div>
+  <div id="mOut"></div>
+  <details class="sample"><summary>Sample: what six pack years with no repeats could look like</summary>
+  <p class="lead">One way to use the menu: one outing a month from August through May, for the 2027–28 through 2032–33 pack years. A Cub who joins as a Lion sees 60 different outings by Arrow of Light. The plan is built around how Cub families actually show up:</p>
+  <div class="reqs">
+    <div class="req"><h3>How it's built</h3><ul>
+      <li><b>Two big campouts a year:</b> fall (October) and spring (April), within 3 hours. Joshua Tree is the farthest, saved for the last year.</li>
+      <li><b>One no-tent overnight every February</b>, when camping is cold and rainy: a battleship, an aircraft carrier, an aquarium, a tall ship, SeaWorld or a zoo.</li>
+      <li><b>Easy months stay close:</b> August and September stay at the coast or indoors and under 90 minutes (no desert in the heat); December stays within 45 minutes; January within 90.</li>
+      <li><b>At most one long day trip (2+ hours) a year,</b> no weekday-only places, and the type of outing changes every month.</li></ul></div>
+    <div class="req"><h3>Make it yours</h3><ul>
+      <li>Tap any outing to see its card in Explore.</li>
+      <li>Want a third campout? Every year lists spare campout options that aren't used elsewhere in the plan.</li>
+      <li>Treat it as a draft for the pack committee; swap freely.</li></ul></div>
+  </div>
+  <div id="planOut"></div>
+</details>
+</section>
+
+<section role="tabpanel" id="short" hidden>
+  <h2>Shortlist</h2>
+  <p class="lead">Your picks for the next parent committee meeting. Star ☆ outings anywhere in the Pack Trailbook to collect them here, then print the cards (or save them as a PDF) or copy a plain-text list for an email. The list is saved in this browser.</p>
+  <div class="shbar noprint"><button class="btn" id="shPrint" type="button">Print or save as PDF</button><button class="btn" id="shCopy" type="button">Copy as text</button><button class="btn" id="shClear" type="button">Clear list</button><span id="shCount" class="noa"></span></div>
+  <div class="grid" id="shortOut"></div>
+</section>
+
+<section role="tabpanel" id="midway" hidden>
+  <h2>USS Midway overnight by train</h2>
+  <p class="lead">Union Station to San Diego by rail, a night aboard an aircraft carrier, and home the next day. Below: what the overnight costs, three ways to ride the train with a price calculator, a sample Saturday timeline, and options for a Union Station tour on the way.</p>
+
+  <div class="reqs">
+    <div class="req"><h3>The overnight</h3><ul>
+      <li><b>$110 per person</b> for a youth group overnight (Scout groups are listed as eligible). Kids and adults both pay.</li>
+      <li><b>Check-in 6:30 pm.</b> Hot breakfast included in the morning; plan your own dinner.</li>
+      <li><b>Every child ages 4–10 needs their own adult chaperone</b> (one adult per five for ages 10+). For a Cub pack that means roughly one adult per Cub, so 100 people is about 50 Cubs and 50 adults.</li>
+      <li>Youth overnights run all year; check the open dates and book early.</li></ul>
+      <a class="crosslink" href="https://www.midway.org/education/overnight-adventure/" target="_blank" rel="noopener">Midway Overnight Adventure ↗</a></div>
+    <div class="req"><h3>Rail rules that matter</h3><ul>
+      <li><b>Metrolink weekends:</b> up to 3 kids 17 and under ride free with each paying adult. The adult SoCal Day Pass is $12 on weekends. No proof of age needed.</li>
+      <li><b>COASTER (Oceanside to San Diego):</b> adults $6.50 one way (from Oct 1, 2026). Anyone 18 and under, including visitors, rides free with a verified Youth PRONTO account, funded through June 2027. Kids 5 and under ride free regardless.</li>
+      <li><b>Amtrak Pacific Surfliner:</b> one seat all the way (about 2 hr 45 min); kids 2–12 ride 50% off. Fares change with demand.</li>
+      <li><b>Kids 'n' Trains (Surfliner group rate):</b> $15 per person each way to San Diego for youth groups, but <b>Monday–Thursday only</b>; book 30+ days ahead.</li></ul></div>
+  </div>
+
+  <h2>Train cost calculator</h2>
+  <p class="lead">Round trip, LA Union Station to San Diego Santa Fe Depot. Change the numbers to match your sign-ups. The Surfliner fare is an estimate (typically $35–50 each way); check Amtrak for your date.</p>
+  <div class="calc">
+    <div><label for="cCubs">Cubs (17 and under)</label><input id="cCubs" type="number" min="0" value="50"></div>
+    <div><label for="cAdults">Adults</label><input id="cAdults" type="number" min="0" value="50"></div>
+    <div><label for="cSurf">Surfliner adult fare, each way</label><input id="cSurf" type="number" min="0" step="1" value="40"></div>
+    <div><label for="cCards">PRONTO cards to buy (kids without a phone app)</label><input id="cCards" type="number" min="0" value="0"></div>
+  </div>
+  <div class="opts" id="optsOut"></div>
+  <p class="note">Overnight program for this group: <b id="midwayCost"></b> at $110 per person, on top of the train.</p>
+
+  <h2 style="margin-top:28px">Sample Saturday (Option A, one transfer)</h2>
+  <p class="lead">Times are from the Metrolink Orange County Line weekend timetable (effective Aug 9, 2026) and the COASTER weekend schedule (July 2026). Check both again a few weeks before you go, and watch for weekend track closures between Oceanside and San Diego.</p>
+  <div class="reqs">
+    <div class="req"><h3>Saturday: down</h3><ol class="timeline">
+      <li><b>8:30</b> Meet at Union Station (parents drop off, or ride Metro in from the Valley).</li>
+      <li><b>9:00</b> Union Station scavenger hunt or short tour (see below).</li>
+      <li><b>10:50</b> Metrolink to Oceanside (arrives 12:55). Kids free; adults buy the $12 Day Pass.</li>
+      <li><b>12:55</b> Lunch at Oceanside Transit Center; Metrolink and COASTER share the station.</li>
+      <li><b>1:36</b> COASTER to San Diego Santa Fe Depot (arrives 2:37).</li>
+      <li><b>2:45</b> Walk the waterfront toward the Midway; afternoon free, then dinner.</li>
+      <li><b>6:30</b> Midway check-in.</li></ol></div>
+    <div class="req"><h3>Sunday: home</h3><ol class="timeline">
+      <li><b>Morning</b> Hot breakfast on board; confirm checkout time with the Midway.</li>
+      <li><b>11:00</b> COASTER to Oceanside (arrives 12:02).</li>
+      <li><b>1:28</b> Metrolink to LA Union Station (arrives 3:39).</li>
+      <li><b>Or earlier</b> 9:40 COASTER → 10:42 Oceanside → 11:24 Metrolink → 1:34 Union Station.</li></ol>
+      <p class="noa">A later Saturday plan (2:00 pm Metrolink, then the 4:16 COASTER, arriving 5:17) gives you a full Union Station morning, but the Oceanside transfer is only 8 minutes. Too tight for 100 people; if the first train runs late, the next COASTER arrives after check-in.</p></div>
+  </div>
+
+  <h2 style="margin-top:28px">Union Station tour options</h2>
+  <div class="opts">
+    <div class="opt"><h3>Self-guided scavenger hunt</h3><p class="big">Free</p><p>Patrol-style hunt through the waiting room, courtyards and tunnels: find the clock tower, count the chandeliers, spot the old ticket windows, ride the escalator down to the trains. Works for any age and any train time.</p></div>
+    <div class="opt"><h3>Metro Art & Architecture tour</h3><p class="big">Free</p><p>Metro runs free guided art and architecture tours of the station. Days and times aren't posted on the tour page, so sign up through Metro and ask whether they'd do a short tour for a Cub group.</p><a class="crosslink" href="https://www.unionstationla.com/tours/" target="_blank" rel="noopener">Union Station tours ↗</a></div>
+    <div class="opt"><h3>LA Conservancy docent tour</h3><p class="big">$20 each</p><p>Private group tour: $240 minimum (12 people), split into groups of about 12 with their own docent, up to 48 people per booking. About 1.5–2 hours and a mile of walking, which is long for Lions and Tigers. The public tour is Saturdays at 11 am ($25, $18 youth), which clashes with the 10:50 train.</p><a class="crosslink" href="https://laconservancy.org/tours-events/group-tours-virtual-in-person" target="_blank" rel="noopener">Conservancy group tours ↗</a></div>
+  </div>
+
+  <div class="reqs" style="margin-top:20px">
+    <div class="req"><h3>Before you book</h3><ul>
+      <li>Pick a Midway date first, then check both rail schedules for that weekend.</li>
+      <li>Have parents set up Youth PRONTO accounts in the PRONTO app ahead of time (proof of age plus a photo; approval can take 2–10 days), or verify in person at an NCTD customer service center.</li>
+      <li>Metrolink trains are unreserved. With 100 people, call Metrolink ahead and ride a weekend train with room to spread out.</li>
+      <li>For a weekday trip (summer or a school break), ask Amtrak whether a Cub pack counts as a youth group for Kids 'n' Trains.</li>
+      <li>Budget for dinner Saturday and lunch both days.</li></ul></div>
+  </div>
+  <p class="note">Sources: <a href="https://www.midway.org/education/overnight-adventure/" target="_blank" rel="noopener">USS Midway</a> · <a href="https://metrolinktrains.com/kidsridefree" target="_blank" rel="noopener">Metrolink Kids Ride Free</a> · <a href="https://metrolinktrains.com/fares/" target="_blank" rel="noopener">Metrolink fares</a> · <a href="https://www.octa.net/ebusbook/RoutePDFNew/Metrolinkoc.pdf" target="_blank" rel="noopener">OC Line timetable</a> · <a href="https://www.sandag.org/YOP" target="_blank" rel="noopener">Youth Opportunity Pass</a> · <a href="https://gonctd.com/YOP" target="_blank" rel="noopener">NCTD fares</a> · <a href="https://d4lp5oxce4dvw.cloudfront.net/wp-content/uploads/COASTER-Schedule-July-2026-Web.pdf" target="_blank" rel="noopener">COASTER schedule</a> · <a href="https://www.amtrak.com/promotions/state/california-kids.html" target="_blank" rel="noopener">Amtrak kids 50% off</a> · <a href="https://www.amtrak.com/deals-discounts/everyday-discounts/kids-n-trains.html" target="_blank" rel="noopener">Kids 'n' Trains</a></p>
+</section>
+
+<p class="note">Drive times are rough estimates from Van Nuys without traffic. Hours, prices and closures change often, so check the linked source before booking. Looking for the Scouts BSA version? <a href="trailbook">Open the Troop Trailbook</a>.</p>
+</div></main>
+
+<script src="trailbook-data.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let done=new Set(store.get("tb-done",[]));
+const items=T.map(r=>({id:r[0],name:r[1],cat:r[2],drive:r[3],months:r[4],fit:r[5],stay:r[6],cost:r[7],badges:r[8],what:r[9],know:r[10],link:r[11],...(r[12]||{})}));
+items.forEach(i=>{i.phone=PHONES[i.id]||"";i.terrain=TERRAIN[i.id]||""});
+// Cub-friendly trips: troop-only, backpacking, urban treks and hikes over 4 miles are left out
+const OLDER8=new Set(["archery","rubel","bolsarest","grotto","munits"]);
+const PACK=items.filter(i=>i.fit!=="Troop"&&i.cat!=="Backpacking"&&i.cat!=="Urban treks"&&!(i.miles>4));
+const COSTR={"Free":0,"$":1,"$$":2,"$$$":3};
+const fmtDrive=m=>m<60?m+" min":String(Math.round(m/15)/4)+" hr";
+function card(i){
+  const stretch=i.drive>150, old=OLDER8.has(i.id);
+  const warn=i.status==="closed"?`<span class="pill p-warn">Closed until ${i.opens}</span>`:i.status==="check"?`<span class="pill p-warn">Check status</span>`:"";
+  return `<article class="card${done.has(i.id)?" done":""}">
+    <div class="meta"><span class="pill p-cat">${i.cat}</span><span class="pill ${stretch?"p-stretch":"p-drive"}">${fmtDrive(i.drive)}${stretch?" · Long drive":""}</span><span class="pill p-stay">${i.stay==="Overnight"?"Unique overnight":i.stay==="Campout"?"Pack campout":"Day trip"}</span><span class="pill p-cost">${i.cost}</span>${i.miles?`<span class="pill p-miles">${i.miles} mi</span>`:""}<span class="pill p-age${old?"":" all"}">${old?"Older Cubs (8+)":"All Cubs"}</span>${warn}</div>
+    <h3>${i.name}</h3>
+    <div class="months" aria-label="Best months">${M.map((m,k)=>`<span class="${i.months.includes(k+1)?"on":""}" title="${m}">${m[0]}</span>`).join("")}</div>
+    <p>${i.what}</p>
+    <p class="know">${i.know}</p>
+    ${i.phone?`<p class="phone">Call: <span class="num">${i.phone}</span></p>`:""}
+    <div class="cardfoot"><a href="${i.link}" target="_blank" rel="noopener">Source ↗</a>${starBtn(i)}
+      <label class="row" style="margin:0"><input type="checkbox" data-done="${i.id}" ${done.has(i.id)?"checked":""}> Done</label></div>
+  </article>`}
+document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.done;if(!id)return;e.target.checked?done.add(id):done.delete(id);store.set("tb-done",[...done]);renderAll();renderMenu()});
+// ---------- explore ----------
+const st={q:"",cats:new Set(),stay:"",age:"",cost:"",month:"",drive:240};
+const cats=[...new Set(PACK.map(i=>i.cat))];
+$("#catChips").innerHTML=cats.map(c=>`<button type="button" class="chip" data-cat="${c}" aria-pressed="false">${c}</button>`).join("");
+$("#month").innerHTML+=M.map((m,k)=>`<option value="${k+1}">${m}</option>`).join("");
+$("#catChips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;const c=b.dataset.cat;st.cats.has(c)?st.cats.delete(c):st.cats.add(c);b.setAttribute("aria-pressed",st.cats.has(c));render()};
+["q","stay","age","cost","month","drive"].forEach(k=>$("#"+k).addEventListener("input",e=>{st[k]=e.target.value;render()}));
+$("#reset").onclick=()=>{Object.assign(st,{q:"",cats:new Set(),stay:"",age:"",cost:"",month:"",drive:240});["q","stay","age","cost","month"].forEach(k=>$("#"+k).value="");$("#drive").value=240;document.querySelectorAll("#catChips .chip").forEach(b=>b.setAttribute("aria-pressed","false"));render()};
+$("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
+function render(){
+  $("#driveOut").textContent=+st.drive>=240?"Any":fmtDrive(+st.drive);
+  const q=st.q.trim().toLowerCase();
+  const list=PACK.filter(i=>(!q||(i.name+" "+i.what+" "+i.know+" "+i.cat).toLowerCase().includes(q))
+    &&(!st.cats.size||st.cats.has(i.cat))&&(!st.stay||i.stay===st.stay)&&(!st.age||!OLDER8.has(i.id))
+    &&(!st.cost||COSTR[i.cost]<=COSTR[st.cost])&&(!st.month||i.months.includes(+st.month))
+    &&(+st.drive>=240||i.drive<=+st.drive)).sort((a,b)=>a.drive-b.drive);
+  $("#count").textContent=`${list.length} of ${PACK.length} trips · sorted by drive time`;
+  $("#grid").innerHTML=list.length?list.map(card).join(""):`<p class="empty">No trips match. Try clearing a filter.</p>`;
+}
+// ---------- other tabs ----------
+function renderAll(){
+  render();
+  $("#overUnique").innerHTML=PACK.filter(i=>i.stay==="Overnight").sort((a,b)=>a.drive-b.drive).map(card).join("");
+  $("#overCamp").innerHTML=PACK.filter(i=>i.stay==="Campout").sort((a,b)=>a.drive-b.drive).map(card).join("");
+  $("#hikeOut").innerHTML=PACK.filter(i=>i.miles&&i.miles<=4).sort((a,b)=>a.miles-b.miles).map(card).join("");
+  $("#stats").innerHTML=`<span><b>${PACK.length}</b> pack trips</span><span><b>${PACK.filter(i=>i.stay!=="Day").length}</b> overnights</span><span><b>${CITY.filter(x=>x.age!=="teen").length}</b> city spots</span><span><b>${PACK.filter(i=>done.has(i.id)).length}</b> done</span>`;
+}
+$("#cityOut").innerHTML=CITY.filter(x=>x.age!=="teen").map(x=>`<article class="card"><div class="meta"><span class="pill p-cost" style="font-size:13px">${x.cost}</span></div><h3>${x.name}</h3><p class="know" style="border:0;padding:0">${x.where}</p><p>${x.what}</p><p class="know">${x.note}</p><div class="cardfoot"><a href="${x.link}" target="_blank" rel="noopener">Source ↗</a></div></article>`).join("");
+// ---------- Midway train calculator ----------
+const usd=n=>"$"+Math.round(n).toLocaleString("en-US");
+function calc(){
+  const k=Math.max(0,+$("#cCubs").value||0), a=Math.max(0,+$("#cAdults").value||0), sf=Math.max(0,+$("#cSurf").value||0), cards=Math.max(0,+$("#cCards").value||0);
+  // A: Metrolink (3 kids free per paying adult, weekends) + COASTER (youth free with Youth PRONTO)
+  const extraKids=Math.max(0,k-3*a);
+  const mlink=2*(a*12+extraKids*12*0.5), coaster=2*a*6.5+cards*2, A=mlink+coaster;
+  const B=2*(a*sf+k*sf*0.5);
+  const C=2*15*(a+k);
+  const opts=[
+    {h:"A · Metrolink + COASTER",t:A,best:true,flag:"Cheapest on a weekend",li:[`Metrolink to Oceanside: adults $12 weekend Day Pass each day (a one-way ticket may cost less); up to 3 kids free per adult${extraKids?` (${extraKids} kids over the 3-per-adult limit priced at half fare)`:""}: ${usd(mlink)}`,`COASTER to San Diego: adults $6.50 each way; kids free with Youth PRONTO${cards?`; ${cards} PRONTO cards at $2`:""}: ${usd(coaster)}`,"One transfer each way at Oceanside (same station)","About 3.5–4 hours door to door"]},
+    {h:"B · Surfliner, one seat",t:B,flag:"Easiest",li:[`Adults at about ${usd(sf)} each way; kids 2–12 half price`,"No transfer; about 2 hr 45 min","Fares rise as trains fill, so book early","Teens 13+ pay the adult fare"]},
+    {h:"C · Kids 'n' Trains group rate",t:C,flag:"Weekdays only",li:["$15 per person each way, kids and adults alike","Monday–Thursday only (Fri–Sun blacked out); a summer or school-break trip","Request 30+ days ahead; ask whether a Cub pack qualifies","Non-refundable once bought"]}];
+  $("#optsOut").innerHTML=opts.map(o=>`<div class="opt${o.best?" best":""}"><span class="flag">${o.flag}</span><h3>${o.h}</h3><p class="big">${usd(o.t)}</p><p class="noa">${k+a?usd(o.t/(k+a))+" per person, round trip":""}</p><ul>${o.li.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
+  $("#midwayCost").textContent=usd(110*(k+a));
+}
+["cCubs","cAdults","cSurf","cCards"].forEach(id=>$("#"+id).addEventListener("input",calc));calc();
+// ---------- 6-year pack plan ----------
+const PMONTHS=[8,9,10,11,12,1,2,3,4,5], PYEARS=[2027,2028,2029,2030,2031,2032];
+const WEEKDAY_ONLY=new Set(["jurupa","lanevictory","psam"]);
+function buildPackPlan(){
+  const jt=items.find(i=>i.id==="sheeppass");
+  const camps=PACK.filter(i=>i.stay==="Campout"&&i.drive<=165).concat(jt?[jt]:[]);
+  const overs=PACK.filter(i=>i.stay==="Overnight"&&i.drive<=165);
+  const city=CITY.filter(x=>x.age!=="teen").map((x,k)=>({id:"city"+k,name:x.name,cat:"City Explorer",drive:30,months:ALL,cost:x.cost,link:x.link,terrain:"City",city:true}));
+  const days=PACK.filter(i=>i.stay==="Day"&&i.drive<=165&&!WEEKDAY_ONLY.has(i.id)&&i.status!=="closed").concat(city);
+  const used=new Set(), plan={};
+  const ld=items.find(i=>i.id==="livingdesert");
+  const kind=(y,m)=>m===10||m===4?"camp":m===2?"over":"day";
+  // campouts: Joshua Tree pinned to the final spring
+  const slots=[];PYEARS.forEach(y=>PMONTHS.forEach(m=>slots.push({y,m,k:kind(y,m)})));
+  const calY=(y,m)=>m>=8?y:y+1;
+  function ok(i,sl){
+    if(used.has(i.id)||!i.months.includes(sl.m))return false;
+    if(sl.k==="day"){
+      if((sl.m===8||sl.m===9)&&(i.drive>90||i.terrain==="Desert"))return false;
+      if(sl.m===12&&i.drive>45)return false;
+      if(sl.m===1&&i.drive>90)return false;
+      if(i.drive>=120&&PMONTHS.some(m=>{const r=plan[sl.y+"-"+m];return r&&r.k==="day"&&r.i&&r.i.drive>=120}))return false;
+      const prev=plan[sl.y+"-"+PMONTHS[PMONTHS.indexOf(sl.m)-1]], next=plan[sl.y+"-"+PMONTHS[PMONTHS.indexOf(sl.m)+1]];
+      if((prev&&prev.i&&prev.i.cat===i.cat)||(next&&next.i&&next.i.cat===i.cat))return false;
+    }
+    return true}
+  if(jt){plan[PYEARS[5]+"-4"]={k:"camp",i:jt,y:PYEARS[5],m:4};used.add(jt.id)}
+  const pool={camp:camps,over:overs,day:days};
+  // fill rarest slots first; pick the candidate with the fewest other open slots
+  let open=slots.filter(sl=>!plan[sl.y+"-"+sl.m]);
+  while(open.length){
+    open.forEach(sl=>sl.c=pool[sl.k].filter(i=>ok(i,sl)));
+    open.sort((a,b)=>a.c.length-b.c.length||a.y-b.y||PMONTHS.indexOf(a.m)-PMONTHS.indexOf(b.m));
+    const sl=open.shift();
+    if(sl.c.length){
+      const score=i=>open.filter(o=>o.k===sl.k&&ok(i,o)).length;
+      const pick=sl.c.slice().sort((a,b)=>score(a)-score(b)||a.drive-b.drive||a.id.localeCompare(b.id))[0];
+      plan[sl.y+"-"+sl.m]={k:sl.k,i:pick,y:sl.y,m:sl.m};used.add(pick.id);
+    } else plan[sl.y+"-"+sl.m]={k:sl.k,i:null,y:sl.y,m:sl.m};
+  }
+  return {plan,spare:camps.filter(i=>!used.has(i.id))};
+}
+const PP=buildPackPlan();
+function renderPackPlan(){
+  const lab={camp:"Big campout",over:"No-tent overnight",day:"Day trip"};
+  const spare=PP.spare.length?PP.spare.map(i=>i.name).join(", "):"none left; repeat a favorite";
+  $("#planOut").innerHTML=PYEARS.map((y,n)=>`<div class="year"><h3>Year ${n+1} · ${y}–${String(y+1).slice(2)} pack year</h3><div class="tablewrap"><table><thead><tr><th>Month</th><th>Outing</th><th>Type</th><th>Drive</th><th>Cost</th></tr></thead><tbody>${PMONTHS.map(m=>{const r=PP.plan[y+"-"+m];const yy=m>=8?y:y+1;
+    if(!r.i)return `<tr><td class="mo">${M[m-1]} ${yy}</td><td colspan="4"><em>${r.k==="over"?"No overnight this year (or repeat a favorite)":"Open: pick from Explore"}</em></td></tr>`;
+    const i=r.i;const name=i.city?`<a href="${i.link}" target="_blank" rel="noopener">${i.name}</a>`:`<button class="linkish" data-open="${i.id}">${i.name}</button>${done.has(i.id)?" ✓":""}`;
+    return `<tr><td class="mo">${M[m-1]} ${yy}</td><td>${name}</td><td>${r.k==="day"?i.cat:lab[r.k]}</td><td class="mo">${i.city?"Local":fmtDrive(i.drive)}</td><td class="mo">${i.cost}</td></tr>`}).join("")}</tbody></table></div></div>`).join("")+`<p class="note">Spare campouts not used in the plan, for a third campout any year: ${spare}.</p>`;
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(!b)return;const i=items.find(x=>x.id===b.dataset.open);if(!PACK.includes(i)){window.open(i.link,"_blank","noopener");return}show("explore");$("#q").value=i.name;st.q=i.name;render()});
+const SHORT_KEY="pk-short", MM=[8,9,10,11,12,1,2,3,4,5];
+const LOOKUP=id=>items.find(x=>x.id===id);
+const FIND=i=>{if(!PACK.includes(i)){window.open(i.link,"_blank","noopener");return}$("#reset").click();show("explore");$("#q").value=i.name;st.q=i.name;render()};
+const MINI_EXTRA=i=>OLDER8.has(i.id)?" · Older Cubs (8+)":"";
+const MENU_POOL=()=>PACK.filter(i=>i.drive<=165).concat(items.filter(i=>i.id==="sheeppass"));
+const MENU_GROUPS=[["Big campouts",i=>i.stay==="Campout"],["No-tent overnights",i=>i.stay==="Overnight"],["Close to home",i=>i.stay==="Day"&&i.cat!=="Hikes"&&i.drive<60,"under an hour"],["Worth the drive",i=>i.stay==="Day"&&i.cat!=="Hikes"&&i.drive>=60,"1 to 3 hours"],["Short hikes",i=>i.cat==="Hikes","4 miles or less"]];
+const TIPS={8:"Hot month and back-to-school: favor the coast, water and indoor picks, and start early.",9:"Still hot inland: coast, water and indoor picks are the safe bets.",10:"Prime fall campout weather.",12:"Holiday month: keep it short and close to home.",1:"Rainy season: pick something with an indoor backup.",2:"Rainy and cold: a good month for a no-tent overnight.",4:"Prime spring campout weather.",5:"Warming up: the last good desert month."};
+const MENU_INTRO=m=>TIPS[m]?`<p class="note">${TIPS[m]}</p>`:"";
+const MENU_OUTRO=m=>`<div class="optgroup"><h3>City Explorer <small>any month</small></h3><ul class="optlist">${CITY.filter(x=>x.age!=="teen").map(x=>`<li><div><a href="${x.link}" target="_blank" rel="noopener">${x.name}</a><span class="mini">${x.where} · ${x.cost}</span></div></li>`).join("")}</ul></div>`;
+// ---------- shortlist ----------
+let short=store.get(SHORT_KEY,[]);
+const starBtn=i=>`<button type="button" class="starbtn" data-star="${i.id}" aria-pressed="${short.includes(i.id)}">${short.includes(i.id)?"★ On shortlist":"☆ Shortlist"}</button>`;
+function syncStars(){document.querySelectorAll("[data-star]").forEach(b=>{const on=short.includes(b.dataset.star);b.setAttribute("aria-pressed",on);b.textContent=b.classList.contains("starbtn")?(on?"★ On shortlist":"☆ Shortlist"):(on?"★":"☆")});const n=$("#t-short");if(n)n.textContent="Shortlist"+(short.length?` (${short.length})`:"")}
+function renderShort(){const L=short.map(id=>LOOKUP(id)).filter(Boolean);$("#shortOut").innerHTML=L.length?L.map(card).join(""):`<p class="empty">Nothing here yet. Tap ☆ on any trip in Explore or Month by Month to add it.</p>`;$("#shCount").textContent=L.length?`${L.length} option${L.length>1?"s":""}`:"";syncStars()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-star]");if(!b)return;const id=b.dataset.star;short=short.includes(id)?short.filter(x=>x!==id):[...short,id];store.set(SHORT_KEY,short);syncStars();renderShort()});
+$("#shPrint").onclick=()=>window.print();
+$("#shClear").onclick=()=>{short=[];store.set(SHORT_KEY,short);renderShort()};
+$("#shCopy").onclick=e=>{const L=short.map(id=>LOOKUP(id)).filter(Boolean);const txt=L.map((i,k)=>`${k+1}. ${i.name} (${i.cat}, ${fmtDrive(i.drive)}, ${i.cost})\n   ${i.what}\n   Good to know: ${i.know}\n   ${i.link}`).join("\n\n");const b=e.target;const ok=()=>{b.textContent="Copied!";setTimeout(()=>b.textContent="Copy as text",1500)};if(navigator.clipboard)navigator.clipboard.writeText(txt).then(ok,()=>window.prompt("Copy this list:",txt));else window.prompt("Copy this list:",txt)};
+// ---------- month by month ----------
+let mm=new Date().getMonth()+1;if(!MM.includes(mm))mm=MM[0];let mmHide=false;
+function optRow(i){const d=done.has(i.id),on=short.includes(i.id);return `<li class="${d?"isdone":""}"><button type="button" class="star" data-star="${i.id}" aria-pressed="${on}" aria-label="Add ${i.name} to shortlist">${on?"★":"☆"}</button><div><button class="linkish" data-find="${i.id}">${i.name}</button>${d?" ✓":""}${i.status==="closed"?' <span class="pill p-warn">Closed</span>':i.status==="check"?' <span class="pill p-warn">Check status</span>':""}<span class="mini">${i.cat} · ${fmtDrive(i.drive)} · ${i.cost}${MINI_EXTRA(i)}</span></div></li>`}
+function renderMenu(){
+  $("#mChips").innerHTML=MM.map(m=>`<button type="button" class="chip" data-mm="${m}" aria-pressed="${m===mm}">${M[m-1]}</button>`).join("");
+  const pool=MENU_POOL().filter(i=>i.months.includes(mm)&&!(mmHide&&done.has(i.id)));
+  let html=MENU_GROUPS.map(([h,f,note])=>{const g=pool.filter(f).sort((a,b)=>a.drive-b.drive);return g.length?`<div class="optgroup"><h3>${h} <small>${g.length}${note?" · "+note:""}</small></h3><ul class="optlist">${g.map(optRow).join("")}</ul></div>`:""}).join("");
+  $("#mCount").textContent=`${pool.length} options in ${M[mm-1]}`;
+  $("#mOut").innerHTML=MENU_INTRO(mm)+html+MENU_OUTRO(mm);
+}
+document.addEventListener("click",e=>{const c=e.target.closest("[data-mm]");if(c){mm=+c.dataset.mm;renderMenu();return}const f=e.target.closest("[data-find]");if(f){const i=LOOKUP(f.dataset.find);FIND(i)}});
+$("#mHide").onchange=e=>{mmHide=e.target.checked;renderMenu()};
+// ---------- tabs ----------
+const TABS=["explore","over","hikes","city","plan","short","midway"];
+function show(id){if(!TABS.includes(id))id="explore";TABS.forEach(t=>{$("#"+t).hidden=t!==id;$("#t-"+t).setAttribute("aria-selected",t===id)});store.set("pk-tab",id);window.scrollTo({top:0})}
+TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
+renderAll();renderPackPlan();renderMenu();renderShort();
+const h=(location.hash||"").slice(1);show(TABS.includes(h)?h:store.get("pk-tab","explore"));
+</script>
+</body>
+</html>
