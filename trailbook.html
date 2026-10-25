@@ -174,6 +174,18 @@ details.sample summary{cursor:pointer;font-weight:700}
   .grid{display:block}
   .cardfoot label,.cardfoot .starbtn{display:none}
 }
+
+/* Suggest a trip form */
+.sgform{display:grid;gap:14px;max-width:560px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.sgform label,.sgform legend{display:grid;gap:5px;font-weight:600;font-size:14px}
+.sgform input,.sgform textarea{font:inherit;font-weight:400;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+.sgform fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.sgform fieldset label{display:flex;gap:6px;align-items:center;font-weight:400}
+.sgform fieldset input{width:auto}
+.sgform .hint{font-weight:400;color:var(--muted);font-size:13px}
+.sgform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#sgMsg{margin:0;font-weight:600}
+#sgMsg.ok{color:var(--ok)} #sgMsg.err{color:var(--warn)}
 </style>
 </head>
 <body>
@@ -201,6 +213,7 @@ details.sample summary{cursor:pointer;font-weight:700}
     <button role="tab" id="t-camps" aria-selected="false">Scout Camps</button>
     <button role="tab" id="t-g-adv" aria-selected="false">Adventure Camps</button>
     <button role="tab" id="t-g-ba" aria-selected="false">Badges &amp; Awards</button>
+    <button role="tab" id="t-suggest" aria-selected="false">Suggest a Trip</button>
     <a class="navlink" href="pack">Pack Trailbook ↗</a>
   </div>
 </nav>
@@ -383,6 +396,23 @@ details.sample summary{cursor:pointer;font-weight:700}
   <div class="reqs" id="noaOut"></div>
 </section>
 
+
+<section role="tabpanel" id="suggest" hidden>
+  <h2>Suggest a trip</h2>
+  <p class="lead">Know a place the troop would love? Tell us about it. Leaders read every suggestion, look up the details (cost, ages, booking, closures) and add the good ones to the Trailbook.</p>
+  <form id="sgForm" class="sgform" novalidate>
+    <label>Place or activity <span class="hint">Required</span><input name="place" required maxlength="150" placeholder="e.g. a cave tour, a campground, a museum"></label>
+    <label>Website <span class="hint">If you have one</span><input name="link" type="url" maxlength="300" placeholder="https://"></label>
+    <div><span style="font-weight:600;font-size:14px">Who is it for?</span><fieldset><label><input type="radio" name="who" value="Troop" checked> Troop (Scouts BSA)</label><label><input type="radio" name="who" value="Pack"> Pack (Cub Scouts)</label><label><input type="radio" name="who" value="Both"> Both</label></fieldset></div>
+    <label>Why is it cool? <span class="hint">What would the kids do there? Anything leaders should know?</span><textarea name="why" rows="4" maxlength="1500"></textarea></label>
+    <label>Your name <span class="hint">Optional</span><input name="name" maxlength="80" autocomplete="name"></label>
+    <label>Email or phone <span class="hint">Optional, if it's OK for a leader to follow up</span><input name="contact" maxlength="120"></label>
+    <label id="sgCodeWrap" hidden>Passcode <span class="hint">From your leader</span><input name="passcode" maxlength="40" autocomplete="off"></label>
+    <input name="website_hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div><button class="btn" type="submit" id="sgBtn">Send suggestion</button></div>
+    <p id="sgMsg" role="status" aria-live="polite"></p>
+  </form>
+</section>
 
 <p class="note">Drive times are rough estimates from Van Nuys without traffic. Hours, prices, permits and closures change often, especially after fires, so call or check the linked source before booking. Planning for Cub Scouts? <a href="pack">Open the Pack Trailbook</a>. High-adventure activities (climbing, shooting, boating, whitewater, snow camping, scuba) follow the Guide to Safe Scouting and need trained supervision.</p>
 </div></main>
@@ -610,9 +640,30 @@ function renderMenu(){
 }
 document.addEventListener("click",e=>{const c=e.target.closest("[data-mm]");if(c){mm=+c.dataset.mm;renderMenu();return}const f=e.target.closest("[data-find]");if(f){const i=LOOKUP(f.dataset.find);FIND(i)}});
 $("#mHide").onchange=e=>{mmHide=e.target.checked;renderMenu()};
+
+// ---------- suggest a trip ----------
+const SUGGEST_URL="https://script.google.com/macros/s/AKfycbz0MZ2xuh-OMIIEQDaZF3FDRRhqn1SUCq1WrbuzUI9q-I5ywMKPVjy53y7OxmItKcWVlg/exec";
+const SUGGEST_ASK_CODE=false; // set to true if you add a passcode in Suggestions.gs
+(function(){
+  const f=$("#sgForm"), msg=$("#sgMsg"), btn=$("#sgBtn");
+  $("#sgCodeWrap").hidden=!SUGGEST_ASK_CODE;
+  f.addEventListener("submit",e=>{
+    e.preventDefault();
+    const d=Object.fromEntries(new FormData(f).entries());d.page="troop";
+    msg.className="";
+    if(!String(d.place||"").trim()){msg.className="err";msg.textContent="Please enter a place or activity.";f.place.focus();return}
+    btn.disabled=true;btn.textContent="Sending…";msg.textContent="";
+    fetch(SUGGEST_URL,{method:"POST",redirect:"follow",credentials:"omit",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({fn:"api_suggestTrip",args:[d]})})
+      .then(r=>r.json()).then(j=>{
+        if(j.ok){f.reset();f.querySelector('input[name="who"][value="Troop"]').checked=true;msg.className="ok";msg.textContent="Thanks! Your suggestion was sent to the leaders."}
+        else{msg.className="err";msg.textContent=j.error||"Something went wrong. Please try again."}
+      }).catch(()=>{msg.className="err";msg.textContent="Couldn't send right now. Check your connection and try again."})
+      .finally(()=>{btn.disabled=false;btn.textContent="Send suggestion"});
+  });
+})();
 // ---------- tabs ----------
 $("#moreF").onclick=e=>{const f=document.querySelector(".filters");const o=f.classList.toggle("open");e.target.setAttribute("aria-expanded",o);e.target.textContent=o?"Hide filters":"Show filters"};
-const GROUPS={explore:["explore"],"g-hb":["hike","urban"],bp:["bp"],plan:["plan"],short:["short"],combos:["combos"],city:["city"],bts:["bts"],camps:["camps"],"g-adv":["summer","dates"],"g-ba":["badges","awards"]};
+const GROUPS={explore:["explore"],"g-hb":["hike","urban"],bp:["bp"],plan:["plan"],short:["short"],combos:["combos"],city:["city"],bts:["bts"],camps:["camps"],"g-adv":["summer","dates"],"g-ba":["badges","awards"],suggest:["suggest"]};
 const TABS=Object.keys(GROUPS);
 const PANELS=[].concat(...Object.values(GROUPS));
 const OLD={hike:"g-hb",urban:"g-hb",summer:"g-adv",dates:"g-adv",badges:"g-ba",awards:"g-ba"};
