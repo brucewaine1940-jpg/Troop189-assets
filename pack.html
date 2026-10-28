@@ -588,5 +588,6 @@ TABS.forEach(t=>$("#t-"+t).onclick=()=>show(t));
 renderAll();renderPackPlan();renderMenu();renderShort();
 const h=(location.hash||"").slice(1);show(TABS.includes(h)?h:store.get("pk-tab","explore"));
 </script>
+<script src="trailbook-weekend.js" data-mode="pack"></script>
 </body>
 </html>
