@@ -97,7 +97,7 @@
         <button type="button" data-wk="1" aria-pressed="false">Next weekend</button>
       </div>
       <div class="wk-seg" role="group" aria-label="Distance for events">
-        ${[5, 10, 25, 50].map((m) => `<button type="button" data-mi="${m}" aria-pressed="${m === 25}">${m} mi</button>`).join("")}
+        ${[5, 10, 15, 25, 50].map((m) => `<button type="button" data-mi="${m}" aria-pressed="${m === 25}">${m} mi</button>`).join("")}
       </div>
       <form id="wkZipForm" style="display:inline-flex;gap:6px;align-items:center" autocomplete="off">
         <label class="wk-meta" for="wkZip">Events near ZIP</label>
