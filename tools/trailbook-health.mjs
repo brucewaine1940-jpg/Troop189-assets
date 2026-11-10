@@ -16,9 +16,11 @@ import fs from "node:fs";
 import vm from "node:vm";
 import path from "node:path";
 
-const ROOT = process.cwd();
+// TRAILBOOK_DIR: folder holding trailbook-data.js, trailbook.html and pack.html (default: here)
+// HEALTH_DIR:    folder for state.json and report.md (default: ./health)
+const ROOT = path.resolve(process.env.TRAILBOOK_DIR || ".");
 const DATA = path.join(ROOT, "trailbook-data.js");
-const DIR = path.join(ROOT, "health");
+const DIR = path.resolve(process.env.HEALTH_DIR || "health");
 const STATE = path.join(DIR, "state.json");
 const REPORT = path.join(DIR, "report.md");
 const NPS_KEY = process.env.NPS_API_KEY || "";
@@ -220,4 +222,8 @@ const news = newlyBroken.length || newAlerts.length || moved.length || fixed.len
 if (news) {
   lines.push("", `_Checked ${urls.size} links on ${today}. ${blocked} sites block automated checks and are skipped. Change a trip in trailbook-data.js (or send the list to Claude) and this issue can be closed._`);
   fs.writeFileSync(REPORT, lines.join("\n"));
-  console.log("Report written to health/report.md");
+  console.log("Report written to " + path.relative(process.cwd(), path.join(DIR, "report.md")));
+} else {
+  if (fs.existsSync(REPORT)) fs.unlinkSync(REPORT);
+  console.log("No changes tonight.");
+}
