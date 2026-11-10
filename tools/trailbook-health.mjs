@@ -97,7 +97,7 @@ async function checkLink(url) {
   for (const method of ["HEAD", "GET"]) {
     try {
       const r = await fetchWithTimeout(url, method);
-      if (method === "HEAD" && [403, 405, 429, 501].includes(r.status)) continue; // many sites dislike HEAD
+      if (method === "HEAD" && r.status >= 400) continue; // many sites answer HEAD wrongly; trust only a GET for bad news
       const finalUrl = r.url || url;
       if (r.status >= 200 && r.status < 400) {
         const moved = new URL(finalUrl).hostname.replace(/^www\./, "") !== new URL(url).hostname.replace(/^www\./, "");
