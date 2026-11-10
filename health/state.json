@@ -1,0 +1,2095 @@
+{
+ "checked": "2026-11-10T04:59:49.917Z",
+ "counts": {
+  "ok": 246,
+  "blocked": 24,
+  "broken": 10,
+  "error": 13
+ },
+ "links": {
+  "https://locator.lacounty.gov/lac/Location/3054386/placerita-canyon-state-park": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.outdoorithm.com/campgrounds/ca/emma-wood-sb/state-beach-group-campground": {
+   "kind": "blocked",
+   "code": 429,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.outdoorithm.com/campgrounds/ca/san-clemente-sb/tent-group-campground": {
+   "kind": "blocked",
+   "code": 429,
+   "streak": 0,
+   "reported": false
+  },
+  "https://campflare.com/campground/rc-663-532": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.sdzsafaripark.org/safaris/roar-snore-safaris": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://reservations.sbzoo.org/info.aspx?EventID=18": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://seaworld.com/san-diego/educational-programs/sleepovers/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://zoo.moorparkcollege.edu/plan-your-visit/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.timeout.com/los-angeles/attractions/wildlife-learning-center": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://wildlife.ca.gov/fishing/hatcheries/fillmore": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://secretlosangeles.com/ostrichland-usa-solvang-california-roadside-attraction/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://irvineparkrailroad.com/rides-attractions/train-rides": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.tanakafarms.com/field-trips-group-reservations": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://passionatepennypincher.com/home-depot-kids-workshop/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://livethatadventure.com/alpine-slide-at-magic-mountain-big-bear-ca/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.mthigh.com/site/mountain/events-and-activities/yeti-snow-play": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://moaningcaverns.com/plan-your-day/faqs/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.monolake.org/canoe": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.bodie.com/plan/common-questions/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/depo/planyourvisit/hours.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.fs.usda.gov/r05/inyo/recreation/schulman-grove": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://shedreamsofalpine.com/blog/2017/10/22/white-mountain-day-hike": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/deva/planyourvisit/camping-in-death-valley.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://parks.nv.gov/uploads/documents/VOF_Group-Use_Campground_Policy_01-2023.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.usbr.gov/lc/hooverdam/educate/guidelines.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://hearstcastle.org/reserve/ticket-information/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://explorelompoc.com/pressroom/guide-to-watching-rocket-launches-in-lompoc/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://flighttestmuseum.org/visit/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://devd.vny.gov/community-information/educational-program": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
+   "kind": "error",
+   "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.fs.usda.gov/r05/sequoia/recreation/boyden-cavern": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.bigbearmountainresort.com/mountain-biking/lessons": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://bikeandkayaktours.rezdy.com/543609/leopard-shark-encounter": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Jamboree_on_the_Air": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.countyofsb.org/671/Group-Camping": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.casitaswater.org/camping-fees-permits": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "https://www.casitaswater.gov/camping-fees-permits",
+   "streak": 0,
+   "reported": false
+  },
+  "https://water.ca.gov/What-We-Do/Recreation/Silverwood-Lake-Recreation": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://wildlandsconservancy.org/preserves/windwolves/groupcamping": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://fs.usda.gov/r05/angeles/recreation/los-alamos-campground": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/vasquez-rocks-hike-pacific-crest-trail-loop/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://islandpackers.com/island-camping/scorpion-anchorage-camping-santa-cruz-island/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.islandpackers.com/island-camping/anacapa-island-camping/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://visitcatalinaisland.com/campsites": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.catalinadiverssupply.com/catalina-casino-dive-park": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://lamitopsail.org/about/": {
+   "kind": "error",
+   "code": 502,
+   "streak": 1,
+   "reported": false
+  },
+  "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://pacificbattleship.com/?p=149": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://culture.lacity.gov/event/meet-the-grunion-at-cabrillo-marine-aquarium": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://islandpackers.com/whale-watching-tours": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://visitmdr.com/?p=5029": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://mrca.ca.gov/press/mrca-opens-la-river-recreation-zone-for-its-11th-season": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.recreation.gov/camping/poi/120990": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://sheexplorestheusa.com/2024/07/mt-baden-powell-a-stunning-six-pack-of-peaks-hike/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.climbing.com/places/portrait-of-an-american-crag/?scope=anon": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.desertusa.com/desert-activity/rock-climbing.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.recreation.gov/camping/campsites/3501": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://pstramway.com/camping/": {
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
+   "reported": false
+  },
+  "https://hikingguy.com/hikes/bridge-to-nowhere/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.desertusa.com/dusablog/543801/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://mountainsfoundation.org/?p=934": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://daytrippen.com/trona-pinnacles-out-of-this-world-day-trip/": {
+   "kind": "error",
+   "code": "UND_ERR_CONNECT_TIMEOUT",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.calexplornia.com/?p=1968": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.desertusa.com/mag05/sep/tunnel.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://blm.gov/visit/rainbow-basinowl-canyon-campground": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.islands.com/2158860/afton-canyon-california-between-las-vegas-los-angeles-grand-canyon-east-mojave-camping-hiking/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/moja/kelso-dunes.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.recreation.gov/camping/campgrounds/10332661": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://nps.gov/moja/planyourvisit/conditions.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.thetrailmaster.com/hike/mitchell-caverns-natural-preserve/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.blm.gov/visit/search-details/14854/2": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.bakersfield.com/bakersfield-life/millions-of-fossilized-shark-teeth-mark-ancient-sea-that-once-covered-bakersfield/article_6090b2d0-be9c-11ed-9a78-a7c675518166.amp.html": {
+   "kind": "blocked",
+   "code": 429,
+   "streak": 0,
+   "reported": false
+  },
+  "https://bosd1.sbcounty.gov/?p=7033": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.philpasquini.com/little-petroglyph-canyon.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.rv.com/?p=15586": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://secretlosangeles.com/randsburg-california-living-ghost-town/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.visitbakersfield.com/directory/fort-tejon-state-park/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.sandiegofamily.com/things-to-do/out-about/8-educational-field-trips-that-teach-kids-culture-and-history": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/chumash-painted-cave-santa-barbara/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://ohp.parks.ca.gov/listedresources/Detail/168": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://daytrippen.com/?p=10107": {
+   "kind": "error",
+   "code": "UND_ERR_CONNECT_TIMEOUT",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.alltrails.com/trail/us/california/echo-mountain-loop": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.flyingmag.com/?p=162869": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Crystal_Airport_(California)": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://airports.sbcounty.gov/airport-museums/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://mtwilson.edu/": {
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.laas.org/activities-1": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.coloradoboulevard.net/jpl-free-public-tour/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://laist.com/news/arts-and-entertainment/california-science-center-announces-early-reservations-to-see-space-shuttle-endeavour": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.guidestar.org/Profile/20-2904115": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://socalrailway.org/scrm-events/merit-badge-program/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://secretlosangeles.com/tehachapi-loop-california-seven-wonders-train-world/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://adamsforge.org/": {
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.timeout.com/los-angeles/things-to-do/free-archery-lessons": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://secretlosangeles.com/la-sunset-ranch-hollywood-horseback-hollywood-sign/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://orienteeringusa.org/2026/02/santa-fe-dam-2026-nre-event-recap/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://cpcscouting.org/rata/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://pbssocal.org/shows/socal-wanderer/video-where-to-go-ziplining-in-southern-california": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.onlyinyourstate.com/southern-california/wolf-mountain-sanctuary-socal/": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://cityofgoleta.org/play/parks-recreation-open-spaces/recreation-across-the-city/goleta-butterfly-grove": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.noozhawk.com/?p=4900": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://patch.com/california/lakeelsinore-wildomar/save-your-spot-reservations-open-living-deserts-starry-safari-overnight-adventure": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://outdoorithm.com/campgrounds/us/los-padres/chula-vista-walk-in-campground": {
+   "kind": "blocked",
+   "code": 429,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.bigbearmountainresort.com/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=630": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=616": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=614": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=629": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=618": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://wildlandsconservancy.org/preserves/whitewater": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=637": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=638": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.blm.gov/programs/national-conservation-lands/california/alabama-hills": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.nps.gov/manz/index.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/seki/index.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=639": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=644": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.midway.org/education/overnight-adventure/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.aquariumofpacific.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://bolsachica.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.reaganfoundation.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=598": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://tarpits.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://griffithobservatory.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "https://griffithobservatory.lacity.gov/",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.traveltown.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://parks.lacounty.gov/devils-punchbowl-natural-area-and-nature-center/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=627": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://underwoodfamilyfarms.com/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.bigmorongo.org/": {
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.getty.edu/visit/center/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.iflyworld.com/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://shop.newportwhales.com/mpacruise.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://marinemammalcare.org/visit-us/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.rpvca.gov/138/Point-Vicente-Interpretive-Center": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.californiawolfcenter.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.discoverbigbearlake.com/things-to-do/discover-wildlife/visit-the-alpine-zoo-in-big-bear": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://aquarium.ucsd.edu/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.printmuseum.org/monthly-calendar/scout-merit-badge-day-2": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://glendorahistoricalsociety.org/Castle.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.jmdc.org/dinosaur-dig": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.westernsciencecenter.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://queenmary.com/tours/tours-exhibits/steamsteel/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://culture.lacity.gov/event/ss-lane-victory-national-historic-landmark": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.leonisadobemuseum.org/visit": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://recreation.ucla.edu/youth-and-group-programs": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://bolsachica.org/volunteer/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://marchfield.org/group-visits": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=631": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.uponarriving.com/carrizo-plain-national-monument": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://timesofsandiego.com/arts/2026/04/03/desert-view-tower-in-jacumba-a-century-old-roadside-landmark/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://sdmaritime.org/education/scouts/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/?p=20023": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://rocstock.org/youth-groups/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/pinn/planyourvisit/groupcamp.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nbclosangeles.com/the-scene/help-la-river-shimmer-and-thrive-by-volunteering-at-a-decades-old-cleanup/3950010/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/cave-of-munits-castle-peak-hike/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/paradise-falls-in-wildwood-park/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/millard-falls": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://mrca.ca.gov/coastal-access": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/grotto-hike-malibu/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://californiathroughmylens.com/?p=12784": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://tahquitzcanyon.com/hours": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/?page_id=31836": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/lame/planyourvisit/black-canyon-water-trail.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://wildcoast.org/youthprograms/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://oceaninstitute.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.cafsocal.com/museum/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.wmof.com": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://lyonairmuseum.org/group-tours/": {
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
+   "reported": false
+  },
+  "https://palmspringsairmuseum.org/school-and-youth-tours/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://sandiegoairandspace.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/rocky-peak-hike-rocky-peak-park-simi-valley/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/griffith-observatory-to-hollywood-sign-hike/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/tri-peaks/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://hikingguy.com/hiking-trails/los-angeles-hikes/stone-canyon-trail-to-mt-lukens-loop": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/lost-palms-oasis-in-joshua-tree/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://greatruns.com/ventura-river-ojai-valley-trail/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Cucamonga_Peak": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://main.sbcounty.gov/2026/07/30/sbc-through-your-eyes-san-gorgonio-peak/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingevent.com/033-GabrielinoNationalRecreationTrail": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.fs.usda.gov/r05/inyo/wilderness/mount-whitney": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/sespe-creek-willett-hot-springs-padres/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://catalinaconservancy.org/recreation/trans-catalina-trail/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.rei.com/blog/hike/backbone-of-the-santa-monica-mountains": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.parks.ca.gov/EventDetails/17744": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Hollywood_Walk_of_Fame": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://californiathroughmylens.com/la-observation-deck/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://trails.lacounty.gov/Files/QuickGuide/Ballona%20Creek%20Bike%20Path.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Los_Angeles_River_bicycle_path": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.coloradoboulevard.net/events/rose-bowl-stadium-tours-2-2026-10-30/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Naples,_Long_Beach,_California": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.losangeleswalks.org/the_big_parade_marches_through_la_may_2_and_3": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/G_Line_Bikeway": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Marvin_Braude_Bike_Trail": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.traillink.com/trail/san-gabriel-river-trail": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Santa_Clara_River_Trail": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.hikespeak.com/trails/hoegees-camp/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://canyoncartography.com/big-santa-anita-canyon-loop/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://hikelospadres.com/matilija-wilderness-camps.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.noozhawk.com/?p=115116": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://digital-desert.com/anfcg/little-jimmy.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://visitcatalinaisland.com/twoHarbors/camp_parsonsLanding.php": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/chis/planyourvisit/backcountry-beach-camping-on-santa-cruz-island.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.nps.gov/thingstodo/boy-scout-trail-zone-backpacking.htm": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
+   "reported": false
+  },
+  "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://hikingguy.com/hikes/cottonwood-lakes-trail-inyo/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Mount_Whitney_Trail": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://sfvaudubon.org/?p=34494": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://lafd.org/safety/education/public-education": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://wildlife.ca.gov/Fishing-in-the-city/LA": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "http://www.w6sd.com": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.cacd.uscourts.gov/newsworthy/community-outreach/teacher-and-student-programs": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.weather.gov/lox/spotter": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.rei.com/events/p/us-ca-northridge/a/outdoor-skills": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.audubon.org/debs-park/get-involved": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.chla.org/blog/advice-experts/stop-bleed-training-teaches-bystanders-how-control-life-threatening-bleeding": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://bucketlisters.com/experience/warner-bros-studio-tour-hollywood": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://uypprod.films.apps.nbcuni.com/programs/student-backlot-tour/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.lacsd.org/community-outreach/tours-speaker-s-bureau/tours-program": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.gdscc.nasa.gov/index.php/tours": {
+   "kind": "error",
+   "code": "ERR_TLS_CERT_ALTNAME_INVALID",
+   "streak": 1,
+   "reported": false
+  },
+  "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.kqed.org/news/11899353/einstein-and-hubble-once-looked-into-these-iconic-la-telescopes-now-you-can-rent-them": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://sanitation.lacity.gov/san/faces/home/portal/s-lsh-es/s-lsh-es-pt": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.portoflosangeles.org/community/events/free-harbor-boat-tours": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.timeout.com/los-angeles/attractions/the-japanese-garden": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.milb.com/rancho-cucamonga/tickets/scout-night": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.milb.com/lake-elsinore/tickets/scouts": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://thebettervacation.com/los-angeles/dodger-stadium-tour/amp/": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://thebettervacation.com/petersen-automotive-museum": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://vacatis.com/sofi-stadium-tours": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://thebettervacation.com/los-angeles/warner-brothers-studio-tour-discount/amp/": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.timeout.com/los-angeles/families/new-years-eve-family-sleepover-at-aquarium-of-the-pacific": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://pacificbattleship.com/camp-battleship-overnight/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://nhm.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://theautry.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://debspark.audubon.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "https://www.audubon.org/debs-park",
+   "streak": 0,
+   "reported": false
+  },
+  "https://treepeople.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://heritagesquare.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.neonmona.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://flightpathmuseum.com/": {
+   "kind": "error",
+   "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.museumofflying.com/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://nhramuseum.org": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://lalsrm.org/public-rides/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Bob_Baker_Marionette_Theater": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://discoverycube.org/los-angeles/faq": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://cma.recreation.parks.lacity.gov/plan-your-visit/admission-open-hours": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.pasadenanow.com/weekendr/kidspace-childrens-museum-opens-doors-free-on-february-6/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.discoverlosangeles.com/things-to-do/mission-san-fernando-rey-de-espana": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://nethercuttcollection.org/book-a-collection-tour/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://culture.lacity.gov/event/tours-of-the-watts-towers": {
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
+   "reported": false
+  },
+  "https://laist.com/news/entertainment/wende-museum-reopening": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://mjt.org/vistinfo/hours.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.museumoftolerance.com/visit/school-field-trips/frequently-asked-questions.html": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://www.nbclosangeles.com/the-scene/getty-villa-shuttered-palisades-fire-reopening-date/3704487/?amp=1": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.campemeraldbay.org/scout-programs/high-adventures/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Camp_Cherry_Valley": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://ocscoutingoutdoors.org/scouts-bsa-summer-camp-at-lost-valley/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://iescouts.org/summercamp/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.sdicscouting.org/camping/summer-programs/mataguay-scout-ranch-summer-camp": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.campwhitsett.org/scout-programs/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingevent.com/027-2026campchawanakee": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingevent.com/Download/031176400/OR/2026_Oljato_Leader_Guide.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://goldengatescouting.org/summer-camp/leaders-guide-wolfeboro": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingevent.com/010-geronimo2026": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.newportseabase.org/summer": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingalumni.org/2026/01/camp-josepho-is-rising-from-the-ashes/": {
+   "kind": "broken",
+   "code": 404,
+   "streak": 1,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/26th_World_Scout_Jamboree": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Kandersteg_International_Scout_Centre": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://awbsa.org/summer-camp-at-cbb/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.scouting.org/national-high-adventure-bases/adventure-treks/trek-list/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://cpcscouting.org/horses/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.philmontscoutranch.org/treks/individualprograms/ranchhands/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.philmontscoutranch.org/treks/crew/cavalcade": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://michiganscouting.org/wp-content/uploads/2026/05/MCCLeadersGuide-RanchHand26-FINAL-web.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.cajuncountry.org/blog/post/high-adventure-in-the-heart-of-the-atchafalaya-basin/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingalaska.org/alaska-ultimate-high-adventure/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutingmontana.org/camps/melita-island/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://scoutcampsnw.org/camps/camp-meriwether/": {
+   "kind": "error",
+   "code": 526,
+   "streak": 1,
+   "reported": false
+  },
+  "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://mainehighadventure.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://onscouting.org/2025/12/11/register-soon-for-your-high-adventure-experience/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.unionstationla.com/tours/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://laconservancy.org/tours-events/group-tours-virtual-in-person": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://metrolinktrains.com/kidsridefree": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://metrolinktrains.com/fares/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.octa.net/ebusbook/RoutePDFNew/Metrolinkoc.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.sandag.org/YOP": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://gonctd.com/YOP": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://d4lp5oxce4dvw.cloudfront.net/wp-content/uploads/COASTER-Schedule-July-2026-Web.pdf": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.amtrak.com/promotions/state/california-kids.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  },
+  "https://www.amtrak.com/deals-discounts/everyday-discounts/kids-n-trains.html": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
+   "reported": false
+  }
+ },
+ "alerts": [
+  {
+   "id": "283CC19C-9466-49F0-ADB0-DECDA5634A27",
+   "park": "pinn",
+   "category": "Caution",
+   "title": "Fire Danger LOW",
+   "url": "https://www.nps.gov/pinn/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "85429315-3A70-4179-8643-2C4B42A121DC",
+   "park": "depo",
+   "category": "Park Closure",
+   "title": "Reds Meadow Road is closed for the season",
+   "url": "https://www.nps.gov/depo/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "F4211ED4-7B7E-4852-925E-EAEC78B28394",
+   "park": "seki",
+   "category": "Park Closure",
+   "title": "Mineral King Road in Sequoia National Park Is Closed for the Season",
+   "url": "https://www.nps.gov/seki/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "7EF77FAD-22F2-4656-B915-C4661CF7DAD1",
+   "park": "jotr",
+   "category": "Park Closure",
+   "title": "Geology Tour Road Temporarily Closed",
+   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "13B2A38C-C7D9-4FE4-9F5D-BFCB471BCE00",
+   "park": "seki",
+   "category": "Park Closure",
+   "title": "Some Trails Closed in the Grant Grove Area Due to Prescribed Burn Activity",
+   "url": "https://www.nps.gov/maps/full.html?mapId=98f33b85-31e2-47ac-b0ba-b319e8c5ab92"
+  },
+  {
+   "id": "C09D6CAE-1916-4981-B9C2-6AD984FCDD60",
+   "park": "chis",
+   "category": "Park Closure",
+   "title": "Parts of Santa Rosa Island Closed During Wildfire Recovery",
+   "url": "https://www.nps.gov/chis/planyourvisit/santa-rosa-island-fire-recovery.htm"
+  },
+  {
+   "id": "2F801986-6885-4AD0-B868-1A20A47DAD80",
+   "park": "moja",
+   "category": "Park Closure",
+   "title": "Hart Mine Road Closed",
+   "url": "https://www.nps.gov/moja/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "4FBE464B-84EF-4A66-96AE-C60E7E85092D",
+   "park": "moja",
+   "category": "Caution",
+   "title": "Do not pick up hitchhikers",
+   "url": "https://www.nps.gov/moja/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "B28BDD5D-BBC4-454C-A34B-BE47D64A1C3A",
+   "park": "jotr",
+   "category": "Caution",
+   "title": "Oasis of Mara Trail Partial Closure",
+   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "64215CE3-542C-480A-B648-6960E808893C",
+   "park": "moja",
+   "category": "Park Closure",
+   "title": "Kelso Depot Visitor Center closed",
+   "url": "https://www.nps.gov/moja/planyourvisit/conditions.htm"
+  },
+  {
+   "id": "5B4D4734-2C5C-4782-8DBD-0CFB38C8A14B",
+   "park": "jotr",
+   "category": "Caution",
+   "title": "Inaccurate Third-Party Apps",
+   "url": "https://www.nps.gov/subjects/digital/nps-apps.htm"
+  }
+ ],
+ "expiredDates": []
+}
