@@ -1,10 +1,10 @@
 {
- "checked": "2026-11-10T04:59:49.917Z",
+ "checked": "2026-11-10T05:12:16.834Z",
  "counts": {
-  "ok": 246,
-  "blocked": 24,
-  "broken": 10,
-  "error": 13
+  "ok": 255,
+  "blocked": 25,
+  "error": 11,
+  "broken": 1
  },
  "links": {
   "https://locator.lacounty.gov/lac/Location/3054386/placerita-canyon-state-park": {
@@ -89,10 +89,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://www.tanakafarms.com/field-trips-group-reservations": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://www.tanakafarms.com/pages/field-trips": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://passionatepennypincher.com/home-depot-kids-workshop/": {
@@ -210,8 +211,8 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
    "kind": "ok",
@@ -319,8 +320,8 @@
   "https://lamitopsail.org/about/": {
    "kind": "error",
    "code": 502,
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
    "kind": "ok",
@@ -329,10 +330,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://pacificbattleship.com/?p=149": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://pacificbattleship.com/camp-battleship-overnight/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://culture.lacity.gov/event/meet-the-grunion-at-cabrillo-marine-aquarium": {
@@ -344,8 +346,8 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://visitmdr.com/?p=5029": {
    "kind": "blocked",
@@ -398,8 +400,8 @@
   "https://pstramway.com/camping/": {
    "kind": "error",
    "code": 520,
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
    "kind": "ok",
@@ -423,9 +425,10 @@
    "reported": false
   },
   "https://daytrippen.com/trona-pinnacles-out-of-this-world-day-trip/": {
-   "kind": "error",
-   "code": "UND_ERR_CONNECT_TIMEOUT",
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.calexplornia.com/?p=1968": {
@@ -554,9 +557,10 @@
    "reported": false
   },
   "https://daytrippen.com/?p=10107": {
-   "kind": "error",
-   "code": "UND_ERR_CONNECT_TIMEOUT",
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.alltrails.com/trail/us/california/echo-mountain-loop": {
@@ -589,8 +593,8 @@
   "https://mtwilson.edu/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://www.laas.org/activities-1": {
    "kind": "ok",
@@ -637,8 +641,8 @@
   "https://adamsforge.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
    "kind": "ok",
@@ -689,9 +693,9 @@
    "reported": false
   },
   "https://cityofgoleta.org/play/parks-recreation-open-spaces/recreation-across-the-city/goleta-butterfly-grove": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+   "kind": "blocked",
+   "code": 403,
+   "streak": 0,
    "reported": false
   },
   "https://www.noozhawk.com/?p=4900": {
@@ -777,10 +781,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://www.blm.gov/programs/national-conservation-lands/california/alabama-hills": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://www.blm.gov/visit/alabama-hills-national-scenic-area": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.nps.gov/manz/index.htm": {
@@ -891,8 +896,8 @@
   "https://www.bigmorongo.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://www.getty.edu/visit/center/": {
    "kind": "ok",
@@ -1167,8 +1172,8 @@
   "https://lyonairmuseum.org/group-tours/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
    "kind": "ok",
@@ -1274,10 +1279,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://www.parks.ca.gov/EventDetails/17744": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://www.smmtc.org/traildays": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://en.wikipedia.org/wiki/Hollywood_Walk_of_Fame": {
@@ -1322,10 +1328,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://www.losangeleswalks.org/the_big_parade_marches_through_la_may_2_and_3": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://www.timeout.com/los-angeles/things-to-do/big-parade-la": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://en.wikipedia.org/wiki/G_Line_Bikeway": {
@@ -1415,8 +1422,8 @@
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
    "kind": "error",
    "code": 520,
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
    "kind": "ok",
@@ -1439,10 +1446,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://sfvaudubon.org/?p=34494": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://sfvaudubon.org/venue/sepulveda-basin-wildlife-area/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://lafd.org/safety/education/public-education": {
@@ -1521,8 +1529,8 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
    "kind": "ok",
@@ -1604,13 +1612,6 @@
    "streak": 0,
    "reported": false
   },
-  "https://pacificbattleship.com/camp-battleship-overnight/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
-   "streak": 0,
-   "reported": false
-  },
   "https://nhm.org/": {
    "kind": "ok",
    "code": 200,
@@ -1656,8 +1657,8 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://www.museumofflying.com/": {
    "kind": "ok",
@@ -1741,10 +1742,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://www.museumoftolerance.com/visit/school-field-trips/frequently-asked-questions.html": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://museumoftolerance.com/visit/school-field-trips": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.nbclosangeles.com/the-scene/getty-villa-shuttered-palisades-fire-reopening-date/3704487/?amp=1": {
@@ -1831,10 +1833,11 @@
    "streak": 0,
    "reported": false
   },
-  "https://scoutingalumni.org/2026/01/camp-josepho-is-rising-from-the-ashes/": {
-   "kind": "broken",
-   "code": 404,
-   "streak": 1,
+  "https://campjosepho.org/": {
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://en.wikipedia.org/wiki/26th_World_Scout_Jamboree": {
@@ -1917,8 +1920,8 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 1,
-   "reported": false
+   "streak": 2,
+   "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
    "kind": "ok",
