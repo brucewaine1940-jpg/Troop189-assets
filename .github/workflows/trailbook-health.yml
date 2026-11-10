@@ -1,0 +1,49 @@
+# Nightly Trailbook health check.
+# Runs every night, checks every trip link and National Park Service closure
+# alerts, and opens a GitHub issue (which GitHub emails to you) only when
+# something changed. You can also run it any time from the Actions tab.
+name: Trailbook health check
+
+on:
+  schedule:
+    - cron: "17 10 * * *"   # about 2–3 am Pacific every night
+  workflow_dispatch:         # adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: write   # to save last night's results (health/state.json)
+  issues: write     # to open the report issue
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check links and park alerts
+        env:
+          NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+        run: node tools/trailbook-health.mjs
+
+      - name: Save results
+        run: |
+          git config user.name "trailbook-health"
+          git config user.email "actions@users.noreply.github.com"
+          git add health/state.json
+          git diff --cached --quiet || git commit -m "Trailbook health check $(date -u +%F)"
+          git push
+
+      - name: Open an issue if anything changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f health/report.md ]; then
+            gh issue create \
+              --title "Trailbook check $(date -u +%F): trips need a look" \
+              --body-file health/report.md
+          else
+            echo "Nothing new tonight."
+          fi
