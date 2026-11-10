@@ -1,17 +1,16 @@
-# Nightly Trailbook health check (runs in the scout-event-finder repo).
-# Each night it reads the Trailbook's trip list from the public website repo
-# (Troop189-assets), checks every link and National Park Service closure alert,
-# and opens a GitHub issue here (which GitHub emails to you) only when
-# something changed. Run it any time from the Actions tab.
+# Nightly Trailbook health check.
+# Runs every night, checks every trip link and National Park Service closure
+# alerts, and opens a GitHub issue (which GitHub emails to you) only when
+# something changed. You can also run it any time from the Actions tab.
 name: Trailbook health check
 
 on:
   schedule:
     - cron: "17 10 * * *"   # about 2–3 am Pacific every night
-  workflow_dispatch:
+  workflow_dispatch:         # adds a "Run workflow" button on the Actions tab
 
 permissions:
-  contents: write   # to save last night's results (trailbook-health/state.json)
+  contents: write   # to save last night's results (health/state.json)
   issues: write     # to open the report issue
 
 jobs:
@@ -20,12 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get the Trailbook files from the website repo
-        uses: actions/checkout@v4
-        with:
-          repository: brucewaine1940-jpg/Troop189-assets
-          path: _site
-
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
@@ -33,15 +26,13 @@ jobs:
       - name: Check links and park alerts
         env:
           NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
-          TRAILBOOK_DIR: _site
-          HEALTH_DIR: trailbook-health
         run: node tools/trailbook-health.mjs
 
       - name: Save results
         run: |
           git config user.name "trailbook-health"
           git config user.email "actions@users.noreply.github.com"
-          git add trailbook-health/state.json
+          git add health/state.json
           git diff --cached --quiet || git commit -m "Trailbook health check $(date -u +%F)"
           git push
 
@@ -49,10 +40,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -f trailbook-health/report.md ]; then
+          if [ -f health/report.md ]; then
             gh issue create \
               --title "Trailbook check $(date -u +%F): trips need a look" \
-              --body-file trailbook-health/report.md
+              --body-file health/report.md
           else
             echo "Nothing new tonight."
           fi
