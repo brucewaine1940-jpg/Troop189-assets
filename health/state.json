@@ -1,9 +1,9 @@
 {
- "checked": "2026-11-12T18:16:18.175Z",
+ "checked": "2026-11-13T17:43:18.341Z",
  "counts": {
-  "ok": 263,
-  "blocked": 24,
-  "error": 4,
+  "ok": 255,
+  "blocked": 25,
+  "error": 11,
   "broken": 1
  },
  "links": {
@@ -211,7 +211,7 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 5,
+   "streak": 6,
    "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
@@ -318,10 +318,9 @@
    "reported": false
   },
   "https://lamitopsail.org/about/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 502,
+   "streak": 1,
    "reported": false
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
@@ -347,7 +346,7 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 5,
+   "streak": 6,
    "reported": true
   },
   "https://visitmdr.com/?p=5029": {
@@ -400,10 +399,9 @@
    "reported": false
   },
   "https://pstramway.com/camping/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
    "reported": false
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
@@ -594,10 +592,9 @@
    "reported": false
   },
   "https://mtwilson.edu/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.laas.org/activities-1": {
@@ -643,10 +640,9 @@
    "reported": false
   },
   "https://adamsforge.org/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
@@ -899,10 +895,9 @@
    "reported": false
   },
   "https://www.bigmorongo.org/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.getty.edu/visit/center/": {
@@ -1176,10 +1171,9 @@
    "reported": false
   },
   "https://lyonairmuseum.org/group-tours/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
@@ -1232,9 +1226,8 @@
    "reported": false
   },
   "https://greatruns.com/ventura-river-ojai-valley-trail/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1427,10 +1420,9 @@
    "reported": false
   },
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
    "reported": false
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
@@ -1537,7 +1529,7 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 5,
+   "streak": 6,
    "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
@@ -1665,7 +1657,7 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 5,
+   "streak": 6,
    "reported": true
   },
   "https://www.museumofflying.com/": {
@@ -1928,7 +1920,7 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 5,
+   "streak": 6,
    "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
