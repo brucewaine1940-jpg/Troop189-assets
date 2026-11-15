@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-14T16:36:24.023Z",
+ "checked": "2026-11-15T17:05:56.501Z",
  "counts": {
   "ok": 255,
   "blocked": 24,
@@ -211,7 +211,7 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 7,
+   "streak": 8,
    "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
@@ -320,7 +320,7 @@
   "https://lamitopsail.org/about/": {
    "kind": "error",
    "code": 502,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
@@ -346,7 +346,7 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 7,
+   "streak": 8,
    "reported": true
   },
   "https://visitmdr.com/?p=5029": {
@@ -401,7 +401,7 @@
   "https://pstramway.com/camping/": {
    "kind": "error",
    "code": 520,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
@@ -489,9 +489,10 @@
    "reported": false
   },
   "https://www.blm.gov/visit/search-details/14854/2": {
-   "kind": "error",
-   "code": "TypeError",
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.bakersfield.com/bakersfield-life/millions-of-fossilized-shark-teeth-mark-ancient-sea-that-once-covered-bakersfield/article_6090b2d0-be9c-11ed-9a78-a7c675518166.amp.html": {
@@ -593,7 +594,7 @@
   "https://mtwilson.edu/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.laas.org/activities-1": {
@@ -641,14 +642,13 @@
   "https://adamsforge.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 522,
+   "streak": 1,
    "reported": false
   },
   "https://www.timeout.com/los-angeles/things-to-do/free-archery-lessons": {
@@ -896,7 +896,7 @@
   "https://www.bigmorongo.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.getty.edu/visit/center/": {
@@ -1172,7 +1172,7 @@
   "https://lyonairmuseum.org/group-tours/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
@@ -1422,7 +1422,7 @@
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
    "kind": "error",
    "code": 520,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
@@ -1529,7 +1529,7 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 7,
+   "streak": 8,
    "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
@@ -1657,7 +1657,7 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 7,
+   "streak": 8,
    "reported": true
   },
   "https://www.museumofflying.com/": {
@@ -1920,7 +1920,7 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 7,
+   "streak": 8,
    "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
@@ -2016,6 +2016,20 @@
   }
  },
  "alerts": [
+  {
+   "id": "AE68A6AB-31A2-4945-AE1D-88B9C15916FF",
+   "park": "seki",
+   "category": "Caution",
+   "title": "Tire Chain Restrictions in Effect Due to Snow and/or Ice On Roadways",
+   "url": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm"
+  },
+  {
+   "id": "87F5BC32-75D2-4CB1-AEDC-4944CBD2E984",
+   "park": "seki",
+   "category": "Park Closure",
+   "title": "Highway 180 to Cedar Grove in Kings Canyon National Park Closed for Winter",
+   "url": "https://www.nps.gov/seki/planyourvisit/conditions.htm"
+  },
   {
    "id": "283CC19C-9466-49F0-ADB0-DECDA5634A27",
    "park": "pinn",
