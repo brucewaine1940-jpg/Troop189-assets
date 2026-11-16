@@ -153,6 +153,13 @@
     return { fri, sun, lo: iso(fri), hi: iso(sun) };
   }
   const inRange = (e, w) => e.start.slice(0, 10) <= w.hi && (e.end || e.start).slice(0, 10) >= w.lo;
+  // hide anything already finished (end time, or end of day if no time given)
+  function over(e) {
+    const s = e.end || e.start;
+    const d = s.length > 10 && s.slice(11, 16) !== "00:00" ? new Date(s)
+      : new Date(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10), 23, 59);
+    return d < new Date();
+  }
   function time(e) {
     if (e.time) return e.time;
     const hm = e.start.slice(11, 16);
@@ -205,7 +212,7 @@
       `<article class="wk-card wk-alert"><div class="wk-when">${esc(a.category)} · ${esc((feed.parks || {})[a.parkCode] || a.parkCode.toUpperCase())}</div><h4><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)}</a></h4></article>`).join("")}</div>` : "";
 
     // public programs (non-ranger) and ranger programs grouped by park
-    const pub = feed.public.filter((e) => inRange(e, w) && (e.kind === "ranger" || e.miles == null || e.miles <= maxMi) && (!e.programs.length || e.programs.some((p) => PROG.includes(p) || (MODE === "troop" && p === "Adults / Leaders"))));
+    const pub = feed.public.filter((e) => !over(e) && inRange(e, w) && (e.kind === "ranger" || e.miles == null || e.miles <= maxMi) && (!e.programs.length || e.programs.some((p) => PROG.includes(p) || (MODE === "troop" && p === "Adults / Leaders"))));
     let html = pub.filter((e) => e.kind !== "ranger").map((e) => {
       const t = byId[e.trailbook];
       return `<article class="wk-card"><div class="wk-when">${nice(parse(e.start))}${time(e) ? `, ${time(e)}` : ""}</div>
@@ -225,7 +232,7 @@
     document.getElementById("wkPublic").innerHTML = html || empty("No dated public programs listed for this weekend.");
 
     // Scout events for this unit, within ~60 mi
-    const sc = feed.scout.filter((e) => inRange(e, w) && !e.online && e.miles != null && e.miles <= maxMi &&
+    const sc = feed.scout.filter((e) => !over(e) && inRange(e, w) && !e.online && e.miles != null && e.miles <= maxMi &&
       (!e.programs.length || e.programs.some((p) => PROG.includes(p)))).slice(0, 9);
     document.getElementById("wkScout").innerHTML = sc.map((e) => `<article class="wk-card">
       <div class="wk-when">${nice(parse(e.start))}${time(e) ? `, ${time(e)}` : ""}</div>
