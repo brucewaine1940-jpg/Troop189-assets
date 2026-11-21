@@ -1,9 +1,9 @@
 {
- "checked": "2026-11-20T18:36:32.224Z",
+ "checked": "2026-11-21T17:27:59.658Z",
  "counts": {
-  "ok": 262,
-  "blocked": 24,
-  "error": 5,
+  "ok": 241,
+  "blocked": 37,
+  "error": 13,
   "broken": 1
  },
  "links": {
@@ -211,7 +211,7 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 13,
+   "streak": 14,
    "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
@@ -283,9 +283,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/vasquez-rocks-hike-pacific-crest-trail-loop/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -318,10 +317,9 @@
    "reported": false
   },
   "https://lamitopsail.org/about/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 502,
+   "streak": 1,
    "reported": false
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
@@ -347,7 +345,7 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 13,
+   "streak": 14,
    "reported": true
   },
   "https://visitmdr.com/?p=5029": {
@@ -400,10 +398,9 @@
    "reported": false
   },
   "https://pstramway.com/camping/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
    "reported": false
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
@@ -484,10 +481,9 @@
    "reported": false
   },
   "https://www.thetrailmaster.com/hike/mitchell-caverns-natural-preserve/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_CONNECT_TIMEOUT",
+   "streak": 1,
    "reported": false
   },
   "https://www.blm.gov/visit/search-details/14854/2": {
@@ -547,9 +543,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/chumash-painted-cave-santa-barbara/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -595,10 +590,9 @@
    "reported": false
   },
   "https://mtwilson.edu/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.laas.org/activities-1": {
@@ -644,10 +638,9 @@
    "reported": false
   },
   "https://adamsforge.org/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
@@ -900,10 +893,9 @@
    "reported": false
   },
   "https://www.bigmorongo.org/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://www.getty.edu/visit/center/": {
@@ -956,9 +948,10 @@
    "reported": false
   },
   "https://aquarium.ucsd.edu/": {
-   "kind": "error",
-   "code": "UND_ERR_CONNECT_TIMEOUT",
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.printmuseum.org/monthly-calendar/scout-merit-badge-day-2": {
@@ -1059,9 +1052,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/?p=20023": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1087,23 +1079,20 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/cave-of-munits-castle-peak-hike/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
   "https://www.hikespeak.com/trails/paradise-falls-in-wildwood-park/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
   "https://www.hikespeak.com/trails/millard-falls": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1115,9 +1104,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/grotto-hike-malibu/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1176,10 +1164,9 @@
    "reported": false
   },
   "https://lyonairmuseum.org/group-tours/": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_SOCKET",
+   "streak": 1,
    "reported": false
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
@@ -1197,23 +1184,20 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/rocky-peak-hike-rocky-peak-park-simi-valley/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
   "https://www.hikespeak.com/trails/griffith-observatory-to-hollywood-sign-hike/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
   "https://www.hikespeak.com/trails/tri-peaks/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1225,9 +1209,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/lost-palms-oasis-in-joshua-tree/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1266,9 +1249,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/sespe-creek-willett-hot-springs-padres/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1370,9 +1352,8 @@
    "reported": false
   },
   "https://www.hikespeak.com/trails/hoegees-camp/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1426,10 +1407,9 @@
    "reported": false
   },
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
-   "kind": "ok",
-   "code": 202,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": 520,
+   "streak": 1,
    "reported": false
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
@@ -1515,8 +1495,9 @@
    "reported": false
   },
   "https://bucketlisters.com/experience/warner-bros-studio-tour-hollywood": {
-   "kind": "blocked",
-   "code": 403,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
    "streak": 0,
    "reported": false
   },
@@ -1536,7 +1517,7 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 13,
+   "streak": 14,
    "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
@@ -1641,10 +1622,9 @@
    "reported": false
   },
   "https://treepeople.org/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
-   "streak": 0,
+   "kind": "error",
+   "code": "UND_ERR_CONNECT_TIMEOUT",
+   "streak": 1,
    "reported": false
   },
   "https://heritagesquare.org/": {
@@ -1664,7 +1644,7 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 13,
+   "streak": 14,
    "reported": true
   },
   "https://www.museumofflying.com/": {
@@ -1709,9 +1689,8 @@
    "reported": false
   },
   "https://www.pasadenanow.com/weekendr/kidspace-childrens-museum-opens-doors-free-on-february-6/": {
-   "kind": "ok",
-   "code": 200,
-   "moved": "",
+   "kind": "blocked",
+   "code": 403,
    "streak": 0,
    "reported": false
   },
@@ -1927,7 +1906,7 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 13,
+   "streak": 14,
    "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
