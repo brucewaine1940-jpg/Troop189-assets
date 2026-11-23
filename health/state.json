@@ -1,9 +1,9 @@
 {
- "checked": "2026-11-22T17:48:24.251Z",
+ "checked": "2026-11-23T22:02:21.987Z",
  "counts": {
-  "ok": 253,
-  "blocked": 25,
-  "error": 13,
+  "ok": 257,
+  "blocked": 23,
+  "error": 11,
   "broken": 1
  },
  "links": {
@@ -111,9 +111,10 @@
    "reported": false
   },
   "https://www.mthigh.com/site/mountain/events-and-activities/yeti-snow-play": {
-   "kind": "error",
-   "code": "AbortError",
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://moaningcaverns.com/plan-your-day/faqs/": {
@@ -210,7 +211,7 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 15,
+   "streak": 16,
    "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
@@ -319,7 +320,7 @@
   "https://lamitopsail.org/about/": {
    "kind": "error",
    "code": 502,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
@@ -345,7 +346,7 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 15,
+   "streak": 16,
    "reported": true
   },
   "https://visitmdr.com/?p=5029": {
@@ -400,7 +401,7 @@
   "https://pstramway.com/camping/": {
    "kind": "error",
    "code": 520,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
@@ -495,8 +496,9 @@
    "reported": false
   },
   "https://www.bakersfield.com/bakersfield-life/millions-of-fossilized-shark-teeth-mark-ancient-sea-that-once-covered-bakersfield/article_6090b2d0-be9c-11ed-9a78-a7c675518166.amp.html": {
-   "kind": "blocked",
-   "code": 429,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
    "streak": 0,
    "reported": false
   },
@@ -593,7 +595,7 @@
   "https://mtwilson.edu/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.laas.org/activities-1": {
@@ -641,7 +643,7 @@
   "https://adamsforge.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
@@ -896,12 +898,13 @@
   "https://www.bigmorongo.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://www.getty.edu/visit/center/": {
-   "kind": "blocked",
-   "code": 403,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
    "streak": 0,
    "reported": false
   },
@@ -1171,7 +1174,7 @@
   "https://lyonairmuseum.org/group-tours/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
@@ -1421,7 +1424,7 @@
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
    "kind": "error",
    "code": 520,
-   "streak": 2,
+   "streak": 3,
    "reported": true
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
@@ -1528,7 +1531,7 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 15,
+   "streak": 16,
    "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
@@ -1656,7 +1659,7 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 15,
+   "streak": 16,
    "reported": true
   },
   "https://www.museumofflying.com/": {
@@ -1868,9 +1871,10 @@
    "reported": false
   },
   "https://cpcscouting.org/horses/": {
-   "kind": "error",
-   "code": 504,
-   "streak": 1,
+   "kind": "ok",
+   "code": 200,
+   "moved": "",
+   "streak": 0,
    "reported": false
   },
   "https://www.philmontscoutranch.org/treks/individualprograms/ranchhands/": {
@@ -1918,7 +1922,7 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 15,
+   "streak": 16,
    "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
@@ -2022,6 +2026,13 @@
    "url": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm"
   },
   {
+   "id": "7EF77FAD-22F2-4656-B915-C4661CF7DAD1",
+   "park": "jotr",
+   "category": "Park Closure",
+   "title": "Geology Tour Road Temporarily Closed",
+   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
+  },
+  {
    "id": "AE68A6AB-31A2-4945-AE1D-88B9C15916FF",
    "park": "seki",
    "category": "Caution",
@@ -2062,13 +2073,6 @@
    "category": "Park Closure",
    "title": "Mineral King Road in Sequoia National Park Is Closed for the Season",
    "url": "https://www.nps.gov/seki/planyourvisit/conditions.htm"
-  },
-  {
-   "id": "7EF77FAD-22F2-4656-B915-C4661CF7DAD1",
-   "park": "jotr",
-   "category": "Park Closure",
-   "title": "Geology Tour Road Temporarily Closed",
-   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
   },
   {
    "id": "13B2A38C-C7D9-4FE4-9F5D-BFCB471BCE00",
