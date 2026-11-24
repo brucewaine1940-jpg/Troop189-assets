@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-23T22:02:21.987Z",
+ "checked": "2026-11-24T20:38:54.167Z",
  "counts": {
   "ok": 257,
   "blocked": 23,
@@ -211,7 +211,7 @@
   "https://www.history.navy.mil/content/history/museums/seabee/visit-us.html": {
    "kind": "error",
    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE",
-   "streak": 16,
+   "streak": 17,
    "reported": true
   },
   "https://www.independent.com/2026/09/23/overnight-camping-to-resume-on-portions-of-santa-rosa-island-on-october-14/": {
@@ -320,7 +320,7 @@
   "https://lamitopsail.org/about/": {
    "kind": "error",
    "code": 502,
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://fieldtrips.oceaninstitute.org/before-the-mast-overnight/": {
@@ -346,7 +346,7 @@
   "https://islandpackers.com/whale-watching-tours": {
    "kind": "broken",
    "code": 404,
-   "streak": 16,
+   "streak": 17,
    "reported": true
   },
   "https://visitmdr.com/?p=5029": {
@@ -401,7 +401,7 @@
   "https://pstramway.com/camping/": {
    "kind": "error",
    "code": 520,
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://hikingguy.com/hikes/bridge-to-nowhere/": {
@@ -595,7 +595,7 @@
   "https://mtwilson.edu/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://www.laas.org/activities-1": {
@@ -643,7 +643,7 @@
   "https://adamsforge.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://www.ocblacksmith.com/Intro-to-Blacksmithing.html": {
@@ -898,7 +898,7 @@
   "https://www.bigmorongo.org/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://www.getty.edu/visit/center/": {
@@ -1174,7 +1174,7 @@
   "https://lyonairmuseum.org/group-tours/": {
    "kind": "error",
    "code": "UND_ERR_SOCKET",
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://palmspringsairmuseum.org/school-and-youth-tours/": {
@@ -1424,7 +1424,7 @@
   "https://pstramway.com/wp-content/uploads/2026/03/Media-Kit-Campground-Regulations.pdf": {
    "kind": "error",
    "code": 520,
-   "streak": 3,
+   "streak": 4,
    "reported": true
   },
   "https://hikingguy.com/hiking-trails/best-la-hikes/san-gorgonio-hike": {
@@ -1531,7 +1531,7 @@
   "https://www.gdscc.nasa.gov/index.php/tours": {
    "kind": "error",
    "code": "ERR_TLS_CERT_ALTNAME_INVALID",
-   "streak": 16,
+   "streak": 17,
    "reported": true
   },
   "https://dornsife.usc.edu/hyperbaric/chamber-tours/": {
@@ -1659,7 +1659,7 @@
   "https://flightpathmuseum.com/": {
    "kind": "error",
    "code": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR",
-   "streak": 16,
+   "streak": 17,
    "reported": true
   },
   "https://www.museumofflying.com/": {
@@ -1922,7 +1922,7 @@
   "https://scoutcampsnw.org/camps/camp-meriwether/": {
    "kind": "error",
    "code": 526,
-   "streak": 16,
+   "streak": 17,
    "reported": true
   },
   "https://en.wikipedia.org/wiki/Goshen_Scout_Reservation": {
@@ -2026,18 +2026,18 @@
    "url": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm"
   },
   {
+   "id": "B28BDD5D-BBC4-454C-A34B-BE47D64A1C3A",
+   "park": "jotr",
+   "category": "Caution",
+   "title": "Oasis of Mara Trail Partial Closure",
+   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
+  },
+  {
    "id": "7EF77FAD-22F2-4656-B915-C4661CF7DAD1",
    "park": "jotr",
    "category": "Park Closure",
    "title": "Geology Tour Road Temporarily Closed",
    "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
-  },
-  {
-   "id": "AE68A6AB-31A2-4945-AE1D-88B9C15916FF",
-   "park": "seki",
-   "category": "Caution",
-   "title": "Tire Chain Restrictions in Effect Due to Snow and/or Ice On Roadways",
-   "url": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm"
   },
   {
    "id": "87F5BC32-75D2-4CB1-AEDC-4944CBD2E984",
@@ -2101,13 +2101,6 @@
    "category": "Caution",
    "title": "Do not pick up hitchhikers",
    "url": "https://www.nps.gov/moja/planyourvisit/conditions.htm"
-  },
-  {
-   "id": "B28BDD5D-BBC4-454C-A34B-BE47D64A1C3A",
-   "park": "jotr",
-   "category": "Caution",
-   "title": "Oasis of Mara Trail Partial Closure",
-   "url": "https://www.nps.gov/jotr/planyourvisit/conditions.htm"
   },
   {
    "id": "64215CE3-542C-480A-B648-6960E808893C",
